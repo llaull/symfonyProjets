@@ -20,6 +20,9 @@ class AppKernel extends Kernel
             new AppBundle\BackBundle\BackOfficeBundle(),
             new AppBundle\FrondBundle\FrondOfficeBundle(),
             new AppBundle\ToDoBundle\AppBundleToDoBundle(),
+            // bundle domotique
+            new Domotique\DomoboxBundle\DomotiqueDomoboxBundle(),
+            new Domotique\ReseauBundle\DomotiqueReseauBundle(),
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
