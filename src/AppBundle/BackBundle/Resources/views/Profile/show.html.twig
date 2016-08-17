@@ -1,0 +1,45 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-null.html.twig' %}
+
+{% block moreCss %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/pages/css/profile.min.css'
+    output='assets/pages/css/profil.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+{% endblock moreCss %}
+{% block moreJs %}
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.sparkline.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/gmaps/gmaps.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <!-- END PAGE LEVEL PLUGINS -->
+    {#<!-- BEGIN PAGE LEVEL SCRIPTS -->#}
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/pages/scripts/profile.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/pages/scripts/timeline.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {#<!-- END PAGE LEVEL SCRIPTS -->#}
+{% endblock moreJs %}
+
+{% set body_class = 'page-container-bg-solid' %}
+{% set title_page = 'show profil' %}
+
+{% block content_txt %}
+    {% block fos_user_content %}
+        {% include "@BackOffice/Profile/show_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock content_txt %}

@@ -1,0 +1,42 @@
+{#<!-- BEGIN HEADER -->#}
+<div class="page-header navbar navbar-fixed-top">
+    {#<!-- BEGIN HEADER INNER -->#}
+    <div class="page-header-inner ">
+        {#<!-- BEGIN LOGO -->#}
+        <div class="page-logo">
+            <a href="{{ path('back_office_homepage') }}">
+                {% include ':default:appBackLogo.html.twig' %}
+            </a>
+
+            <div class="menu-toggler sidebar-toggler"></div>
+        </div>
+        {#<!-- END LOGO -->#}
+        {#<!-- BEGIN RESPONSIVE MENU TOGGLER -->#}
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse"> </a>
+        {#<!-- END RESPONSIVE MENU TOGGLER -->#}
+        {#<!-- BEGIN TOP NAVIGATION MENU -->#}
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                {#<!-- BEGIN NOTIFICATION DROPDOWN -->#}
+                {% include 'BackOfficeBundle:Metronic:body-header-notif.html.twig' %}
+                {#<!-- END NOTIFICATION DROPDOWN -->#}
+                {#<!-- BEGIN INBOX DROPDOWN -->#}
+                {#{% include 'BackOfficeBundle:Metronic:body-header-inbox.html.twig' %}#}
+                {#<!-- END INBOX DROPDOWN -->#}
+                {#<!-- BEGIN tasks DROPDOWN -->#}
+                {#{% include 'BackOfficeBundle:Metronic:body-header-tasks.html.twig' %}#}
+                {#<!-- END tasks DROPDOWN -->#}
+                {#<!-- BEGIN USER LOGIN DROPDOWN -->#}
+                {% include 'BackOfficeBundle:Metronic:body-header-user.html.twig' %}
+                {#<!-- END USER LOGIN DROPDOWN -->#}
+                {#<!-- BEGIN QUICK SIDEBAR TOGGLER -->#}
+                {% include 'BackOfficeBundle:Metronic:body-header-toggler.html.twig' %}
+                {#<!-- END QUICK SIDEBAR TOGGLER -->#}
+            </ul>
+        </div>
+        {#<!-- END TOP NAVIGATION MENU -->#}
+    </div>
+    {#<!-- END HEADER INNER -->#}
+</div>
+{#<!-- END HEADER -->#}

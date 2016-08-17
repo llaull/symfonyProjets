@@ -1,0 +1,18 @@
+{% extends 'FrondOfficeBundle:MetronicWebApp:index.html.twig' %}
+{% block bodyPage %}
+<!-- BEGIN CONTAINER -->
+<div class="container-fluid">
+    <div class="page-content page-content-popup">
+
+        {% include 'FrondOfficeBundle:MetronicWebApp:body-page.html.twig' %}
+        {% include 'FrondOfficeBundle:MetronicWebApp:body-page-menu.html.twig' %}
+        <div class="page-fixed-main-content">
+            <!-- BEGIN PAGE BASE CONTENT -->
+            {% block content_txt %}{% endblock content_txt %}
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+        {% include 'FrondOfficeBundle:MetronicWebApp:body-footer.html.twig' %}
+    </div>
+</div>
+<!-- END CONTAINER -->
+{% endblock bodyPage %}

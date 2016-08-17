@@ -1,0 +1,149 @@
+twig:
+    globals:
+        global:
+          nom: '%app.projet.global.nom%'
+          quickSlidebar: '%app.projet.global.quickSlidebar%'
+        back:
+          copyright: '%app.projet.back.copyright%'
+        front:
+          copyright: '%app.projet.front.copyright%'
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+    assets:
+#        images des css
+        sidebar_toggler_icon_darkblue:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/layouts/layout/img/sidebar_toggler_icon_darkblue.png'
+            output: 'assets/layouts/layout/img/sidebar_toggler_icon_darkblue.png'
+        sprite:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/uniform/images/sprite.png'
+            output: 'assets/global/plugins/uniform/images/sprite.png'
+        text-color:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/tinycolorpicker/text-color.png'
+            output: 'assets/global/plugins/tinycolorpicker/text-color.png'
+        layout6_bg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/layouts/layout6/img/bg_01.jpg'
+            output: 'assets/layouts/layout6/img/bg_01.jpg'
+        dragIconRoundBig:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/amcharts/amcharts/images/dragIconRoundBig.svg'
+            output: 'amcharts/images/dragIconRoundBig.svg'
+
+#       element portlet
+        portlet-collapse-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-collapse-icon-white.png'
+            output: 'assets/global/img/portlet-collapse-icon-white.png'
+        portlet-config-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-config-icon-white.png'
+            output: 'assets/global/img/portlet-config-icon-white.png'
+        portlet-expand-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-expand-icon-white.png'
+            output: 'assets/global/img/portlet-expand-icon-white.png'
+        portlet-reload-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-reload-icon-white.png'
+            output: 'assets/global/img/portlet-reload-icon-white.png'
+        portlet-remove-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-remove-icon-white.png'
+            output: 'assets/global/img/portlet-remove-icon-white.png'
+        syncfusion-icon-white:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/syncfusion-icons-white.png'
+            output: 'assets/global/img/syncfusion-icons-white.png'
+
+
+#../img/portlet-remove-icon-white.png
+#        sort-both:
+#            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_both.png'
+#            output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_both.png'
+#        sort-asc:
+#            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/DataTables-1.10.8/images/sort_asc.png'
+#            output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_asc.png'
+
+        #
+        # font-awesome
+        # bien supprimer ?v=4.4.0 du CSS !!
+        font-awesome-otf:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/FontAwesome.otf'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.otf'
+        font-awesome-eot:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.eot'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.eot'
+        font-awesome-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.svg'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.svg'
+        font-awesome-ttf:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.ttf'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.ttf'
+        font-awesome-woff:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff'
+
+        #
+        # entypo
+        #
+        entypo-eot:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/entypo/fonts/entypo.eot'
+            output: 'assets/global/plugins/entypo/fonts/entypo.eot'
+        entypo-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/entypo/fonts/entypo.svg'
+            output: 'assets/global/plugins/entypo/fonts/entypo.svg'
+        entypo-ttf:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/entypo/fonts/entypo.ttf'
+            output: 'assets/global/plugins/entypo/fonts/entypo.ttf'
+        entypo-woff:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/entypo/fonts/entypo.woff'
+            output: 'assets/global/plugins/entypo/fonts/entypo.woff'
+
+        #
+        # Simple-Line-Icons
+        #
+        simple-line-icons-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg'
+            output: 'assets/global/plugins/simple-line-icons/Simple-Line-Icons.dev.svg'
+        simple-line-icons-eot:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
+        simple-line-icons-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg'
+        simple-line-icons-ttf:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.ttf'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.ttf'
+        simple-line-icons-woff:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.woff'
+
+        #
+        # Simple-Line-Icons
+        #
+        glyphicons-halflings-regular-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
+        glyphicons-halflings-regular-eot:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
+        glyphicons-halflings-regular-svg:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
+        glyphicons-halflings-regular-ttf:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.ttf'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.ttf'
+        glyphicons-halflings-regular-woff:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff'
+        glyphicons-halflings-regular-woff2:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
+            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\BackBundle\Entity\User
+    # modification formulaire de modification
+    profile:
+        form:
+#            type: rest_user_profile
+            type: AppBundle\BackBundle\Form\Type\ProfileFormType
+            name: rest_user_profile
+#            validation_groups:  [Profile, Default]

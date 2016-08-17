@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="fr" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="fr" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+    <!--<![endif]-->
+    {#<!-- BEGIN HEAD -->#}
+
+    <head>
+        <meta charset="utf-8" />
+        <title>{{ global.nom }} </title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN LAYOUT FIRST STYLES -->
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/font-awesome/css/font-awesome.min.css'
+        output='assets/global/plugins/font-awesome/css/font-awesome.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/simple-line-icons/simple-line-icons.min.css'
+        output='assets/global/plugins/simple-line-icons/simple-line-icons.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+        output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/uniform/css/uniform.default.min.css'
+        output='assets/global/plugins/uniform/css/uniform.default.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css'
+        output='assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/css/components-rounded.min.css'
+        output='assets/global/css/components-rounded.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/css/plugins.min.css'
+        output='assets/global/css/plugins.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/pages/css/about.min.css'
+        output='assets/pages/css/about.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/layouts/layout6/css/layout.min.css'
+        output='assets/layouts/layout6/css/layout.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/layouts/layout6/css/custom.min.css'
+        output='assets/layouts/layout6/css/custom.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
+        {% block moreCss %}{% endblock moreCss %}
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    {#<!-- END HEAD -->#}
+
+    <body class="">
+        {#<!-- BEGIN HEADER -->#}
+        {% include 'FrondOfficeBundle:MetronicWebApp:body-header.html.twig' %}
+        {#<!-- END HEADER -->#}
+        {#<!-- BEGIN CONTAINER -->#}
+        {#{% include 'FrondOfficeBundle:MetronicWebApp:body-page-content.html.twig' %}#}
+        {% block bodyPage %}{% endblock bodyPage %}
+        {#<!-- END CONTAINER -->#}
+        {% if global.quickSlidebar == true %}
+            {% include 'FrondOfficeBundle:MetronicWebApp:body-quick-slidebar.html.twig' %}
+        {% endif %}
+        <!--[if lt IE 9]>
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/respond.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/excanvas.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <![endif]-->
+        {#<!-- BEGIN CORE PLUGINS -->#}
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/js/bootstrap.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.blockui.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/uniform/jquery.uniform.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/layouts/layout6/scripts/layout.min.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/layouts/global/scripts/quick-sidebar.min.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- END THEME LAYOUT SCRIPTS -->
+        {% block moreJs %}{% endblock moreJs %}
+    </body>
+
+</html>

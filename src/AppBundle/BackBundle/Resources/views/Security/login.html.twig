@@ -1,0 +1,181 @@
+{% trans_default_domain 'AppBundleMessage' %}
+<!DOCTYPE html>
+
+<!--[if IE 8]>
+<html lang="fr" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="fr" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+{#<!-- BEGIN HEAD -->#}
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ global.nom }} BackOffice | {{ 'login'|trans }} </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    {#<!-- BEGIN GLOBAL MANDATORY STYLES -->#}
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/font-awesome/css/font-awesome.min.css'
+    output='assets/global/plugins/font-awesome/css/font-awesome./min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/simple-line-icons/simple-line-icons.min.css'
+    output='assets/global/plugins/simple-line-icons/simple-line-icons.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+    output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/uniform/css/uniform.default.min.css'
+    output='assets/global/plugins/uniform/css/uniform.default.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css'
+    output='assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {#<!-- END GLOBAL MANDATORY STYLES -->#}
+    {#<!-- BEGIN PAGE LEVEL PLUGINS -->#}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/select2/css/select2.min.css'
+    output='assets/global/plugins/select2/css/select2.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/select2/css/select2-bootstrap.min.css'
+    output='assets/global/plugins/select2/css/select2-bootstrap.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {#<!-- END PAGE LEVEL PLUGINS -->#}
+    {#<!-- BEGIN THEME GLOBAL STYLES -->#}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/css/components.min.css'
+    output='assets/global/css/components.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" id="style_components"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/css/plugins.min.css'
+    output='assets/global/css/plugins.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {#<!-- END THEME GLOBAL STYLES -->#}
+    {#<!-- BEGIN PAGE LEVEL STYLES -->#}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/pages/css/login-3.min.css'
+    output='assets/pages/css/login-3.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {#<!-- END PAGE LEVEL STYLES -->#}
+    {#<!-- BEGIN THEME LAYOUT STYLES -->#}
+    {#<!-- END THEME LAYOUT STYLES -->#}
+    {% image
+    '@BackOfficeBundle/Resources/public/images/favicon.ico' %}
+    <link rel="shortcut icon" href="{{ asset_url }}"/>
+    {% endimage %}
+</head>
+{#<!-- END HEAD -->#}
+
+<body class=" login">
+{#<!-- BEGIN LOGO -->#}
+<div class="logo">
+    <a href="{{ path('frond_office_homepage') }}">
+        {#<img src="{{ absolute_url(asset('images/5152bca.png')) }}" alt="logo" class="logo-default"/>#}
+        {% include ':default:appBackLogo.html.twig' %}
+    </a>
+</div>
+{#<!-- END LOGO -->#}
+{#<!-- BEGIN LOGIN -->#}
+<div class="content">
+    {#<!-- BEGIN LOGIN FORM -->#}
+    <form class="login-form" action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+        <h3 class="form-title">{{ 'Login to your account'|trans }}</h3>
+        {% if error %}
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button>
+                <span> {{ error.messageKey|trans(error.messageData, 'security') }} </span>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            {#<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->#}
+            <label class="control-label visible-ie8 visible-ie9">{{ 'security.login.username'|trans }}</label>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input class="form-control placeholder-no-fix" type="text" id="username" name="_username"
+                       placeholder="{{ 'username'|trans }}" value="{{ last_username }}" required="required"/></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">{{ 'security.login.password'|trans }}</label>
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control placeholder-no-fix" type="password" autocomplete="off"
+                       placeholder="{{ 'Password'|trans }}" id="password" name="_password" required="required"/></div>
+        </div>
+        <div class="form-actions">
+            <label class="checkbox">
+                <input type="checkbox" id="remember_me" name="_remember_me"
+                       value="on"/> {{ 'security.login.remember_me'|trans }} </label>
+            <button type="submit" id="_submit" name="_submit"
+                    class="btn green pull-right"> {{ 'security.login.submit'|trans }} </button>
+        </div>
+        <div class="forget-password">
+            <h4>{{ 'Forgot your password ?'|trans }}</h4>
+            <p>{{ 'no worries, click %link_start%here%link_end% to reset your password.' | trans({'%link_start%' : '<a href="'~path('fos_user_resetting_request')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+        </div>
+    </form>
+    {#<!-- END LOGIN FORM -->#}
+</div>
+{#<!-- END LOGIN -->#}
+<!--[if lt IE 9]>
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/respond.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/excanvas.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<![endif]-->
+
+{#<!-- BEGIN CORE PLUGINS -->#}
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/js/bootstrap.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.blockui.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/uniform/jquery.uniform.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{#<!-- END CORE PLUGINS -->#}
+{#<!-- BEGIN PAGE LEVEL PLUGINS -->#}
+{#<!-- END PAGE LEVEL PLUGINS -->#}
+{#<!-- BEGIN THEME GLOBAL SCRIPTS -->#}
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{#<!-- END THEME GLOBAL SCRIPTS -->#}
+{#<!-- BEGIN PAGE LEVEL SCRIPTS -->#}
+{#<!-- END PAGE LEVEL SCRIPTS -->#}
+{#<!-- BEGIN THEME LAYOUT SCRIPTS -->#}
+{#<!-- END THEME LAYOUT SCRIPTS -->#}
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+back_office_homepage:
+    path:     /
+    defaults: { _controller: BackOfficeBundle:Default:index }
+
+back_office_user:
+    resource: "@BackOfficeBundle/Resources/config/routing/user.yml"
+
+app_bundle_to_do:
+    resource: "@AppBundleToDoBundle/Resources/config/routing.yml"
+    prefix:   /todo

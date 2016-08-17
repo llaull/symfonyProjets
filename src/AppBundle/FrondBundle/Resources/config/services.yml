@@ -1,0 +1,4 @@
+services:
+#    frond_office.example:
+#        class: AppBundle\FrondBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

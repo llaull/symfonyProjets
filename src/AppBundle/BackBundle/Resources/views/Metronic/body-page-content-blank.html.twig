@@ -1,0 +1,12 @@
+{% extends 'BackOfficeBundle:Metronic:body-page.html.twig' %}
+{% block pageContent %}
+    {#<!-- BEGIN PAGE TITLE-->#}
+    <h3 class="page-title"> {{ title_page }}
+    <small>{{ title_page }}</small>
+    </h3>
+    {#<!-- END PAGE TITLE-->#}
+    {#<!-- END PAGE HEADER-->#}
+    <div class="note note-info">
+        {% block content_txt %}{% endblock content_txt %}
+    </div>
+{% endblock pageContent %}

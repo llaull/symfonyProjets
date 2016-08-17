@@ -1,0 +1,32 @@
+{% trans_default_domain 'AppBundleMessage' %}
+
+{# gestion des avatars #}
+{% if app.user.avatar is empty %}
+    {% image '@BackOfficeBundle/Resources/public/assets/layouts/layout/img/avatar.png' %}
+    {% set avatar = asset_url %}
+    {% endimage %}
+{% else %}
+    {% set avatar = app.user.avatar %}
+{% endif %}
+
+
+<div class="row">
+    <div class="col-md-12">
+        {#<!-- BEGIN PROFILE SIDEBAR -->#}
+        {% include "@BackOffice/Profile/profil-sidebar.html.twig" %}
+        {#<!-- END BEGIN PROFILE SIDEBAR -/->#}
+        {#<!-- BEGIN PROFILE CONTENT -->#}
+        <div class="profile-content">
+            <div class="row">
+                    {#{% include "@BackOffice/Profile/show_content_activity.html.twig" %}#}
+                    {#{% include "@BackOffice/Profile/show_content_feeds.html.twig" %}#}
+            </div>
+            <div class="row">
+                {#{% include "@BackOffice/Profile/show_content_support.html.twig" %}#}
+                {% include "@BackOffice/Profile/show_content_tasks.html.twig" %}
+            </div>
+            {#{% include "@BackOffice/Profile/show_content_timeline.html.twig" %}#}
+        </div>
+        {#<!-- END PROFILE CONTENT -->#}
+    </div>
+</div>

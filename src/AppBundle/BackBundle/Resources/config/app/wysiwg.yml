@@ -1,0 +1,44 @@
+# editeur de texte enrichie
+ivory_ck_editor:
+    default_config:    my_custom_config
+    configs:
+        my_custom_config:
+            forcePasteAsPlainText: true
+            toolbar:                    full
+            filebrowserBrowseRoute:     elfinder
+            filebrowserBrowseRouteParameters:
+                instance: ckeditor
+
+fm_elfinder:
+    assets_path: '/assets'
+    instances:
+        form:
+            locale: '%locale%' # defaults to current request locale
+            editor: form # other choices are tinymce or simple, and form
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['all']
+                        upload_max_size: 8M
+        ckeditor:
+            locale: '%locale%' # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, form, custom and simple
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            theme: smoothness # jquery theme
+           # extraPlugins: 'pastebase64'
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            connector:
+                debug: false # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        show_hidden: false # defaults to false
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 8M

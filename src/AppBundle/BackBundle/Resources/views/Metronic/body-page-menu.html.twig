@@ -1,0 +1,16 @@
+{#<!-- BEGIN SIDEBAR MENU -->#}
+<ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
+    data-slide-speed="200" style="padding-top: 20px">
+    <li class="sidebar-toggler-wrapper hide">
+        {#<!-- BEGIN SIDEBAR TOGGLER BUTTON -->#}
+        <div class="sidebar-toggler"></div>
+        {#<!-- END SIDEBAR TOGGLER BUTTON -->#}
+    </li>
+
+    {#{% include 'BackOfficeBundle:Metronic:body-page-menu-search.html.twig' %}#}
+    {% include 'BackOfficeBundle:Default:menu.html.twig' %}
+    {% include ':default:appBackMenu.html.twig' ignore missing %}
+    {% include 'AppBundleToDoBundle:Default:menu.html.twig' %}
+
+</ul>
+{#<!-- END SIDEBAR MENU -->#}

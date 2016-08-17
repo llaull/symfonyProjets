@@ -1,0 +1,17 @@
+<li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-docs"></i>
+        <span class="title">Application</span>
+        <span class="arrow"></span>
+    </a>
+
+    <ul class="sub-menu">
+        <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
+            <a href="{{ path('app_bundle_to_do_homepage') }}" class="nav-link ">
+                <i class="icon-check"></i>
+                <span class="title">TODO</span>
+            </a>
+        </li>
+
+    </ul>
+</li>

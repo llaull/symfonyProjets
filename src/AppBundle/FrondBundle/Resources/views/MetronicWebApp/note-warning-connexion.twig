@@ -1,0 +1,9 @@
+{#
+    s'affiche si l'utiliser est annonyme
+#}
+{% if not is_granted('ROLE_USER') %}
+<div class="note note-warning">
+    <h4 class="block">Info ! connexion requis</h4>
+    <p>Une identification est obligatoire pour utiliser ce module</p>
+</div>
+{% endif %}

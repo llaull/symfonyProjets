@@ -1,0 +1,11 @@
+services:
+    back_office.loging:
+        class: AppBundle\BackBundle\Services\LoggService
+        arguments: ["@service_container"]
+
+    back_office.form.profile:
+       class: AppBundle\BackBundle\Form\Type\ProfileFormType
+       arguments:
+            - '%fos_user.model.user.class%'
+       tags:
+            - { name: form.type, alias: rest_user_profile }

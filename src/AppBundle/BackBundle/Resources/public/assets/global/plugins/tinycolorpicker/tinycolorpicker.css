@@ -1,0 +1,75 @@
+/* COLORPICKER 1 EXAMPLE */
+.TinyColorConteneur
+{
+    width:          30px;
+    height:         30px;
+    position: relative;
+    clear: both;
+    /*margin: 0 auto 20px;*/
+}
+/**/
+.TinyColorConteneur .track {
+    background:     #EFEFEF url(text-color.png) no-repeat 50% 50%;
+    height:         90px;
+    width:          90px;
+    padding:        0px;
+    position:       absolute;
+    cursor:         crosshair;
+    float:          left;
+    /*left:           -71px;*/
+    top:            0px;
+    display:        block;
+    border:         1px solid #ccc;
+    z-index:        10;
+    /*-webkit-border-radius: 150px;*/
+    /*-moz-border-radius: 150px;*/
+    /*border-radius: 150px;*/
+/**/
+}
+/**/
+.TinyColorConteneur .moduleID {
+    /**/
+    display:        none;
+/**/
+/**/
+}
+/**/
+.TinyColorConteneur .color {
+    width:          25px;
+    height:         25px;
+    /*padding:        1px;*/
+    border:         1px solid #ccc;
+    display:        block;
+    position:       relative;
+    z-index:        11;
+    background-color: #EFEFEF;
+    overflow: hidden;
+    /*-webkit-border-radius: 27px;*/
+    /*-moz-border-radius: 27px;*/
+    /*border-radius: 27px;*/
+    cursor: pointer;
+}
+/**/
+.TinyColorConteneur .colorInner {
+    width:          25px;
+    height:         25px;
+    /*-webkit-border-radius: 27px;*/
+    /*-moz-border-radius: 27px;*/
+    /*border-radius: 27px;*/
+}
+/**/
+.TinyColorConteneur .dropdown {
+    list-style: none;
+    display: none;
+    width: 27px;
+    position: absolute;
+    top: 28px;
+    border: 1px solid #ccc;
+    left: 0;
+    z-index: 1000;
+}
+/**/
+.TinyColorConteneur .dropdown li{
+    height: 25px;
+    cursor: pointer;
+}

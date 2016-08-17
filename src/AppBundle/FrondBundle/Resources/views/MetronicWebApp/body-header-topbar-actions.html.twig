@@ -1,0 +1,40 @@
+<!-- BEGIN TOPBAR ACTIONS -->
+<div class="topbar-actions">
+    {#<form class="search-form" action="extra_search.html" method="GET">#}
+        {#<div class="input-group">#}
+            {#<input type="text" class="form-control" placeholder="Search here" name="query">#}
+                                    {#<span class="input-group-btn">#}
+                                        {#<a href="javascript:;" class="btn submit">#}
+                                            {#<i class="fa fa-search"></i>#}
+                                        {#</a>#}
+                                    {#</span>#}
+        {#</div>#}
+    {#</form>#}
+    {#<!-- END HEADER SEARCH BOX -->#}
+    {#<!-- BEGIN GROUP NOTIFICATION -->#}
+    {% if is_granted('ROLE_USER') %}
+    <div class="btn-group-notification btn-group" id="header_notification_bar">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                data-close-others="true">
+            {#<span class="badge">9</span>#}
+            <i class="fa fa-bullseye"></i>
+        </button>
+        <ul class="dropdown-menu-v2">
+            {#<li class="external">#}
+                {#<h3>#}
+                    {#<span class="bold">12 pending</span> notifications</h3>#}
+                {#<a href="#">view all</a>#}
+            {#</li>#}
+            <li>
+                <ul class="dropdown-menu-list scroller" style="height: 250px; padding: 0;" data-handle-color="#637283">
+                    {#{{ render(controller('DomotiqueDomoboxBundle:Output:getDomoboxNotify')) }}#}
+                </ul>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+    {#<!-- END GROUP NOTIFICATION -->#}
+    {% include 'FrondOfficeBundle:MetronicWebApp:body-header-user.html.twig' %}
+
+</div>
+{#<!-- END TOPBAR ACTIONS -->#}

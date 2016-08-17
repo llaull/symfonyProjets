@@ -1,0 +1,65 @@
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% form_theme form 'BackOfficeBundle:Default:bootstrap_3_horizontal_layout.html.twig' %}
+
+{# gestion des avatars #}
+{% if app.user.avatar is empty %}
+    {% image '@BackOfficeBundle/Resources/public/assets/layouts/layout/img/avatar.png' %}
+    {% set avatar = asset_url %}
+    {% endimage %}
+{% else %}
+    {% set avatar = app.user.avatar %}
+{% endif %}
+
+{#<!-- BEGIN PROFILE SIDEBAR -->#}
+{% include "@BackOffice/Profile/profil-sidebar.html.twig" %}
+{#<!-- END BEGIN PROFILE SIDEBAR -->#}
+{#<!-- BEGIN PROFILE CONTENT -->#}
+<div class="profile-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                        <i class="icon-globe theme-font hide"></i>
+                        <span class="caption-subject font-blue-madison bold uppercase">{{ "Profile Account"|trans }}</span>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li {% if app.request.attributes.get('_route') == 'fos_user_profile_edit' %} class="active"{% endif %}>
+                            <a href="{{ path('fos_user_profile_edit') }}#tab_1_1">{{ "Personal Info"|trans }}</a>
+                        </li>
+                        <li {% if app.request.attributes.get('_route') == 'fos_user_change_password' %} class="active"{% endif %}>
+                            <a href="{{ path('fos_user_change_password') }}#tab_1_3">{{ "Change Password"|trans }}</a>
+                        </li>
+                        {#<li>#}
+                        {#<a href="{{ path('fos_user_profile_edit') }}#tab_1_4" data-toggle="tab">{{ "Privacy Settings"|trans }}</a>#}
+                        {#</li>#}
+                    </ul>
+                </div>
+                <div class="portlet-body">
+                    <div class="tab-content">
+                        {#<!-- PERSONAL INFO TAB -->#}
+                        <div class="tab-pane active" id="tab_1_1">
+                            {{ form_start(form) }}
+                            <div class="form-body">
+                                {{ form_widget(form) }}
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="submit" class="btn green">{{ "Save"|trans }}</button>
+                                        <a class="btn grey-salsa btn-outline" href="{{ path('fos_user_profile_show') }}">{{ "Cancel"|trans }}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                        {#<!-- END PERSONAL INFO TAB -->#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#<!-- END PROFILE CONTENT -->#}

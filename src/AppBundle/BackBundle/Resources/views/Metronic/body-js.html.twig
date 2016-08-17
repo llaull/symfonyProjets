@@ -1,0 +1,40 @@
+<!--[if lt IE 9]>
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/respond.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/excanvas.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/js/bootstrap.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.blockui.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<!-- END CORE PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/layouts/layout/scripts/layout.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/layouts/layout/scripts/demo.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/layouts/layout/scripts/quick-sidebar.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<!-- END THEME LAYOUT SCRIPTS -->
+

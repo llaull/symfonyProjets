@@ -1,0 +1,11 @@
+app_bundle_to_do:
+    resource: "@AppBundleToDoBundle/Resources/config/routing.yml"
+    prefix:   /todo
+
+app:
+    resource: "@FrondOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+back_office_homepage:
+    resource: "@BackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /admin

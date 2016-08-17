@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="plaintext" original="file.ext" source-language="fr" target-language="fr">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="accaadbea56cdf27b83766bc084ef60e" resname="security.login.username">
+        <source>security.login.username</source>
+        <target state="translated">utilisateur</target>
+      </trans-unit>
+      <trans-unit id="3e6fda7a3e4805b55f02fb7d4732182e" resname="security.login.password">
+        <source>security.login.password</source>
+        <target state="translated">password</target>
+      </trans-unit>
+      <trans-unit id="7f118f11a96ed11aa0b91cbc414aff9e" resname="security.login.remember_me">
+        <source>security.login.remember_me</source>
+        <target state="translated">se souvenir de moi</target>
+      </trans-unit>
+      <trans-unit id="eab2445b91e08139c983aed41704f73b" resname="security.login.submit">
+        <source>security.login.submit</source>
+        <target state="translated">Connexion</target>
+      </trans-unit>
+      <trans-unit id="e8956174978be0a343e1e582cf681e4c" resname="My Profile">
+        <source>My Profile</source>
+        <target state="translated">Mon profil</target>
+      </trans-unit>
+      <trans-unit id="9b3dde65fecc6a2f8f7030c9cc72950d" resname="Lock Screen">
+        <source>Lock Screen</source>
+        <target state="translated">Verrouiller</target>
+      </trans-unit>
+      <trans-unit id="b0c2b25b3312c7a32d7aa9d701b6ae1d" resname="Log Out">
+        <source>Log Out</source>
+        <target state="translated">Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="15cb3b43610751d8b2e241abfba63e10" resname="Login to your account">
+        <source>Login to your account</source>
+        <target state="translated">Connexion à mon compte</target>
+      </trans-unit>
+      <trans-unit id="14c4b06b824ec593239362517f538b29" resname="username">
+        <source>username</source>
+        <target state="translated">Utilisateur</target>
+      </trans-unit>
+      <trans-unit id="dc647eb65e6711e155375218212b3964" resname="Password">
+        <source>Password</source>
+        <target state="translated">Password</target>
+      </trans-unit>
+      <trans-unit id="cd4bcecae78474ea24c3f28350758a8c" resname="Forgot your password ?">
+        <source>Forgot your password ?</source>
+        <target state="translated">Mot de passe perdu ?</target>
+      </trans-unit>
+      <trans-unit id="57da2e3d08119d9a83a186d9213fa9fe" resname="no worries, click %link_start%here%link_end% to reset your password.">
+        <source>no worries, click %link_start%here%link_end% to reset your password.</source>
+        <target state="translated">T'inquiète, clique %link_start%ici%link_end% pour en recevoir un autre.</target>
+      </trans-unit>
+      <trans-unit id="06933067aafd48425d67bcb01bba5cb6" resname="Update">
+        <source>Update</source>
+        <target state="translated">Sauvegarder</target>
+      </trans-unit>
+      <trans-unit id="686e697538050e4664636337cc3b834f" resname="Create">
+        <source>Create</source>
+        <target state="translated">Créer</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19" resname="Cancel">
+        <source>Cancel</source>
+        <target state="translated">Annuler</target>
+      </trans-unit>
+      <trans-unit id="de9ced9bf5e9829de4a93ad8c9d7a170" resname="Add New">
+        <source>Add New</source>
+        <target state="translated">Ajouter</target>
+      </trans-unit>
+      <trans-unit id="8cf04a9734132302f96da8e113e80ce5" resname="Home">
+        <source>Home</source>
+        <target state="translated">__Home</target>
+      </trans-unit>
+      <trans-unit id="972d3272be925f3d1f3b7c7709b6a84c" resname="Profile Account">
+        <source>Profile Account</source>
+        <target state="translated">__Profile Account</target>
+      </trans-unit>
+      <trans-unit id="952a2efe1be422bd61edb06a3b931988" resname="Personal Info">
+        <source>Personal Info</source>
+        <target state="translated">__Personal Info</target>
+      </trans-unit>
+      <trans-unit id="8f1e77e0d2be21da93cd4d9a939148f7" resname="Change Password">
+        <source>Change Password</source>
+        <target state="translated">__Change Password</target>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354" resname="Save">
+        <source>Save</source><target state="translated">Sauvegarder</target>
+        
+      </trans-unit>
+      <trans-unit id="3903aab323863bd2e9b68218a7a65ebd" resname="Follow">
+        <source>Follow</source>
+        <target state="translated">Suivre</target>
+      </trans-unit>
+      <trans-unit id="4c2a8fe7eaf24721cc7a9f0175115bd4" resname="Message">
+        <source>Message</source>
+        <target state="translated">Message</target>
+      </trans-unit>
+      <trans-unit id="ff73074ccafb0bcfc1c49a09ceb6532f" resname="Account Settings">
+        <source>Account Settings</source>
+        <target state="translated">__Account Settings</target>
+      </trans-unit>
+      <trans-unit id="6a26f548831e6a8c26bfbbd9f6ec61e0" resname="Help">
+        <source>Help</source>
+        <target state="translated">Aide</target>
+      </trans-unit>
+      <trans-unit id="8f7f4c1ce7a4f933663d10543562b096" resname="About">
+        <source>About</source>
+        <target state="translated">__About</target>
+      </trans-unit>
+      <trans-unit id="2938c7f7e560ed972f8a4f68e80ff834" resname="Dashboard">
+        <source>Dashboard</source>
+        <target state="translated">__Dashboard</target>
+      </trans-unit>
+      <trans-unit id="e6ec529ba185279aa0adcf93e645c7cd" resname="front">
+        <source>front</source>
+        <target state="translated">__front</target>
+      </trans-unit>
+      <trans-unit id="9bc65c2abec141778ffaa729489f3e87" resname="users">
+        <source>users</source>
+        <target state="translated">__users</target>
+      </trans-unit>
+      <trans-unit id="f71197a4e184b581df9cb4fc27955b79" resname="registration.submit">
+        <source>registration.submit</source>
+        <target state="translated">__registration.submit</target>
+      </trans-unit>
+      <trans-unit id="d56b699830e77ba53855679cb1d252da" resname="login">
+        <source>login</source>
+        <target state="translated">__login</target>
+      </trans-unit>
+      <trans-unit id="de95b43bceeb4b998aed4aed5cef1ae7" resname="edit">
+        <source>edit</source>
+        <target state="translated">Editer</target>
+      </trans-unit>
+      <trans-unit id="e9ade8c73d8a8ea7b6f53956dc36608b" resname="registration.check_email">
+        <source>registration.check_email</source>
+        <target state="translated">__registration.check_email</target>
+      </trans-unit>
+      <trans-unit id="90997929bcfdafefc75086643afea54d" resname="registration.email.subject">
+        <source>registration.email.subject</source>
+        <target state="translated">__registration.email.subject</target>
+      </trans-unit>
+      <trans-unit id="9671dfcb489e04d7ece6c484bf2d92d9" resname="registration.email.message">
+        <source>registration.email.message</source>
+        <target state="translated">__registration.email.message</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

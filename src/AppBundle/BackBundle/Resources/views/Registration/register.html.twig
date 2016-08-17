@@ -1,0 +1,18 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-form.html.twig' %}
+
+{% block moreCss %}{% endblock moreCss %}
+{% block moreJs %}{% endblock moreJs %}
+
+{% set form = form %}
+{% set title_page = 'new user' %}
+{% set path_entity_index = 'admin_domotique_module_index' %}
+{% set table_size = 'col-md-12' %}
+
+
+{% set body_class = 'page-container-bg-solid' %}
+
+{% block content_txt %}
+    {% block fos_user_content %}
+        {% include "BackOfficeBundle:Registration:register_content.html.twig" %}
+    {% endblock fos_user_content %}
+{% endblock content_txt %}

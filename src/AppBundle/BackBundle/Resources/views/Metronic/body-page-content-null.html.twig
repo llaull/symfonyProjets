@@ -1,0 +1,8 @@
+{% extends 'BackOfficeBundle:Metronic:body-page.html.twig' %}
+{% block pageContent %}
+    {#<!-- BEGIN PAGE TITLE-->#}
+    <h3 class="page-title"> {{ title_page|trans }}</h3>
+    {#<!-- END PAGE TITLE-->#}
+    {#<!-- END PAGE HEADER-->#}
+        {% block content_txt %}{% endblock content_txt %}
+{% endblock pageContent %}

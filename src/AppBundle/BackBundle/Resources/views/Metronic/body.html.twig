@@ -1,0 +1,22 @@
+{% extends 'BackOfficeBundle:Metronic:index.html.twig' %}
+
+{% if body_class is defined %}
+    {% set body_class = body_class %}
+{% else %}
+    {% set body_class = '' %}
+{% endif %}
+
+{% block body %}
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white {{ body_class }}">
+    {% include 'BackOfficeBundle:Metronic:body-header.html.twig' %}
+    {#<!-- BEGIN HEADER & CONTENT DIVIDER -->#}
+    <div class="clearfix"></div>
+    <!-- END HEADER & CONTENT DIVIDER -->
+    {#{% include 'BackOfficeBundle:Metronic:body-page.html.twig' %}#}
+    {% block bodyPage %}{% endblock bodyPage %}
+    {% include 'BackOfficeBundle:Metronic:body-footer.html.twig' %}
+
+    {% include 'BackOfficeBundle:Metronic:body-js.html.twig' %}
+    </body>
+{% endblock body %}
+

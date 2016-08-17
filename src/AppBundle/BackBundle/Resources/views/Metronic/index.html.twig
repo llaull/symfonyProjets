@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="fr" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="fr" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="fr">
+<!--<![endif]-->
+
+{#<!-- BEGIN HEAD -->#}
+
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ global.nom }} BackOffice |</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    {% include 'BackOfficeBundle:Metronic:head-css.html.twig' %}
+
+    {% block moreCss %}{% endblock moreCss %}
+
+    {% block head %}{% endblock head %}
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+
+{#<!-- END HEAD -->#}
+
+{% block body %}{% endblock body %}
+{% block moreJs %}{% endblock moreJs %}
+</html>

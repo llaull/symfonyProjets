@@ -1,0 +1,75 @@
+{% block headCss %}
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/font-awesome/css/font-awesome.min.css'
+    output='assets/global/plugins/font-awesome/css/font-awesome.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/entypo/css/entypo.css'
+    output='assets/global/plugins/entypo/css/entypo.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/simple-line-icons/simple-line-icons.min.css'
+    output='assets/global/plugins/simple-line-icons/simple-line-icons.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+    output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/uniform/css/uniform.default.min.css'
+    output='assets/global/plugins/uniform/css/uniform.default.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css'
+    output='assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/css/components.min.css'
+    output='assets/global/css/components.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" id="style_components"/>
+    {% endstylesheets %}
+
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/css/plugins.min.css'
+    output='assets/global/css/plugins.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    <!-- END THEME GLOBAL STYLES -->
+
+
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/layouts/layout/css/layout.min.css'
+    output='assets/layouts/layout/css/layout.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/layouts/layout/css/themes/darkblue.min.css'
+    output='assets/layouts/layout/css/themes/darkblue.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/layouts/layout/css/custom.min.css'
+    output='assets/layouts/layout/css/custom.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    <!-- END THEME LAYOUT STYLES -->
+{% endblock headCss %}
