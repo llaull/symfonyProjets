@@ -20,8 +20,9 @@
 /web/images
 /web/js
 /web/uploads
-/.idea
+/.idea/*
 
 #après install
 #/app/Resources
 #/app/AppKernel.php
+.idea/
