@@ -1,0 +1,72 @@
+# venant des modules
+domotiquebundle_domobox_module_flux_json:
+    path:     /module/esp8266/post/json/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Input:addJson" }
+    methods:  [POST]
+
+# cree un faux flux
+domotiquebundle_domobox_module_flux_fake:
+    path:     /module/esp8266/post/fake/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Input:addFuxFake" }
+
+# TEST module RGB
+domotiquebundle_domobox_module_get_module_RGB:
+    path:     /domobox/module/test/rgb
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:rgb" }
+
+#
+domotiquebundle_domobox_video:
+    path:     /domobox/videosurveillance
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:video" }
+
+# ui graphique
+domobox_ui_graphique:
+    path:     /graphique
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:graph" }
+
+# home
+frond_office_homepage:
+    path:     /
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:index" }
+
+domotiquebundle_domobox:
+    path:     /
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:index" }
+
+
+# retourne une image
+domotiquebundle_domobox_webcam:
+    path:     /domobox/output/webcam
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:getWebcam" }
+
+#retourne les valeurs de toute les sondes
+domotique_log_sonde:
+    path: /log/value
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:getCurrentValueJson" }
+
+#donne la moyenne selont l'unitée et le lieu
+domotique_log_moyen:
+    path: /log/moyenne/{unit}/{spot}/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:logMoyenne" }
+    methods:  [GET]
+
+#retourne l'heure local
+domobox_get_hour:
+    path: /flux/hour
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:getCurrentDate" }
+
+domobox_log_graph:
+    path: /log/graph/{unit}/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:logAmCharts" }
+    methods:  [GET]
+
+#AJAX
+#    set une valeur au controleur qui envera au module
+domotique_module_set_color:
+    path:     /domobox/module/set/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:setModuleColor" }
+    methods:  [POST]
+
+domotique_demobox_scheduled_form:
+    path:     /scheduled/form
+    defaults: { _controller: "DomotiqueDomoboxBundle:ScheduledTask:new" }

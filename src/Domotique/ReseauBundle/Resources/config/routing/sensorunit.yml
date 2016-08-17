@@ -1,0 +1,24 @@
+admin_domotique_sensor_unit_index:
+    path:     /
+    defaults: { _controller: "DomotiqueReseauBundle:SensorUnit:index" }
+    methods:  GET
+
+admin_domotique_sensor_unit_show:
+    path:     /{id}/show
+    defaults: { _controller: "DomotiqueReseauBundle:SensorUnit:show" }
+    methods:  GET
+
+admin_domotique_sensor_unit_new:
+    path:     /new
+    defaults: { _controller: "DomotiqueReseauBundle:SensorUnit:new" }
+    methods:  [GET, POST]
+
+admin_domotique_sensor_unit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DomotiqueReseauBundle:SensorUnit:edit" }
+    methods:  [GET, POST]
+
+admin_domotique_sensor_unit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DomotiqueReseauBundle:SensorUnit:delete" }
+    methods:  DELETE
