@@ -20,7 +20,7 @@ class DefaultController extends Controller
         $emplacements = $em->getRepository('DomotiqueReseauBundle:Emplacement')->findBy(array(), array('name' => 'ASC'));
 
         //
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $modules = $this->getDoctrine()->getRepository('DomotiqueReseauBundle:Log');
         $modules = $modules->getCurrentValue($em);
 
