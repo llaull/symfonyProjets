@@ -20,9 +20,11 @@ class AppKernel extends Kernel
             new AppBundle\BackBundle\BackOfficeBundle(),
             new AppBundle\FrondBundle\FrondOfficeBundle(),
             new AppBundle\ToDoBundle\AppBundleToDoBundle(),
+
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
