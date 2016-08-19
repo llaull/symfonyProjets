@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="doto__tag")
+ * @ORM\HasLifecycleCallbacks
  */
 class Tag
 {
@@ -33,7 +34,7 @@ class Tag
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=100, nullable=true)
+     * @ORM\Column(name="name", type="string", length=100, nullable=false, unique=true)
      */
     protected $name;
 
@@ -89,5 +90,17 @@ class Tag
     {
         $this->name = $name;
     }
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $this->setCreated(new \DateTime('now'));
 
+        if ($this->getCreated() == null) {
+            $this->setCreated(new \DateTime('now'));
+        }
+    }
 }

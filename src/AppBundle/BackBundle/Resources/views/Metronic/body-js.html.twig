@@ -16,11 +16,24 @@
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 <!-- END CORE PLUGINS -->
-<!-- BEGIN THEME GLOBAL SCRIPTS -->
+
 {% javascripts
-'@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js' %}
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-notific8/jquery.notific8.min.js' %}
 <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
+
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js'
+'@BackOfficeBundle/Resources/public/assets/global/scripts/app.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/pages/scripts/ui-notific8.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 {% javascripts

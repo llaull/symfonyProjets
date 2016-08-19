@@ -16,10 +16,14 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('tags', CollectionType::class, array(
-            'entry_type'   => TagType::class,
-            'allow_add'    => true,
-        ));
+        $builder
+            ->add('name')
+        ;
+
+//        $builder->add('tags', CollectionType::class, array(
+//            'entry_type'   => TagType::class,
+//            'allow_add'    => true,
+//        ));
     }
     
     /**
