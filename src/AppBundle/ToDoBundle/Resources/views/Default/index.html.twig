@@ -1,0 +1,66 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-null.html.twig' %}
+
+{% set body_class = 'page-container-bg-solid' %}
+{% set title_page = 'todo' %}
+
+{% set currentPath = path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
+
+
+{% block moreCss %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css'
+    output='assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css'
+    output='assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/apps/css/todo-2.min.css'
+    output='assets/apps/css/todo-2.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+{% endblock moreCss %}
+
+{% block moreJs %}
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script type="text/javascript">
+        function validateTag() {
+            var data = $("#FormTag").serialize();
+            $.ajax({
+                type: 'POST',
+                data: data,
+                url: $("#FormTag").attr('action'),
+                beforeSend: function () {
+                    uiNotific('smoke', false, "en cours");
+                },
+                success: function (data) {
+                    if (data.query == 'sucess') {
+                        uiNotific('lime', false, data.query);
+                        window.location.replace('{{ currentPath }}');
+                    } else {
+                        uiNotific('tangerine', true,data.query);
+                    }
+                },
+                error: function (data) {
+                    uiNotific('tangerine', true, "error", data.query);
+                }
+            });
+            return false;
+//
+        }
+
+    </script>
+{% endblock moreJs %}
+
+{% block content_txt %}
+    {% include "@AppBundleToDo/Default/todo_content.html.twig" %}
+    {#{{ dump() }}#}
+{% endblock content_txt %}
