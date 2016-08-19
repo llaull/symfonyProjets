@@ -21,7 +21,7 @@ before_script:
   - php bin/console fos:user:create test test test --super-admin
 
 script:
-  - php vendor/phpunit/phpunit/phpunit
+  - php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
 
 #after_script:
 #  - wget https://scrutinizer-ci.com/ocular.phar
