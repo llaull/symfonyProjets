@@ -1,0 +1,63 @@
+<div class="todo-sidebar">
+
+    <div class="portlet light ">
+        <div class="portlet-title">
+            <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content-tags">
+                <span class="caption-subject font-red bold uppercase">{{ 'TAGS'|trans }} </span>
+                <span class="caption-helper visible-sm-inline-block visible-xs-inline-block">{{ 'click to view'|trans }}</span>
+            </div>
+            <div class="actions">
+                <div class="actions">
+                    <a class="btn btn-circle grey-salsa btn-outline btn-sm" href="#responsive" data-toggle="modal">
+                        <i class="fa fa-plus"></i> {{ 'Add New'|trans }} </a>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body todo-project-list-content todo-project-list-content-tags">
+            <div class="todo-project-list">
+                <ul class="nav nav-pills nav-stacked">
+                    {% for tag in tags %}
+                        <li>
+                            <a href="javascript:;">
+                                {#<span class="badge badge-danger"> 6 </span> #}{{ tag.name }} </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- responsive -->
+<div id="responsive" class="modal fade" tabindex="-1" data-width="760">
+    <div class="modal-header">
+        <a href="#" class="float-right" data-placement="left" title="close" data-dismiss="modal">
+            <i class="glyph-icon icon-remove"></i>
+        </a>
+    </div>
+    <div class="modal-body">
+        <form id="FormTag" class="left-side" action="{{ path('app_bundle_to_do_tag_add') }}" method="post">
+            <div class="form-row">
+                <div class="form-label col-md-4">
+                    <label for="">
+                        {{ form_label(formTag.name) }}
+                    </label>
+                </div>
+                <div class="form-input col-md-8">
+                    {{ form_widget(formTag.name) }}
+                </div>
+            </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <input type="submit" onclick="return validateTag();" value="Submit" name="submitActionInt1"
+               class="btn medium primary-bg"/>
+        {{ form_rest(formTag) }}
+        </form>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="center btn medium primary-bg">Close
+        </button>
+
+    </div>
+</div>
+

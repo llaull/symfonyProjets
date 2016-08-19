@@ -1,3 +1,9 @@
 app_bundle_to_do_homepage:
     path:     /app/todo/
     defaults: { _controller: AppBundleToDoBundle:Default:index }
+    methods:  [GET,POST]
+
+app_bundle_to_do_tag_add:
+    path:     /app/todo/tag/add
+    defaults: { _controller: AppBundleToDoBundle:Tag:add }
+    methods:  [POST]

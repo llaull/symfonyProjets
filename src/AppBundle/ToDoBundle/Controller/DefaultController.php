@@ -2,34 +2,42 @@
 
 namespace AppBundle\ToDoBundle\Controller;
 
-use AppBundle\ToDoBundle\Entity\Task;
+use AppBundle\ToDoBundle\Entity\Tag;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function w()
-    {
-        return $this->render('AppBundleToDoBundle:Default:index.html.twig');
-    }
 
     public function indexAction(Request $request)
     {
-        $task = new Task();
-        $form = $this->createForm('AppBundle\ToDoBundle\Form\Type\TaskType', $task);
+        $tag = new Tag();
+        $form = $this->createForm('AppBundle\ToDoBundle\Form\Type\TagType', $tag);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($task);
+        $em = $this->getDoctrine()->getManager();
+
+       /* if ($request->getMethod() == 'POST') {
+
+
+            $em->persist($tag);
             $em->flush();
 
-            return $this->redirectToRoute('app_bundle_to_do_homepage');
-        }
+            return $this->redirectToRoute('app_bundle_to_do_homepage',array(
+                'tags' => $tag,
+                'formTag' => $form->createView(),
+            ));
+        }*/
 
-        return $this->render('AppBundleToDoBundle:Default:index.html.twig', array(
-            'task' => $task,
-            'form' => $form->createView(),
+        // $em = $this->getDoctrine()->getManager();
+
+        $tag = $em->getRepository('AppBundleToDoBundle:Tag')->findAll();
+
+
+        return $this->render('AppBundleToDoBundle:Default:index.html.twig',array(
+            'tags' => $tag,
+            'formTag' => $form->createView(),
         ));
     }
+
 }

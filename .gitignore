@@ -19,10 +19,6 @@
 /web/assets
 /web/images
 /web/js
-/web/uploads
-/.idea/*
-
-#après install
-#/app/Resources
-#/app/AppKernel.php
+/web/uploads/*
 .idea/
+
