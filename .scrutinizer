@@ -1,0 +1,4 @@
+build:
+    dependencies:
+         before:
+            - mysql -e "CREATE DATABASE symfony"
