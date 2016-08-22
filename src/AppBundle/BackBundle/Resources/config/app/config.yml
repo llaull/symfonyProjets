@@ -28,8 +28,8 @@ assetic:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/layouts/layout6/img/bg_01.jpg'
             output: 'assets/layouts/layout6/img/bg_01.jpg'
         dragIconRoundBig:
-            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/amcharts/amcharts/images/dragIconRoundBig.svg'
-            output: 'amcharts/images/dragIconRoundBig.svg'
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/amcharts/amcharts/images/dragIconRectBig.svg'
+            output: 'amcharts/images/dragIconRectBig.svg'
 
 #       element portlet
         portlet-collapse-icon-white:
@@ -78,6 +78,9 @@ assetic:
         font-awesome-woff:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff'
             output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff'
+        font-awesome-woff2:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff2'
+            output: 'assets/global/plugins/font-awesome/fonts/fontawesome-webfont.woff2'
 
         #
         # entypo
