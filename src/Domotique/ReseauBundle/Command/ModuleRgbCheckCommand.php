@@ -23,6 +23,17 @@ class ModuleRgbCheckCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
+        $curling = $this->getContainer()->get('commun.curl');
+
+
+        /*
+         *
+         */
+
+
+        /**/
+
         $em = $this->getContainer()->get('doctrine')->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
 
@@ -31,13 +42,22 @@ class ModuleRgbCheckCommand extends ContainerAwareCommand
             ->select('IDENTITY(log.module), IDENTITY(log.sensorType) AS sensorType,
                 module.adressIpv4 AS ip')
             ->leftJoin('DomotiqueReseauBundle:Module', 'module', \Doctrine\ORM\Query\Expr\Join::WITH, 'log.module = module.id')
-             ->where('log.sensorType = 8')
+            ->where('log.sensorType = 8')
             ->groupBy('log.module')
             ->getQuery()
             ->getResult();
 
         foreach ($moduleRgb as $module) {
+
+            $module_url = "http://" . $module['ip'] . "/";
+
+
+            $curl = $curling->getToUrl($module_url, false);
+
+
             $output->writeln($module['ip']);
+            $output->writeln($curl);
+            $output->writeln("---------");
         }
     }
 }
