@@ -49,7 +49,7 @@ class ModuleRgbCheckCommand extends ContainerAwareCommand
 
         foreach ($moduleRgb as $module) {
 
-            $module_url = "http://" . $module['ip'] . "/";
+            $module_url = "http://" . $module['ip'] . "/ping/";
 
 
             $curl = $curling->getToUrl($module_url, false);
