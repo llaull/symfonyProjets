@@ -54,6 +54,31 @@
         $(document).ready(function () {
 
             $(function () {
+                $('form').on('submit', function (e) {
+                    $.ajax({
+                        type: 'POST',
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        beforeSend: function () {
+                            uiNotific('smoke', false, "en cours");
+                        },
+                        success: function (data) {
+                            if (data.query == 'sucess') {
+                                uiNotific('lime', false, data.query);
+                                location.reload();
+                            } else {
+                                uiNotific('tangerine', true, data.query);
+                            }
+                        },
+                        error: function (data) {
+                            uiNotific('tangerine', true, "error", data.query);
+                        }
+                    });
+                    e.preventDefault();
+                });
+            });
+
+            $(function () {
                 $('#scheduled_task_start').datetimepicker({
                     todayBtn: "true",
                     format: "dd/mm/yy hh:ii",

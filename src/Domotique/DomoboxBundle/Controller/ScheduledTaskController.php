@@ -20,7 +20,6 @@ class ScheduledTaskController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($scheduleTask);
-//            $em->flush();
 
             try {
                 $em->flush();
@@ -30,7 +29,6 @@ class ScheduledTaskController extends Controller
                 return new JsonResponse(array('query' => $e->getMessage()));
             }
 
-          //  return $this->redirectToRoute('domotiquebundle_domobox');
         }
 
         return $this->render('DomotiqueDomoboxBundle:ScheduledTask:form.html.twig', array(
