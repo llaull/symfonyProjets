@@ -33,8 +33,6 @@ class DefaultController extends Controller
 
     public function graphAction()
     {
-;
-
         return $this->render('DomotiqueDomoboxBundle:Default:graphique.html.twig');
     }
 
