@@ -12,4 +12,3 @@ app:
 back_office_homepage:
     resource: "@BackOfficeBundle/Resources/config/routing.yml"
     prefix:   /admin
-
