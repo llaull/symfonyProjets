@@ -11,6 +11,10 @@ class ScheduledTaskController extends Controller
 {
     public function newAction(Request $request)
     {
+
+        echo $request->attributes->get('module');
+//        var_dump($request);
+
         $scheduleTask = new ScheduledTask();
         $form = $this->createForm('Domotique\DomoboxBundle\Form\Type\ScheduledTaskType', $scheduleTask);
         $form->handleRequest($request);
@@ -19,6 +23,8 @@ class ScheduledTaskController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $scheduleTask->setUser($this->getUser());
+
             $em->persist($scheduleTask);
 
             try {
@@ -33,6 +39,7 @@ class ScheduledTaskController extends Controller
 
         return $this->render('DomotiqueDomoboxBundle:ScheduledTask:add.html.twig', array(
             'scheduleTask' => $scheduleTask,
+            'moduleID' => $request->attributes->get('moduleID'),
             'form' => $form->createView(),
         ));
     }

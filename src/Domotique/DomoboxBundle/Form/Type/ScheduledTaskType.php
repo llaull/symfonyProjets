@@ -3,9 +3,11 @@
 namespace Domotique\DomoboxBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+//use Symfony\Component\Form\Extension\Core\Type\;
 
 class ScheduledTaskType extends AbstractType
 {
@@ -29,8 +31,13 @@ class ScheduledTaskType extends AbstractType
             )
             ->add('action')
             ->add('valeur')
-            ->add('module')
-            ->add('user')
+//            ->add('module', NumberType::class)
+            ->add('module', null, array(
+                'label' => 'nature',
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false));
+//            ->add('user')
         ;
     }
 

@@ -2,7 +2,7 @@
 
 <!-- responsive -->
 <div id="responsive" class="modal fade" tabindex="-1" data-width="760">
-    {{ form_start(form,{'attr': {'id': 'FormAjax', 'action': path('domotique_demobox_scheduled_form') }}) }}
+    {{ form_start(form,{'attr': {'id': 'FormAjax', 'action': path('domotique_demobox_scheduled_add') }}) }}
     <div class="modal-header">
         <a href="#" class="float-right" data-placement="left" title="close" data-dismiss="modal">
             <i class="glyph-icon icon-remove"></i>
@@ -10,9 +10,9 @@
     </div>
 
     <div class="modal-body">
-
+        {#<input type="hidden" id="scheduled_task_module" name="scheduled_task[module]" value="{{ moduleID }}" />#}
+        {{ form_widget(form.module, {'attr': {'option': moduleID}}) }}
         {{ form_widget(form) }}
-
 
     </div>
     <div class="modal-footer">

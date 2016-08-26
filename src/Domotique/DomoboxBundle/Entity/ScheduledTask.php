@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="domotique__task_scheduled")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class ScheduledTask
 {
@@ -230,7 +231,19 @@ class ScheduledTask
     {
         return $this->action;
     }
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps()
+    {
+        $this->setCreated(new \DateTime('now'));
 
+        if ($this->getCreated() == null) {
+            $this->setCreated(new \DateTime('now'));
+        }
+    }
 
 }
 
