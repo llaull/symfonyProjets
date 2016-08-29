@@ -4,6 +4,7 @@ namespace Domotique\DomoboxBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Domotique\ReseauBundle\Entity\Log;
 
 class InputController extends Controller
@@ -52,8 +53,12 @@ class InputController extends Controller
     /**
      * @return JsonResponse
      */
-    public function addJsonAction()
+    public function addJsonAction(Request $request)
     {
+        echo "test module flux";
+        var_dump($request->request->all());
+        die();
+
         return new JsonResponse(array('requete' => "sucess"));
     }
 }
