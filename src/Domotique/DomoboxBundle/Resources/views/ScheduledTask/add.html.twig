@@ -14,11 +14,11 @@
 
     </div>
     <div class="modal-footer">
-        <input type="submit" value="Submit" name="submitActionInt1"
+        <input type="submit" value="{{ 'Create'|trans }}" name="submitActionInt1"
                class="btn medium primary-bg"/>
-        <button type="button" data-dismiss="modal" aria-hidden="true" class="center btn medium primary-bg">Close
+        <button type="button" data-dismiss="modal" aria-hidden="true"
+                class="center btn medium primary-bg">{{ "Cancel"|trans }}
         </button>
     </div>
     {{ form_end(form) }}
-
 </div>

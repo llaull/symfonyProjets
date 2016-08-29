@@ -43,20 +43,20 @@ class ScheduledTask
      *
      * @ORM\ManyToOne(targetEntity="Domotique\ReseauBundle\Entity\Module")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="module_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="module_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $module;
     /**
      * @var string
      *
-     * @ORM\Column(name="action", type="string", length=100, nullable=true)
+     * @ORM\Column(name="action", type="string", length=100, nullable=false)
      */
     private $action;
     /**
      * @var string
      *
-     * @ORM\Column(name="valeur", type="string", length=100, nullable=true)
+     * @ORM\Column(name="valeur", type="string", length=100, nullable=false)
      */
     private $valeur;
     /**
@@ -71,9 +71,15 @@ class ScheduledTask
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isRun", type="boolean", nullable=false)
+     * @ORM\Column(name="isStart", type="boolean", nullable=false)
      */
-    private $run;
+    private $isStart;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isStop", type="boolean", nullable=false)
+     */
+    private $isStop;
 
     public function __construct()
     {
@@ -86,17 +92,33 @@ class ScheduledTask
     /**
      * @return boolean
      */
-    public function isRun()
+    public function isIsStart()
     {
-        return $this->run;
+        return $this->isStart;
     }
 
     /**
-     * @param boolean $run
+     * @param boolean $isStart
      */
-    public function setRun($run)
+    public function setIsStart($isStart)
     {
-        $this->run = $run;
+        $this->isStart = $isStart;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsStop()
+    {
+        return $this->isStop;
+    }
+
+    /**
+     * @param boolean $isStop
+     */
+    public function setIsStop($isStop)
+    {
+        $this->isStop = $isStop;
     }
 
     /**
@@ -113,22 +135,6 @@ class ScheduledTask
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    /**
-     * @return datetime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param datetime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
@@ -231,6 +237,7 @@ class ScheduledTask
     {
         return $this->action;
     }
+
     /**
      *
      * @ORM\PrePersist
@@ -243,6 +250,22 @@ class ScheduledTask
         if ($this->getCreated() == null) {
             $this->setCreated(new \DateTime('now'));
         }
+    }
+
+    /**
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param datetime $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
     }
 
 }

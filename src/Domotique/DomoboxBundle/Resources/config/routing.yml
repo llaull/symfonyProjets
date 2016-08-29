@@ -68,6 +68,6 @@ domotique_module_set_color:
     methods:  [POST]
 
 domotique_demobox_scheduled_add:
-    path:     /scheduled/add/
+    path:     /scheduled/new/
     defaults: { _controller: "DomotiqueDomoboxBundle:ScheduledTask:new" }
     methods:  [GET,POST]
