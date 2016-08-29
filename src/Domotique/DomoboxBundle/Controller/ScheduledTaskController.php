@@ -12,17 +12,15 @@ class ScheduledTaskController extends Controller
     public function newAction(Request $request)
     {
 
-        echo $request->attributes->get('module');
-//        var_dump($request);
-
         $scheduleTask = new ScheduledTask();
         $form = $this->createForm('Domotique\DomoboxBundle\Form\Type\ScheduledTaskType', $scheduleTask);
         $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
 
         $logger = $this->get('logger');
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+
             $scheduleTask->setUser($this->getUser());
 
             $em->persist($scheduleTask);
@@ -34,7 +32,6 @@ class ScheduledTaskController extends Controller
                 $logger->critical($e->getMessage());
                 return new JsonResponse(array('query' => $e->getMessage()));
             }
-
         }
 
         return $this->render('DomotiqueDomoboxBundle:ScheduledTask:add.html.twig', array(
