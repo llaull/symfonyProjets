@@ -55,9 +55,22 @@ class InputController extends Controller
      */
     public function addJsonAction(Request $request)
     {
-        echo "test module flux";
-        var_dump($request->request->all());
-        die();
+
+        $content = $request->getContent();
+        $em = $this->getDoctrine()->getManager();
+        $logger = $this->get('logger');
+
+        if (!empty($content)) {
+            $params = json_decode($content, true); // 2nd param to get as array
+        }
+
+        var_dump($params);
+
+        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->findOneBy(array('adressMac' => $params['mac']));
+
+        //die(var_dump($moduleX->getName()));
+
+        return new JsonResponse(array('requete' => "sucess"));
 
         return new JsonResponse(array('requete' => "sucess"));
     }
