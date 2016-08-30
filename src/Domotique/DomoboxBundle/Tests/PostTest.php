@@ -21,7 +21,7 @@ class PostTest extends WebTestCase
         // données simulé
         $datas = array(
             "mac" => "000000000000",
-            "ipv4" => "10.1.1.1",
+            "ipv4" => "10.1.1.8",
             "iterator" => "1932",
             "debug txt" => "sucess",
             "sensors" => array(
@@ -37,7 +37,7 @@ class PostTest extends WebTestCase
             array(),
             array(),
             array('CONTENT_TYPE' => 'application/json'),
-            json_encode(array('data' => $datas))
+            json_encode($datas)
         );
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
