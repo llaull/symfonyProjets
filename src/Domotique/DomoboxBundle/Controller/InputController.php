@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Domotique\ReseauBundle\Entity\Log;
+use Domotique\ReseauBundle\Entity\Module;
 
 class InputController extends Controller
 {
@@ -64,13 +65,41 @@ class InputController extends Controller
             $params = json_decode($content, true); // 2nd param to get as array
         }
 
-        var_dump($params);
+        $data = current($params);
+//        var_dump($data);
+//
+        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->findOneBy(array('adressMac' => $data['mac']));
 
-        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->findOneBy(array('adressMac' => $params['mac']));
 
-        //die(var_dump($moduleX->getName()));
 
-        return new JsonResponse(array('requete' => "sucess"));
+        if (!$moduleX) {
+            $logger->error("Unable to find module entity. module");
+//
+            $module = new Module();
+            $module->setId(NULL);
+            $module->setAdressMac($data['mac']);
+            $module->setAdressIpv4($data['ipv4']);
+//
+            $em->persist($module);
+            $em->flush();
+            var_dump("new module");
+            } else {
+            var_dump($moduleX->getName());
+
+                foreach ($data['sensors'] as $k => $v) {
+                    $log = new Log();
+
+                    $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($data['sensors'][$k]['sensor type Id']);
+                    $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($data['sensors'][$k]['sensor unit Id']);
+                    $log->setModule($moduleX);
+                    $log->setSensorId($data['sensors'][$k]['sensor Id']);
+                    $log->setSensorType($sensorType);
+                    $log->setSensorUnit($sensorUnit);
+                    $log->setSonsorValue($data['sensors'][$k]['sensor value']);
+                    $em->persist($log);
+                }
+                $em->flush();
+        }
 
         return new JsonResponse(array('requete' => "sucess"));
     }
