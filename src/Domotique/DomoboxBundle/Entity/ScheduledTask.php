@@ -3,6 +3,7 @@
 namespace Domotique\DomoboxBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * ScheduledTask
  *
@@ -86,7 +87,8 @@ class ScheduledTask
         $this->created = new \DateTime();
         $this->start = new \DateTime();
         $this->stop = new \DateTime();
-        $this->run = false;
+        $this->isStart = false;
+        $this->isStop = false;
     }
 
     /**
