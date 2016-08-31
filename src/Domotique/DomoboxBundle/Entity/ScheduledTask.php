@@ -74,53 +74,21 @@ class ScheduledTask
      *
      * @ORM\Column(name="isStart", type="boolean", nullable=false)
      */
-    private $isStart;
-    /**
+    private $taskStart;
+        /**
      * @var boolean
      *
      * @ORM\Column(name="isStop", type="boolean", nullable=false)
      */
-    private $isStop;
+    private $taskStop;
 
     public function __construct()
     {
         $this->created = new \DateTime();
         $this->start = new \DateTime();
         $this->stop = new \DateTime();
-        $this->isStart = false;
-        $this->isStop = false;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isIsStart()
-    {
-        return $this->isStart;
-    }
-
-    /**
-     * @param boolean $isStart
-     */
-    public function setIsStart($isStart)
-    {
-        $this->isStart = $isStart;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function isIsStop()
-    {
-        return $this->isStop;
-    }
-
-    /**
-     * @param boolean $isStop
-     */
-    public function setIsStop($isStop)
-    {
-        $this->isStop = $isStop;
+        $this->taskStart = false;
+        $this->taskStop = false;
     }
 
     /**
@@ -235,9 +203,41 @@ class ScheduledTask
         $this->user = $user;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isTaskStart()
+    {
+        return $this->taskStart;
+    }
+
+    /**
+     * @param boolean $taskStart
+     */
+    public function setTaskStart($taskStart)
+    {
+        $this->taskStart = $taskStart;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTaskStop()
+    {
+        return $this->taskStop;
+    }
+
+    /**
+     * @param boolean $taskStop
+     */
+    public function setTaskStop($taskStop)
+    {
+        $this->taskStop = $taskStop;
+    }
+
     public function __toString()
     {
-        return $this->action;
+        return $this->action." ".$this->valeur;
     }
 
     /**
@@ -269,6 +269,7 @@ class ScheduledTask
     {
         $this->created = $created;
     }
+
 
 }
 
