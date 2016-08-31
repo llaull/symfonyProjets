@@ -48,6 +48,6 @@ class PostTest extends WebTestCase
             json_encode($datas)
         );
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected create test");
     }
 }
