@@ -20,7 +20,7 @@ class PostTest extends WebTestCase
 
         // données simulé
         $datas = array(
-            "mac" => "000000000µ000",
+            "mac" => "000000000000",
             "ipv4" => "10.1.1.8",
             "iterator" => "1932",
             "debug txt" => "sucess",
