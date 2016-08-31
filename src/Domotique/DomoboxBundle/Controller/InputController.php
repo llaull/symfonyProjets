@@ -77,6 +77,7 @@ class InputController extends Controller
 
             $module = new Module();
             $module->setId(NULL);
+            $module->setName("nouveau module_".date('h:m:s'));
             $module->setAdressMac($params['mac']);
             $module->setAdressIpv4($params['ipv4']);
 
