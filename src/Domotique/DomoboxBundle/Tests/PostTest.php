@@ -14,19 +14,27 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class PostTest extends WebTestCase
 {
 
+    /*
+     * var_dump($client->getResponse()->getContent());
+     */
     public function testIndex()
     {
         $client = static::createClient();
 
         // données simulé
         $datas = array(
-            "mac" => "000000000000",
-            "ipv4" => "10.1.1.8",
-            "iterator" => "1932",
+            "mac" => "010007804000",
+            "ipv4" => "10.0.0.01",
+            "iterator" => "1",
             "debug txt" => "sucess",
             "sensors" => array(
                 "sensor Id" => "1",
-                "sensor type Id" => "1",
+                "sensor type Id" => "8",
+                "sensor unit Id" => "7",
+                "sensor value" => "1"),
+            array(
+                "sensor Id" => "2",
+                "sensor type Id" => "7",
                 "sensor unit Id" => "7",
                 "sensor value" => "1")
         );
@@ -39,6 +47,7 @@ class PostTest extends WebTestCase
             array('CONTENT_TYPE' => 'application/json'),
             json_encode($datas)
         );
+
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }
