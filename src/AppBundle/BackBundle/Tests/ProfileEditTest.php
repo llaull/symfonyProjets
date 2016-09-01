@@ -29,7 +29,6 @@ class ProfileEditTest extends WebTestCase
         ));
 
         $client->submit($form);
-    //    $crawler = $client->followRedirect();
 
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('div:contains("test")')->count(), 'Missing element div:contains("test")');
