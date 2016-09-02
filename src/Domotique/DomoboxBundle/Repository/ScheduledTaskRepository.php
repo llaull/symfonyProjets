@@ -9,14 +9,14 @@
 namespace Domotique\DomoboxBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Domotique\DomoboxBundle\Entity\ScheduledTask;
 
 
 class ScheduledTaskRepository extends EntityRepository
 {
 
     /*
-     * return les taches futur et qui n'ont pas commencer
+     * return les taches
+     *  futur et qui n'ont pas commencer
      */
     public function findAllFuturAndNotStart()
     {
