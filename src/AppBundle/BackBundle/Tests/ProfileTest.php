@@ -18,7 +18,7 @@ class ProfileTest extends WebTestCase
         $s->logIn($client);
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/profile/');
+        $client->request('GET', '/profile/');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /profile/");
 
     }

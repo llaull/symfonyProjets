@@ -7,11 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class LoginControllerTest extends WebTestCase
 {
 
+    /*
+     *
+     */
     public function testIndex()
     {
         $kernel = static::createKernel();
         $kernel->boot();
-        $container = $kernel->getContainer();
 
         $client = static::createClient();
 

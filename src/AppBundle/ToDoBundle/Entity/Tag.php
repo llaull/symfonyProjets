@@ -99,7 +99,7 @@ class Tag
     {
         $this->setCreated(new \DateTime('now'));
 
-        if ($this->getCreated() == null) {
+        if ($this->getCreated() === null) {
             $this->setCreated(new \DateTime('now'));
         }
     }

@@ -74,6 +74,11 @@
         output='assets/layouts/layout6/css/custom.min.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
         {% endstylesheets %}
+        {% stylesheets
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-notific8/jquery.notific8.min.css'
+        output='assets/global/plugins/jquery-notific8/jquery.notific8.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+        {% endstylesheets %}
         {% block moreCss %}{% endblock moreCss %}
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
@@ -111,10 +116,17 @@
         '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        {% javascripts
+        '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-notific8/jquery.notific8.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         <!-- END CORE PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         {% javascripts
-        '@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js' %}
+        '@BackOfficeBundle/Resources/public/assets/global/scripts/app.min.js'
+        '@BackOfficeBundle/Resources/public/assets/global/scripts/app.js'
+        %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
         <!-- END THEME GLOBAL SCRIPTS -->

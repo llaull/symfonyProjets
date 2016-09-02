@@ -7,6 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class LoggService extends WebTestCase{
 
+    /**
+     * var_dump($client->getResponse()->getContent());
+     * @param $client
+     * @param string $username
+     * @param string $password
+     */
     public function logIn($client, $username = 'test', $password = 'test')
     {
         $crawler = $client->request('GET', '/login');
@@ -15,8 +21,6 @@ class LoggService extends WebTestCase{
             '_password' => $password,
         ));
         $client->submit($form);
-
-//        var_dump($client->getResponse()->getContent());
 
         $this->assertTrue($client->getResponse()->isRedirect());
     }
