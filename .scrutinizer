@@ -1,0 +1,12 @@
+build:
+    dependencies:
+         before:
+            - mysql -e "CREATE DATABASE symfony"
+
+    tests:
+        override:
+            -
+                command: 'php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover'
+                coverage:
+                    file: 'coverage.clover'
+                    format: 'clover'
