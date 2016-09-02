@@ -103,8 +103,8 @@ class InputController extends Controller
             foreach ($params['sensors'] as $k => $v) {
 
                 //va chercher l'objet par l'id
-                $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($params['sensors'][$k]['sensor type Id']);
-                $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($params['sensors'][$k]['sensor unit Id']);
+                $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($params['sensors'][$k]["sensor type Id"]);
+                $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($params['sensors'][$k]["sensor unit Id"]);
 
                 $log = new Log();
 
