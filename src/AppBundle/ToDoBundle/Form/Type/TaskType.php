@@ -20,10 +20,10 @@ class TaskType extends AbstractType
             ->add('name')
         ;
 
-//        $builder->add('tags', CollectionType::class, array(
-//            'entry_type'   => TagType::class,
-//            'allow_add'    => true,
-//        ));
+        $builder->add('tags', CollectionType::class, array(
+            'entry_type'   => TagType::class,
+            'allow_add'    => true,
+        ));
     }
     
     /**
