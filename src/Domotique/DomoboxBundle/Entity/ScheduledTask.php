@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="domotique__task_scheduled")
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="Domotique\DomoboxBundle\Repository\ScheduledTaskRepository")
  */
 class ScheduledTask
 {
