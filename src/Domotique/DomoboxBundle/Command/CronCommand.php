@@ -35,12 +35,25 @@ class CronCommand extends ContainerAwareCommand
 
         foreach ($task as $value) {
 
-            $url = "http://" . $value->getModule()->getAdressIpv4() . "/" . $value->getAction() . '/' . $value->getValeur();
+            // formatage pour mes modules
+            $valeur = substr($value->getValeur(), 1, 6);
+            $action = strtolower($value->getAction());
+            $url = "http://" . $value->getModule()->getAdressIpv4() . "/" . $action . '/' . $valeur;
 
+            // action envoyer en Curl
             $curl = $curling->getToUrl($url, false);
-            $output->writeln($curl);
 
-            //
+            // si le retour de curl n'est pas vide
+            if (!empty($curl)) {
+                $params = json_decode($curl, true);
+            }
+
+            //si la valeur envoyer est la meme que retourne par le module
+            if (strtolower(substr($params["coulor"], 0, 6)) == $valeur) {
+                $output->writeln("ok");
+
+            }
+
 
         }
 
