@@ -1,4 +1,4 @@
-function uiNotific(themeN,stickyN, headingN, msg) {
+function uiNotific(themeN, stickyN, headingN, msg) {
     var settings = {
             theme: themeN,
             sticky: stickyN,
@@ -18,7 +18,37 @@ function uiNotific(themeN,stickyN, headingN, msg) {
 
     $button.attr('disabled', 'disabled');
 
-    setTimeout(function() {
+    setTimeout(function () {
         $button.removeAttr('disabled');
     }, 1000);
 }
+
+
+// ========================================================================
+//	modal - delete dans les tabledata
+// ========================================================================
+
+$("a.modal-delete").click(function (e) {
+    e.preventDefault();
+    var $link = $(this);
+
+    bootbox.confirm({
+        title: 'danger - danger - danger',
+        message: 'Are you sure you want to delete this. If not, click Cancel. There is no undo!',
+        buttons: {
+            'cancel': {
+                label: 'Cancel',
+                className: 'btn-default pull-left'
+            },
+            'confirm': {
+                label: 'Delete',
+                className: 'btn-danger pull-right'
+            }
+        },
+        callback: function (result) {
+            if (result) {
+                document.location.assign($link.attr('data-href'));
+            }
+        }
+    });
+});
