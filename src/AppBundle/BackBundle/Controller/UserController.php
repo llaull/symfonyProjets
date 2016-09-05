@@ -7,6 +7,7 @@
  */
 
 namespace AppBundle\BackBundle\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -25,6 +26,7 @@ class UserController extends Controller
             'users' => $user,
         ));
     }
+
     public function newAction(Request $request)
     {
         $user = new User();
@@ -34,7 +36,13 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush();
+
+            try {
+                $em->flush();
+                $this->get('ras_flash_alert.alert_reporter')->addSuccess("réalisé avec succèss");
+            } catch (\PDOException $e) {
+                $this->get('ras_flash_alert.alert_reporter')->addError("erreur" . $e);
+            }
 
             return $this->redirectToRoute('back_office_user_index');
         }
@@ -54,7 +62,14 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush();
+
+            try {
+                $em->flush();
+                $this->get('ras_flash_alert.alert_reporter')->addSuccess("réalisé avec succèss");
+            } catch (\PDOException $e) {
+                $this->get('ras_flash_alert.alert_reporter')->addError("impossible" . $e);
+            }
+
 
             return $this->redirectToRoute('back_office_user_index', array('id' => $user->getId()));
         }

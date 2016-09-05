@@ -30,6 +30,12 @@ assetic:
         dragIconRoundBig:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/amcharts/amcharts/images/dragIconRectBig.svg'
             output: 'amcharts/images/dragIconRectBig.svg'
+        sort_asc:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_asc.png'
+            output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_asc.png'
+        sort_asc:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_both.png'
+            output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_both.png'
 
 #       element portlet
         portlet-collapse-icon-white:
@@ -50,6 +56,9 @@ assetic:
         syncfusion-icon-white:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/syncfusion-icons-white.png'
             output: 'assets/global/img/syncfusion-icons-white.png'
+        remove-icon-small:
+            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/remove-icon-small.png'
+            output: 'assets/global/img/remove-icon-small.png'
 
 
 #../img/portlet-remove-icon-white.png
@@ -150,3 +159,9 @@ fos_user:
             type: AppBundle\BackBundle\Form\Type\ProfileFormType
             name: rest_user_profile
 #            validation_groups:  [Profile, Default]
+
+ras_flash_alert:
+    template: 'BackOfficeBundle:alerts:layout.html.twig'     # defaults to 'RasFlashAlertBundle::layout.html.twig'
+    isAddStyles: true                      # defaults to true
+    isAddJsAlertClose: true                # defaults to true
+
