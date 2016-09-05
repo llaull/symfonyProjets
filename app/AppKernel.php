@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Ras\Bundle\FlashAlertBundle\RasFlashAlertBundle(),
 
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
