@@ -19,7 +19,7 @@ class ModulePostJsonAddModuleTest extends WebTestCase
         $client = static::createClient();
 
         // données simulé
-        $datas = array(
+        $data = array(
             "mac" => "000000000000",
             "ipv4" => "10.1.1.8",
             "iterator" => "1932",
@@ -31,22 +31,31 @@ class ModulePostJsonAddModuleTest extends WebTestCase
                     "sensor unit Id" => "7",
                     "sensor value" => "1"),
                 array(
-                    "sensor Id" => "1",
+                    "sensor Id" => "2",
                     "sensor type Id" => "8",
                     "sensor unit Id" => "7",
-                    "sensor value" => "1")
+                    "sensor value" => "0")
             )
         );
 
-        $client->request(
-            'POST',
-            '/module/esp8266/post/json/',
-            array(),
-            array(),
-            array('CONTENT_TYPE' => 'application/json'),
-            json_encode($datas)
-        );
+        /*
+         * boucle pour insere plusieurs fois le jeux de valeur
+         */
+        for ($i = 0; $i <= 2; $i++) {
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+            $client->request(
+                'POST',
+                '/module/esp8266/post/json/',
+                array(),
+                array(),
+                array('CONTENT_TYPE' => 'application/json'),
+                json_encode($data)
+            );
+
+            var_dump($client->getResponse()->getContent());
+
+            $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        }
+
     }
 }
