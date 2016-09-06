@@ -43,7 +43,7 @@ class ModuleController extends Controller
             $em->persist($module);
             $em->flush();
 
-            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Category added");
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity added");
 
             return $this->redirectToRoute('admin_domotique_module_index');
         }
@@ -119,17 +119,6 @@ class ModuleController extends Controller
 
         return $this->redirect($this->generateUrl('admin_domotique_module_index'));
 
-        /*$form = $this->createDeleteForm($module);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($module);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('admin_domotique_module_index');
-        */
     }
 
     /**
@@ -144,7 +133,6 @@ class ModuleController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_domotique_module_delete', array('id' => $module->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

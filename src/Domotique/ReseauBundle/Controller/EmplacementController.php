@@ -43,6 +43,8 @@ class EmplacementController extends Controller
             $em->persist($emplacement);
             $em->flush();
 
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity added");
+
             return $this->redirectToRoute('admin_domotique_emplacement_index');
         }
 
@@ -102,8 +104,15 @@ class EmplacementController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($emplacement);
-            $em->flush();
+
+            try {
+                $em->remove($emplacement);
+                $em->flush();
+                $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
+            } catch (\PDOException $e) {
+                $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
+            }
+
         }
 
         return $this->redirectToRoute('admin_domotique_emplacement_index');
