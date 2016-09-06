@@ -1,0 +1,41 @@
+{% extends 'FrondOfficeBundle:MetronicWebApp:body-page-content.html.twig' %}
+
+{% block moreCss %}
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/pages/css/error.min.css'
+    output='assets/pages/css/error.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+{% endblock moreCss %}
+{% block moreJs %}{% endblock moreJs %}
+
+{% set title_page = 'Blank Page Layout' %}
+
+{% block content_txt %}
+    <div class="page-fixed-main-content">
+    <!-- BEGIN PAGE BASE CONTENT -->
+    <div class="row">
+        <div class="col-md-12 page-404">
+            <div class="number font-green"> 404</div>
+            <div class="details">
+                <h3>{{ "Oops! You're lost."|trans }}</h3>
+                <p> {{ "We can not find the page you're looking for."|trans }}
+                    <br/>
+                    <a href="{{ path('frond_office_homepage') }}">{{ " Return home."|trans }} </a></p>
+                {#<form action="#">#}
+                <div class="input-group input-medium">
+                    {#<input type="text" class="form-control" placeholder="keyword...">#}
+                    {#<span class="input-group-btn">#}
+                    {#<button type="submit" class="btn green">#}
+                    {#<i class="fa fa-search"></i>#}
+                    {#</button>#}
+                    {#</span>#}
+                </div>
+                {#<!-- /input-group -->#}
+                {#</form>#}
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE BASE CONTENT -->
+    </div>{% endblock content_txt %}
