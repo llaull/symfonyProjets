@@ -20,12 +20,12 @@ class AppKernel extends Kernel
             new AppBundle\BackBundle\BackOfficeBundle(),
             new AppBundle\FrondBundle\FrondOfficeBundle(),
             new AppBundle\ToDoBundle\AppBundleToDoBundle(),
-            // bundle domotique
-            new Domotique\DomoboxBundle\DomotiqueDomoboxBundle(),
-            new Domotique\ReseauBundle\DomotiqueReseauBundle(),
+
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Ras\Bundle\FlashAlertBundle\RasFlashAlertBundle(),
+
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
