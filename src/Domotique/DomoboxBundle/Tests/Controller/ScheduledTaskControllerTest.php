@@ -17,7 +17,7 @@ class ScheduledTaskControllerTest extends WebTestCase
         $s->logIn($client);
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/scheduled/new/');
+        $client->request('GET', '/scheduled/new/');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /scheduled/new/");
     }
