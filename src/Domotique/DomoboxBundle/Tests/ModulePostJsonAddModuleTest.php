@@ -52,8 +52,6 @@ class ModulePostJsonAddModuleTest extends WebTestCase
                 json_encode($data)
             );
 
-            var_dump($client->getResponse()->getContent());
-
             $this->assertEquals(200, $client->getResponse()->getStatusCode());
         }
 
