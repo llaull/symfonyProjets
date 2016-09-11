@@ -177,7 +177,7 @@
                                 {% for module in modules %}
                                     {% if  emplacement.name == module.emplacement %}
 
-                                        {% include 'DomotiqueDomoboxBundle:ui_module:' ~ module.nom_sonde ~ '.html.twig' with {'foo': 'bar'} %}
+                                        {% include 'DomotiqueDomoboxBundle:ui_module:' ~ module.nom_sonde ~ '.html.twig' ignore missing with {'foo': 'bar'} %}
 
                                     {% endif %}
                                 {% endfor %}
