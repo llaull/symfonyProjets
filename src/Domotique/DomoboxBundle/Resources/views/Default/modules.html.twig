@@ -56,14 +56,12 @@
     {% endjavascripts %}
 
     {% javascripts
-    '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-minicolors/jquery.minicolors.min.js'
-    %}
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-minicolors/jquery.minicolors.min.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     {% javascripts
-    '@BackOfficeBundle/Resources/public/assets/pages/scripts/components-color-pickers.js'
-    %}
+    '@BackOfficeBundle/Resources/public/assets/pages/scripts/components-color-pickers.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
@@ -137,10 +135,49 @@
                     }
                 });
                 //end ajax
-
             });
 
-        });
+            // pour les webcam
+
+            if ($('#webcams').length) {
+
+
+                var webcamCheck = function () {
+                    $('*[id*=webcams]:visible').each(function () {
+
+                        var dataJson = '[' + '{"module":"' + $(this).attr('data') + '"}' + ']';
+                        var newThis = $(this);
+
+                        $.ajax({
+                            type: "POST",
+                            url: "{{ path('domotiquebundle_domobox_webcam') }}",
+                            data: 'data=' + dataJson,
+                            cache: false,
+                            success: function (data) {
+                                if(!data.error){
+                                    console.log(data.error);
+                                     newThis.html('<img class="img-responsive" src="data:image/png;base64,' + data + '" />');
+                                } else {
+                                    console.log(data.error);
+                                      newThis.html('<img class="img-responsive" src="data:image/png;base64,' + data.image + '" />');
+
+                                }
+
+                            },
+                            error: function (result) {
+                                console.log("Error");
+                            }
+                        });
+
+                    });
+                };
+                webcamCheck();
+                setInterval(webcamCheck, 5000);
+            }
+
+
+        })
+        ;
     </script>
 {% endblock moreJs %}
 
@@ -177,7 +214,7 @@
                                 {% for module in modules %}
                                     {% if  emplacement.name == module.emplacement %}
 
-                                        {% include 'DomotiqueDomoboxBundle:ui_module:' ~ module.nom_sonde ~ '.html.twig' ignore missing with {'foo': 'bar'} %}
+                                        {% include 'DomotiqueDomoboxBundle:ui_module:' ~ module.nom_sonde ~ '.html.twig' with {'foo': 'bar'} %}
 
                                     {% endif %}
                                 {% endfor %}
