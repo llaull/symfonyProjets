@@ -10,7 +10,8 @@
     {#{% include 'BackOfficeBundle:Metronic:body-page-menu-search.html.twig' %}#}
     {% include 'BackOfficeBundle:Default:menu.html.twig' %}
     {% include ':default:appBackMenu.html.twig' ignore missing %}
-    {% include 'AppBundleToDoBundle:Default:menu.html.twig' %}
-
+    {% if global.quickSlidebar == true %}
+        {% include 'AppBundleToDoBundle:Default:menu.html.twig' %}
+    {% endif %}
 </ul>
 {#<!-- END SIDEBAR MENU -->#}
