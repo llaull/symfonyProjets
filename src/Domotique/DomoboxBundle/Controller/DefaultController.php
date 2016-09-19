@@ -24,28 +24,28 @@ class DefaultController extends Controller
         $modules = $this->getDoctrine()->getRepository('DomotiqueReseauBundle:Log');
         $modules = $modules->getCurrentValue($em);
 
-        return $this->render('DomotiqueDomoboxBundle:Default:modules.html.twig', array(
+        return $this->render('DomotiqueDomoboxBundle:Default:accueil.html.twig', array(
             'emplacements' => $emplacements,
             'modules' => $modules,
         ));
 
     }
 
-    public function graphAction()
-    {
-        return $this->render('DomotiqueDomoboxBundle:Default:graphique.html.twig');
-    }
+//    public function graphAction()
+//    {
+//        return $this->render('DomotiqueDomoboxBundle:Default:graphique.html.twig');
+//    }
 
 
-    public function rgbAction()
-    {
-        return $this->render('DomotiqueDomoboxBundle:Default:testRGB.html.twig');
-    }
+//    public function rgbAction()
+//    {
+//        return $this->render('DomotiqueDomoboxBundle:Default:testRGB.html.twig');
+//    }
 
-    public function videoAction()
-    {
-        return $this->render('DomotiqueDomoboxBundle:Default:videosurveillance.html.twig');
-    }
+//    public function videoAction()
+//    {
+//        return $this->render('DomotiqueDomoboxBundle:Default:videosurveillance.html.twig');
+//    }
 
 
     public function setModuleColorAction(Request $request)

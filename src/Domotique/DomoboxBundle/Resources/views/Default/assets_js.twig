@@ -1,0 +1,305 @@
+{% javascripts
+'@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-ui/jquery-ui.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/moment.min.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/tinycolorpicker/jquery.tinycolorpicker.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-minicolors/jquery.minicolors.min.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/pages/scripts/components-color-pickers.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amcharts/amcharts.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amcharts/plugins/dataloader/dataloader.min.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amcharts/serial.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amstockcharts/amstock.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amcharts/themes/patterns.js'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/amcharts/amstockcharts/amstock.js' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        AmCharts.ready(function () {
+            createStockChart();
+        });
+
+
+        var chart;
+
+        function createStockChart() {
+            chart = new AmCharts.AmStockChart();
+
+
+            // DATASETS //////////////////////////////////////////
+            var dataSet = new AmCharts.DataSet();
+            chart.dataSets = [{
+                title: "Salon",
+                color: "#000000",
+                fieldMappings: [{
+                    fromField: "temp",
+                    toField: "temp"
+                }, {
+                    fromField: "humi",
+                    toField: "humi"
+                }],
+                "dataLoader": {
+                    "url": "{{ path('domobox_log_graph', {'unit': 2}) }}",
+                    "showErrors": true,
+                    "complete": function (chart) {
+                        console.log("Loading complete");
+                    },
+                    "load": function (options, chart) {
+                        console.log("File loaded: ", options.url);
+                    },
+                    "error": function (options, chart) {
+                        console.log("Error occured loading file: ", options.url);
+                    }
+                },
+                categoryField: "date"
+            }];
+
+
+            // PANELS ///////////////////////////////////////////
+            // first stock panel
+            var stockPanel1 = new AmCharts.StockPanel();
+            stockPanel1.showCategoryAxis = false;
+            stockPanel1.title = "Temperature";
+//            stockPanel1.percentHeight = 70;
+
+            // graph of first stock panel
+            var graph1 = new AmCharts.StockGraph();
+            graph1.valueField = "temp";
+            graph1.comparable = true;
+            graph1.compareField = "temp";
+            graph1.type = "smoothedLine";
+            graph1.bullet = "round";
+            graph1.lineThickness = 2;
+            graph1.bulletBorderColor = "#FFFFFF";
+            graph1.bulletBorderAlpha = 1;
+            graph1.bulletBorderThickness = 3;
+
+            graph1.compareGraph = {
+                "type": "smoothedLine",
+                "bullet": "round",
+                "lineThickness": 2,
+                "bulletBorderColor": "#FFFFFF",
+                "bulletBorderAlpha": 1,
+                "bulletBorderThickness": 3
+            };
+
+            stockPanel1.addStockGraph(graph1);
+
+            // create stock legend
+            var stockLegend1 = new AmCharts.StockLegend();
+            stockLegend1.valueTextRegular = " ";
+            stockLegend1.markerType = "none";
+            stockPanel1.stockLegend = stockLegend1;
+
+            // second stock panel
+            var stockPanel2 = new AmCharts.StockPanel();
+            stockPanel2.title = "humi";
+//            stockPanel2.percentHeight = 30;
+            var graph2 = new AmCharts.StockGraph();
+            graph2.valueField = "humi";
+            graph2.type = "column";
+            graph2.fillAlphas = 1;
+            stockPanel2.addStockGraph(graph2);
+
+            // create stock legend
+            var stockLegend2 = new AmCharts.StockLegend();
+            stockLegend2.valueTextRegular = " ";
+            stockLegend2.markerType = "none";
+            stockPanel2.stockLegend = stockLegend2;
+
+            // set panels to the chart
+            chart.panels = [stockPanel1, stockPanel2];
+
+
+            // OTHER SETTINGS ////////////////////////////////////
+            var scrollbarSettings = new AmCharts.ChartScrollbarSettings();
+            scrollbarSettings.graph = graph1;
+            scrollbarSettings.enabled = graph1;
+
+            scrollbarSettings.dragIcon = "dragIconRectBig";
+            chart.chartScrollbarSettings = scrollbarSettings;
+
+            var cursorSettings = new AmCharts.ChartCursorSettings();
+            cursorSettings.valueBalloonsEnabled = true;
+            cursorSettings.graphBulletSize = 1;
+            chart.chartCursorSettings = cursorSettings;
+
+            var categoryAxesSettings = new AmCharts.CategoryAxesSettings();
+            categoryAxesSettings.minPeriod = "mm";
+            chart.categoryAxesSettings = categoryAxesSettings;
+
+            // PERIOD SELECTOR ///////////////////////////////////
+            var periodSelector = new AmCharts.PeriodSelector();
+            periodSelector.periods = [{
+                period: "DD",
+                count: 1,
+                label: "today",
+                selected: true,
+            }, {
+                period: "MM",
+                count: 1,
+                label: "1 month"
+            }, {
+                period: "YYYY",
+                count: 1,
+                label: "1 year"
+            }, {
+                period: "YTD",
+                label: "YTD"
+            }, {
+                period: "MAX",
+                label: "MAX"
+            }];
+            chart.periodSelector = periodSelector;
+
+            var panelsSettings = new AmCharts.PanelsSettings();
+            panelsSettings.marginRight = 16;
+            panelsSettings.marginLeft = 16;
+            panelsSettings.usePrefixes = true;
+            chart.panelsSettings = panelsSettings;
+
+            chart.write('chartdiv');
+        }
+
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(function () {
+            $('form').on('submit', function (e) {
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    beforeSend: function () {
+                        uiNotific('smoke', false, "en cours");
+                    },
+                    success: function (data) {
+                        if (data.query == 'sucess') {
+                            uiNotific('lime', false, data.query);
+                            location.reload();
+                        } else {
+                            uiNotific('tangerine', true, data.query);
+                        }
+                    },
+                    error: function (data) {
+                        uiNotific('tangerine', true, "error", data.query);
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+        $(function () {
+            $('#scheduled_task_start').datetimepicker({
+                todayBtn: "true",
+                format: "dd/mm/yy hh:ii",
+                autoclose: "true",
+                pickerPosition: "bottom-left",
+//                startView:"week",
+                minView: "hour",
+                language: "fr"
+            });
+            $('#scheduled_task_stop').datetimepicker({
+                todayBtn: "true",
+                format: "dd/mm/yy hh:ii",
+                autoclose: "true",
+                pickerPosition: "bottom-left",
+//                startView:"day",
+                minView: "hour",
+                language: "fr"
+            });
+
+        });
+
+        var $box = $('.TinyColorConteneur');
+        $box.tinycolorpicker();
+
+        $box.bind("change", function () {
+            var selectedValue = $(this).find(".colorInput").val();
+            var moduleID = $(this).find(".modAdresse").val();
+            var dataJson = '[' + '{"module":"' + moduleID + '"},' + '{"path":"color"},' + '{"color":"' + selectedValue + '"}' + ']';
+
+            // ajax
+            $.ajax({
+                data: 'data=' + dataJson,
+                cache: false,
+                type: 'POST',
+                url: '{{ path ('domotique_module_set_color') }}',
+                success: function (data) {
+                    console.log(data)
+                }
+            });
+            //end ajax
+        });
+
+        // pour les webcam
+
+        if ($('#webcams').length) {
+
+
+            var webcamCheck = function () {
+                $('*[id*=webcams]:visible').each(function () {
+
+                    var dataJson = '[' + '{"module":"' + $(this).attr('data') + '"}' + ']';
+                    var newThis = $(this);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('domotiquebundle_domobox_webcam') }}",
+                        data: 'data=' + dataJson,
+                        cache: false,
+                        success: function (data) {
+                            if (!data.error) {
+                                console.log(data.error);
+                                newThis.html('<img class="img-responsive" src="data:image/png;base64,' + data + '" />');
+                            } else {
+                                console.log(data.error);
+                                newThis.html('<img class="img-responsive" src="data:image/png;base64,' + data.image + '" />');
+
+                            }
+
+                        },
+                        error: function (result) {
+                            console.log("Error");
+                        }
+                    });
+
+                });
+            };
+            webcamCheck();
+            setInterval(webcamCheck, 5000);
+        }
+
+
+    });
+</script>

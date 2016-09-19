@@ -1,0 +1,15 @@
+{% extends 'FrondOfficeBundle:MetronicWebApp:body-page-content.html.twig' %}
+
+{% block moreCss %}
+    {% include '@DomotiqueDomobox/Default/assets_css.twig' %}
+{% endblock moreCss %}
+
+{% block moreJs %}
+    {% include '@DomotiqueDomobox/Default/assets_js.twig' %}
+{% endblock moreJs %}
+
+{% set title_page = 'les modules' %}
+
+{% block content_txt %}
+    {% include 'DomotiqueDomoboxBundle:Default:accueil_content.html.twig' %}
+{% endblock content_txt %}
