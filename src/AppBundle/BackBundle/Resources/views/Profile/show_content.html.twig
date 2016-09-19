@@ -18,12 +18,14 @@
         {#<!-- BEGIN PROFILE CONTENT -->#}
         <div class="profile-content">
             <div class="row">
-                    {#{% include "@BackOffice/Profile/show_content_activity.html.twig" %}#}
-                    {#{% include "@BackOffice/Profile/show_content_feeds.html.twig" %}#}
+                {#{% include "@BackOffice/Profile/show_content_activity.html.twig" %}#}
+                {#{% include "@BackOffice/Profile/show_content_feeds.html.twig" %}#}
             </div>
             <div class="row">
                 {#{% include "@BackOffice/Profile/show_content_support.html.twig" %}#}
-                {% include "@BackOffice/Profile/show_content_tasks.html.twig" %}
+                {% if global.quickSlidebar == true %}
+                    {% include "@BackOffice/Profile/show_content_tasks.html.twig" %}
+                {% endif %}
             </div>
             {#{% include "@BackOffice/Profile/show_content_timeline.html.twig" %}#}
         </div>
