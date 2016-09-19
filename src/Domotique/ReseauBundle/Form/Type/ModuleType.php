@@ -5,6 +5,7 @@ namespace Domotique\ReseauBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class ModuleType extends AbstractType
 {
@@ -15,12 +16,11 @@ class ModuleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-//            ->add('created', 'datetime')
-//            ->add('modified', 'datetime')
             ->add('name')
             ->add('adressMac')
             ->add('adressIpv4')
             ->add('location')
+            ->add('active', CheckboxType::class, array('required' => false) )
         ;
     }
     

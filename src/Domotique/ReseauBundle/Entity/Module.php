@@ -60,10 +60,33 @@ class Module
      */
     private $location;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=true, options={"default":true})
+     */
+    private $active;
+
     public function __construct()
     {
         $this->modified = new \DateTime();
         $this->created = new \DateTime();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param boolean $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 
     public function __toString()

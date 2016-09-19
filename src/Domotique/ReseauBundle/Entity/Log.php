@@ -73,10 +73,32 @@ class Log
      * })
      */
     private $sensorUnit;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sonsor_value_string", type="string", length=250, nullable=true)
+     */
+    private $sonsorValueString;
 
     public function __construct()
     {
         $this->created = new \DateTime();
+    }
+
+    /**
+     * @return string
+     */
+    public function getSonsorValueString()
+    {
+        return $this->sonsorValueString;
+    }
+
+    /**
+     * @param string $sonsorValueString
+     */
+    public function setSonsorValueString($sonsorValueString)
+    {
+        $this->sonsorValueString = $sonsorValueString;
     }
 
     /**

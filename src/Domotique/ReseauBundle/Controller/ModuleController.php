@@ -83,7 +83,8 @@ class ModuleController extends Controller
             $em->persist($module);
             $em->flush();
 
-            return $this->redirectToRoute('admin_domotique_module_edit', array('id' => $module->getId()));
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity modified");
+            return $this->redirectToRoute('admin_domotique_module_index');
         }
 
         return $this->render('@DomotiqueReseau/module/edit.html.twig', array(
