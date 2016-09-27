@@ -83,7 +83,8 @@ class EmplacementController extends Controller
             $em->persist($emplacement);
             $em->flush();
 
-            return $this->redirectToRoute('admin_domotique_emplacement_edit', array('id' => $emplacement->getId()));
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity updated");
+            return $this->redirectToRoute('admin_domotique_emplacement_index');
         }
 
         return $this->render('@DomotiqueReseau/emplacement/edit.html.twig', array(
@@ -97,25 +98,28 @@ class EmplacementController extends Controller
      * Deletes a Emplacement entity.
      *
      */
-    public function deleteAction(Request $request, Emplacement $emplacement)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($emplacement);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-            try {
-                $em->remove($emplacement);
-                $em->flush();
-                $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
-            } catch (\PDOException $e) {
-                $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
-            }
+        $entity = $em->getRepository('DomotiqueReseauBundle:Emplacement')->find($id);
 
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Texte entity.');
         }
 
-        return $this->redirectToRoute('admin_domotique_emplacement_index');
+        try {
+            $em->remove($entity);
+            $em->flush();
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
+        } catch (\PDOException $e) {
+            $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
+        }
+
+
+        return $this->redirect($this->generateUrl('admin_domotique_emplacement_index'));
+
     }
 
     /**

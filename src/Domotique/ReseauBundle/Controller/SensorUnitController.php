@@ -81,7 +81,8 @@ class SensorUnitController extends Controller
             $em->persist($sensorUnit);
             $em->flush();
 
-            return $this->redirectToRoute('admin_domotique_sensor_unit_edit', array('id' => $sensorUnit->getId()));
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity updated");
+            return $this->redirectToRoute('admin_domotique_sensor_unit_index');
         }
 
         return $this->render('@DomotiqueReseau/sensorunit/edit.html.twig', array(
@@ -95,18 +96,28 @@ class SensorUnitController extends Controller
      * Deletes a SensorUnit entity.
      *
      */
-    public function deleteAction(Request $request, SensorUnit $sensorUnit)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($sensorUnit);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($sensorUnit);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Texte entity.');
         }
 
-        return $this->redirectToRoute('admin_domotique_sensor_unit_index');
+        try {
+            $em->remove($entity);
+            $em->flush();
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
+        } catch (\PDOException $e) {
+            $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
+        }
+
+
+        return $this->redirect($this->generateUrl('admin_domotique_sensor_unit_index'));
+
     }
 
     /**

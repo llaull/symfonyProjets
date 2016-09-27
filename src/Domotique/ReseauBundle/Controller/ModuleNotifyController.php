@@ -81,7 +81,8 @@ class ModuleNotifyController extends Controller
             $em->persist($moduleNotify);
             $em->flush();
 
-            return $this->redirectToRoute('admin_domotique_module_notify_edit', array('id' => $moduleNotify->getId()));
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity updated");
+            return $this->redirectToRoute('admin_domotique_module_notify_index');
         }
 
         return $this->render('@DomotiqueReseau/modulenotify/edit.html.twig', array(
@@ -95,18 +96,28 @@ class ModuleNotifyController extends Controller
      * Deletes a ModuleNotify entity.
      *
      */
-    public function deleteAction(Request $request, ModuleNotify $moduleNotify)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($moduleNotify);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($moduleNotify);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('DomotiqueReseauBundle:ModuleNotify')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Texte entity.');
         }
 
-        return $this->redirectToRoute('admin_domotique_module_notify_index');
+        try {
+            $em->remove($entity);
+            $em->flush();
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
+        } catch (\PDOException $e) {
+            $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
+        }
+
+
+        return $this->redirect($this->generateUrl('admin_domotique_module_notify_index'));
+
     }
 
     /**

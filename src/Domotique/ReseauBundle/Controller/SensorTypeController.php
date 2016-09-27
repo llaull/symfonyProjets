@@ -43,6 +43,7 @@ class SensorTypeController extends Controller
             $em->persist($sensorType);
             $em->flush();
 
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity added");
             return $this->redirectToRoute('admin_domotique_sensor_type_index');
         }
 
@@ -81,7 +82,8 @@ class SensorTypeController extends Controller
             $em->persist($sensorType);
             $em->flush();
 
-            return $this->redirectToRoute('admin_domotique_sensor_type_edit', array('id' => $sensorType->getId()));
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Entity updated");
+            return $this->redirectToRoute('admin_domotique_sensor_type_index');
         }
 
         return $this->render('@DomotiqueReseau/sensortype/edit.html.twig', array(
@@ -95,18 +97,28 @@ class SensorTypeController extends Controller
      * Deletes a SensorType entity.
      *
      */
-    public function deleteAction(Request $request, SensorType $sensorType)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($sensorType);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($sensorType);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Texte entity.');
         }
 
-        return $this->redirectToRoute('admin_domotique_sensor_type_index');
+        try {
+            $em->remove($entity);
+            $em->flush();
+            $this->get('ras_flash_alert.alert_reporter')->addSuccess("Suppression réalisé avec succèss");
+        } catch (\PDOException $e) {
+            $this->get('ras_flash_alert.alert_reporter')->addError("Suppression impossible : des articles utilise cette categorie");
+        }
+
+
+        return $this->redirect($this->generateUrl('admin_domotique_sensor_type_index'));
+
     }
 
     /**
