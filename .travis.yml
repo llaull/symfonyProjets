@@ -6,11 +6,6 @@ services:
 
 before_install:
   - composer self-update
- # - cd src
- # - git clone https://github.com/llaull/AppBundleX.git
- # - mv  -v AppBundleX/* AppBundle/
- # - cd ../
-  - mysql -e 'create database test;'
   - mysql -e 'create database symfony;'
 
 install:
@@ -22,7 +17,3 @@ before_script:
 
 script:
   - php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
-
-#after_script:
-#  - wget https://scrutinizer-ci.com/ocular.phar
-#  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
