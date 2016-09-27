@@ -9,6 +9,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ScheduledTaskController extends Controller
 {
+
+    public function indexAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $scheduledTask = $em->getRepository('DomotiqueDomoboxBundle:ScheduledTask')->finAll();
+
+
+        return $this->render('DomotiqueDomoboxBundle:Default:modules.html.twig', array(
+            'scheduledTask' => $scheduledTask,
+        ));
+    }
+
     public function newAction(Request $request)
     {
 
