@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Ras\Bundle\FlashAlertBundle\RasFlashAlertBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
 
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),

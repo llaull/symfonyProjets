@@ -2,7 +2,7 @@
     "name": "symfony/framework-standard-edition",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "projet SF contenant mes projets en sf ",
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -24,7 +24,8 @@
         "phpunit/phpunit": "^4.8",
         "egeloen/ckeditor-bundle": "4.0.3",
         "helios-ag/fm-elfinder-bundle": "6.1",
-        "ras/flash-alert-bundle": "dev-development"
+        "ras/flash-alert-bundle": "dev-development",
+        "liip/imagine-bundle": "1.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
