@@ -27,3 +27,4 @@ parameters:
     app.projet.global.quickSlidebar: 1
     app.projet.back.copyright: Alpha dashboard 2016 &copy; <a href="#" title="" target="_blank"> projet ! </a>
     app.projet.front.copyright: Alpha
+    app.todobundle: 0

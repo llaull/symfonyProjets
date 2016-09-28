@@ -1,4 +1,11 @@
-{% if global.quickSlidebar == true %}
+<li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-docs"></i>
+        <span class="title">Application</span>
+        <span class="arrow"></span>
+    </a>
+
+    {% if global.quickSlidebar == true %}
     <ul class="sub-menu">
         <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
             <a href="{{ path('app_bundle_to_do_homepage') }}" class="nav-link ">
@@ -7,4 +14,5 @@
             </a>
         </li>
     </ul>
-{% endif %}
+    {% endif %}
+</li>
