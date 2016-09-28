@@ -59,7 +59,15 @@ assetic:
         remove-icon-small:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/remove-icon-small.png'
             output: 'assets/global/img/remove-icon-small.png'
-
+        portlet-collapse-icon:
+             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-collapse-icon.png'
+             output: 'assets/global/img/portlet-collapse-icon.png'
+        portlet-remove-icon:
+             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-remove-icon.png'
+             output: 'assets/global/img/portlet-remove-icon.png'
+        portlet-expand-icon:
+             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/img/portlet-expand-icon.png'
+             output: 'assets/global/img/portlet-expand-icon.png'
 
 #../img/portlet-remove-icon-white.png
 #        sort-both:
