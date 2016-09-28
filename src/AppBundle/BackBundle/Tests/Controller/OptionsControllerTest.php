@@ -44,7 +44,7 @@ class OptionsControllerTest extends WebTestCase
 
         $client->submit($form);
         $crawler = $client->followRedirect();
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("ReTestName ")')->count(), 'Missing element td:contains("ReTestName")');
+        $this->assertGreaterThan(0, $crawler->filter('td:contains("ReTestName")')->count(), 'Missing element td:contains("ReTestName")');
 
     }
 
