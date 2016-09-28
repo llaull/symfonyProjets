@@ -1,0 +1,24 @@
+<table>
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <td>{{ option.id }}</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ option.name }}</td>
+    </tr>
+    <tr>
+        <th>Value</th>
+        <td>{{ option.value }}</td>
+    </tr>
+    <tr>
+        <th>modificateur</th>
+        <td>{{ option.user.username }}</td>
+    </tr>
+    <tr>
+        <th>Updated</th>
+        <td>{% if option.updated %}{{ option.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+    </tr>
+    </tbody>
+</table>

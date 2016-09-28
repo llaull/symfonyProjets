@@ -1,0 +1,35 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-managed_datatables.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% set title_page = 'options de l\'application' %}
+{% set path_entity_new = 'app_options_new' %}
+{% set table_size = 'col-md-6' %}{# col-md-6 col-sm-12#}
+
+{% block content_txt %}
+<tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Action</th>
+</tr>
+</thead>
+<tbody>
+{% for option in options %}
+    <tr>
+        <td>{{ option.name }}</td>
+        <td>{{ option.value }}</td>
+        <td>
+            <div class="btn-toolbar">
+                <div class="btn-group btn-group-xs btn-group-solid">
+                    <a class="btn red modal-show" data="{{ path('app_options_show', { 'id': option.id }) }}"
+                       href="{{ path('app_options_show', { 'id': option.id }) }}">{{ 'show'|trans }}</a>
+                    <a class="btn green"
+                       href="{{ path('app_options_edit', { 'id': option.id }) }}">{{ 'edit'|trans }}</a>
+                    <a class="btn yellow modal-delete"
+                       data-href="{{ path('app_options_delete', { 'id': option.id }) }}"
+                       href="{{ path('app_options_delete', { 'id': option.id }) }}">{{ 'delete'|trans }}</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+{% endfor %}
+{% endblock content_txt %}

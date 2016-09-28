@@ -1,0 +1,8 @@
+<ul class="sub-menu">
+    <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_options_index' %}active open{% endif %}">
+        <a href="{{ path('app_options_index') }}" class="nav-link ">
+            <i class="fa fa-cog"></i>
+            <span class="title">Options</span>
+        </a>
+    </li>
+</ul>
