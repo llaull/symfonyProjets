@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Ras\Bundle\FlashAlertBundle\RasFlashAlertBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
