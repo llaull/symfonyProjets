@@ -7,9 +7,6 @@ services:
 before_install:
   - composer self-update
   - mysql -e 'create database symfony;'
-  - mysql -e 'USE symfony;'
-  - mysql -e 'CREATE TABLE app__options (id INT NOT NULL);'
-
 
 install:
   - composer install --no-suggest
