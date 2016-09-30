@@ -21,7 +21,7 @@ install:
 before_script:
   - php bin/console doctrine:schema:update --force
   - php bin/console fos:user:create test test test --super-admin
-  - php bin/console doctrine:migrations:migrate
+  - php bin/console doctrine:migrations:migrate -n
 
 after_script:
   - composer update --no-suggest
