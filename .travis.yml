@@ -10,7 +10,7 @@ before_install:
   - mysql -e 'CREATE TABLE symfony.app__options (nul INT NULL);'
 
 install:
-  - composer install --no-suggest --no-scripts
+  - composer install --no-suggest
 
 before_script:
   - php bin/console doctrine:schema:create
