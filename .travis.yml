@@ -5,15 +5,14 @@ services:
   - mysql
 
 before_install:
-  - composer self-update
   - mysql -e 'create database symfony;'
-  - php bin/console doctrine:schema:create
-  - php bin/console doctrine:schema:update --force
-  - php bin/console fos:user:create test test test --super-admin
-  - php bin/console doctrine:migrations:migrate
 
 install:
   - composer install
+  - php bin/console doctrine:schema:create
+  - php bin/console doctrine:schema:update --force
+  - php bin/console fos:user:create test test test --super-admin
+#  - php bin/console doctrine:migrations:migrate
 
 script:
   - php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
