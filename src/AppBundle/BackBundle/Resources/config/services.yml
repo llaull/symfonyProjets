@@ -3,6 +3,10 @@ services:
         class: AppBundle\BackBundle\Services\LoggService
         arguments: ["@service_container"]
 
+    back_office.options:
+        class: AppBundle\BackBundle\Services\AppOptionsService
+        arguments: ["@doctrine.orm.entity_manager"]
+
     back_office.form.profile:
        class: AppBundle\BackBundle\Form\Type\ProfileFormType
        arguments:

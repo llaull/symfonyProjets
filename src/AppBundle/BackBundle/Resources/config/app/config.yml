@@ -1,12 +1,6 @@
 twig:
     globals:
-        global:
-          nom: '%app.projet.global.nom%'
-          quickSlidebar: '%app.projet.global.quickSlidebar%'
-        back:
-          copyright: '%app.projet.back.copyright%'
-        front:
-          copyright: '%app.projet.front.copyright%'
+        appOptions: '@back_office.options'
 
 assetic:
     debug:          '%kernel.debug%'

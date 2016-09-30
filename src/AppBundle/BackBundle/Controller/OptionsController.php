@@ -4,9 +4,11 @@ namespace AppBundle\BackBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use AppBundle\BackBundle\Entity\Options;
 use AppBundle\BackBundle\Form\OptionsType;
+
 
 /**
  * Options controller.
@@ -14,7 +16,7 @@ use AppBundle\BackBundle\Form\OptionsType;
  */
 class OptionsController extends Controller
 {
-    /**
+     /**
      * Lists all Options entities.
      *
      */

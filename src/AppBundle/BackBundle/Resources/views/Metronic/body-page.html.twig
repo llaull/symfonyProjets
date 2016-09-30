@@ -30,10 +30,10 @@
                             <i class="fa fa-circle"></i>
                         </li>
                         {% if path_entity_index is defined %}
-                        <li>
-                            <a href="{{ path( (path_entity_index) )  }}">module</a>
-                            <i class="fa fa-circle"></i>
-                        </li>
+                            <li>
+                                <a href="{{ path( (path_entity_index) ) }}">module</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
                         {% endif %}
                         <li>
                             <span>{{ title_page }}</span>
@@ -50,8 +50,8 @@
         </div>
         {#<!-- END CONTENT -->#}
         {#<!-- BEGIN QUICK SIDEBAR -->#}
-        {% if global.quickSlidebar == true %}
-        {% include 'BackOfficeBundle:Metronic:body-page-quick-slide.html.twig' %}
+        {% if appOptions.optionName('app.projet.global.quickSlidebar').value == true %}
+            {% include 'BackOfficeBundle:Metronic:body-page-quick-slide.html.twig' %}
         {% endif %}
         {#<!-- END QUICK SIDEBAR -->#}
     </div>
