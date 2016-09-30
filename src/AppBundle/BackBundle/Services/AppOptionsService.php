@@ -19,12 +19,20 @@ class AppOptionsService
     {
         $this->em = $em;
 
-        $opt = $em->getRepository('BackOfficeBundle:Options')->findAll();
+        try {
 
-        $this->options = $opt;
+            $opt = $em->getRepository('BackOfficeBundle:Options')->findAll();
+            $this->options = $opt;
+
+        } catch (\PDOException $e) {
+            $this->options = 'error';
+
+        }
+
     }
 
-    public function getOptionName($name){
+    public function getOptionName($name)
+    {
         foreach ($this->options as $opt) {
             if ($opt->getName() == $name) {
                 return $opt;
