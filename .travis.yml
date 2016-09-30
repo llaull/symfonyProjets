@@ -7,9 +7,10 @@ services:
 before_install:
   - composer self-update
   - mysql -e 'create database symfony;'
+  - mysql -e 'CREATE TABLE symfony.app__options (nul INT NULL);'
 
 install:
-  - composer install --no-suggest
+  - composer install --no-suggest --no-scripts
 
 before_script:
   - php bin/console doctrine:schema:create
@@ -17,6 +18,11 @@ before_script:
   - php bin/console fos:user:create test test test --super-admin
   - php bin/console doctrine:migrations:migrate
 
+after_script:
+  - composer update --no-suggest
+
 script:
-  - php bin/console cache:clear
   - php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
+
+notifications:
+  - email: false
