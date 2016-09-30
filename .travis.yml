@@ -12,7 +12,7 @@ before_install:
                                                   option_name varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
                                                   option_value varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
                                                   option_updated datetime NOT NULL
-                                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+                                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;'
 
 
 install:
