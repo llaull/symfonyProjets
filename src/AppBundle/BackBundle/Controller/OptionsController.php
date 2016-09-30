@@ -4,10 +4,9 @@ namespace AppBundle\BackBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 use AppBundle\BackBundle\Entity\Options;
-use AppBundle\BackBundle\Form\OptionsType;
+use AppBundle\BackBundle\Form\Type\OptionsType;
 
 
 /**

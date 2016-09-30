@@ -13,7 +13,6 @@ use Doctrine\ORM\EntityManager;
 class AppOptionsService
 {
 
-    private $em;
     private $options;
 
     public function __construct(EntityManager $em)
