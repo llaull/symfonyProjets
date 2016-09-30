@@ -4,9 +4,7 @@ namespace AppBundle\BackBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use AppBundle\BackBundle\Entity\Options;
-use AppBundle\BackBundle\Form\Type\OptionsType;
 
 
 /**
