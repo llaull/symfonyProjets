@@ -10,7 +10,7 @@
     {#{% include 'BackOfficeBundle:Metronic:body-page-menu-search.html.twig' %}#}
     {% include 'BackOfficeBundle:Default:menu.html.twig' %}
     {% include ':default:appBackMenu.html.twig' ignore missing %}
-    {% if global.quickSlidebar == true %}
+    {% if appOptions.optionName('app.todobundle').value %}
         <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="icon-docs"></i>
