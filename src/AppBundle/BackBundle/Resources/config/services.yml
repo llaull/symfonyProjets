@@ -10,7 +10,7 @@ services:
 #    mode maintenance
     app.maintenance:
         class: AppBundle\BackBundle\Services\MaintenanceService
-        arguments: ["@service_container","@doctrine.orm.entity_manager", "@app.options"]
+        arguments: ["@service_container","@doctrine.orm.entity_manager", "@app.options", "@security.token_storage"]
         tags:
             - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
 

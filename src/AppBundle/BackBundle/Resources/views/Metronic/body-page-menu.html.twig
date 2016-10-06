@@ -10,16 +10,19 @@
     {#{% include 'BackOfficeBundle:Metronic:body-page-menu-search.html.twig' %}#}
     {% include 'BackOfficeBundle:Default:menu.html.twig' %}
     {% include ':default:appBackMenu.html.twig' ignore missing %}
-    {% if appOptions.optionName('app.todobundle').value %}
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
-            <a href="javascript:;" class="nav-link nav-toggle">
-                <i class="icon-docs"></i>
-                <span class="title">Application</span>
-                <span class="arrow"></span>
-            </a>
+
+
+    <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-docs"></i>
+            <span class="title">{{ 'Application'|trans }}</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
             {% include '@BackOffice/options/menu.html.twig' %}
-            {% include 'AppBundleToDoBundle:Default:menu.html.twig' %}
-        </li>
-    {% endif %}
+            {% include '@AppBundleToDo/Default/menu.html.twig' %}
+        </ul>
+    </li>
+
 </ul>
 {#<!-- END SIDEBAR MENU -->#}
