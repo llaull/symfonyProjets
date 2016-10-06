@@ -7,6 +7,7 @@ services:
         class: AppBundle\BackBundle\Services\AppOptionsService
         arguments: ["@doctrine.orm.entity_manager"]
 
+#    mode maintenance
     app.maintenance:
         class: AppBundle\BackBundle\Services\MaintenanceService
         arguments: ["@service_container","@doctrine.orm.entity_manager", "@app.options"]
