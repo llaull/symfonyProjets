@@ -89,6 +89,7 @@ class MaintenanceService
         $this->pathEnable[] = '/_wdt/';
         $this->pathEnable[] = '/_profiler/';
 
+        $this->pathEnable[] = '/profile/';
         $this->pathEnable[] = '/admin/';
         $this->pathEnable[] = '/login';
 
