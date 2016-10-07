@@ -15,13 +15,13 @@ before_install:
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;'
 
 install:
-  - php -d memory_limit=-1 bin/composer install --no-suggest
+  - php -d memory_limit=-1 bin/composer install
 
 before_script:
   - php bin/console doctrine:schema:update --force
   - php bin/console fos:user:create test test test --super-admin
   - php bin/console doctrine:migrations:migrate -n
-  - php -d memory_limit=-1 bin/composer update --no-suggest
+  - php -d memory_limit=-1 bin/composer update
 
 
 script:
