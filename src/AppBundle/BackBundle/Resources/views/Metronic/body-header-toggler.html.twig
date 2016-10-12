@@ -1,9 +1,9 @@
 {#<!-- BEGIN QUICK SIDEBAR TOGGLER -->#}
-    {% if appOptions.optionName('app.projet.global.quickSlidebar').value == true %}
-        <li class="dropdown dropdown-quick-sidebar-toggler">
-            <a href="javascript:;" class="dropdown-toggle">
-                <i class="icon-logout"></i>
-            </a>
-        </li>
-    {% endif %}
+{% if appOptions.optionName('app.projet.global.quickSlidebar').value %}
+<li class="dropdown dropdown-quick-sidebar-toggler">
+    <a href="javascript:;" class="dropdown-toggle">
+        <i class="icon-logout"></i>
+    </a>
+</li>
+{% endif %}
 {#<!-- END QUICK SIDEBAR TOGGLER -->#}

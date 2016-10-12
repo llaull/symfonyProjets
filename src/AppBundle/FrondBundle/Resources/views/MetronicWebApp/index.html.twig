@@ -92,7 +92,7 @@
         {#{% include 'FrondOfficeBundle:MetronicWebApp:body-page-content.html.twig' %}#}
         {% block bodyPage %}{% endblock bodyPage %}
         {#<!-- END CONTAINER -->#}
-        {% if appOptions.optionName('app.projet.global.quickSlidebar').value == true %}
+        {% if appOptions.optionName('app.projet.global.quickSlidebar').value %}
             {% include 'FrondOfficeBundle:MetronicWebApp:body-quick-slidebar.html.twig' %}
         {% endif %}
         <!--[if lt IE 9]>

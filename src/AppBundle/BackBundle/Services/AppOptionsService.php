@@ -14,17 +14,18 @@ class AppOptionsService
 {
 
     private $options;
+    private $em;
 
-    public function __construct(EntityManager $em)
+    public function __construct(EntityManager $entityManager)
     {
-        $this->em = $em;
+        $this->em = $entityManager;
 
         try {
 
-            $opt = $em->getRepository('BackOfficeBundle:Options')->findAll();
+            $opt = $entityManager->getRepository('BackOfficeBundle:Options')->findAll();
             $this->options = $opt;
 
-        } catch (\PDOException $e) {
+        } catch (\Doctrine\DBAL\Exception\TableNotFoundException $e) {
             $this->options = 'error';
 
         }

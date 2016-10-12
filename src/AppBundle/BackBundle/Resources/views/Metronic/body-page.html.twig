@@ -50,7 +50,7 @@
         </div>
         {#<!-- END CONTENT -->#}
         {#<!-- BEGIN QUICK SIDEBAR -->#}
-        {% if appOptions.optionName('app.projet.global.quickSlidebar').value == true %}
+        {% if appOptions.optionName('app.projet.global.quickSlidebar').value %}
             {% include 'BackOfficeBundle:Metronic:body-page-quick-slide.html.twig' %}
         {% endif %}
         {#<!-- END QUICK SIDEBAR -->#}

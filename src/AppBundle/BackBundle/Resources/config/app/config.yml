@@ -1,6 +1,6 @@
 twig:
     globals:
-        appOptions: '@back_office.options'
+        appOptions: '@app.options'
 
 assetic:
     debug:          '%kernel.debug%'
