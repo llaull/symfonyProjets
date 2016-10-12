@@ -31,6 +31,8 @@ class AppKernel extends Kernel
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
+            new ddaBundle\ArtisteBundle\ddaBundleArtisteBundle(),
+            new ddaBundle\FrontBundle\ddaBundleFrontBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

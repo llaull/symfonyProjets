@@ -1,0 +1,7 @@
+dda_bundle_front_homepage:
+    path:     /
+    defaults: { _controller: ddaBundleFrontBundle:Default:index }
+
+frond_office_homepage:
+    path:     /
+    defaults: { _controller: ddaBundleFrontBundle:Default:index }

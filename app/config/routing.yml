@@ -9,9 +9,13 @@ fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 app:
-    resource: "@FrondOfficeBundle/Resources/config/routing.yml"
+    resource: "@ddaBundleFrontBundle/Resources/config/routing.yml"
     prefix:   /
 
 back_office_homepage:
     resource: "@BackOfficeBundle/Resources/config/routing.yml"
     prefix:   /admin
+
+dda_bundle_artiste:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
+    prefix:   /
