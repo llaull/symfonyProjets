@@ -48,7 +48,7 @@ class MaintenanceService
         $debug = in_array($this->container->get('kernel')->getEnvironment(), array('test', 'dev'));
 
         // check si admin session
-        $securityContext = $this->container->get('security.authorization_checker');
+//        $securityContext = $this->container->get('security.authorization_checker');
 //        $isAdmin = $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED');
 //        if (!$this->container->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
 //            throw $this->createAccessDeniedException();
@@ -64,14 +64,15 @@ class MaintenanceService
 
 //        if(!$sd && !$this->isPermitUrl($request)) {
 //echo  $this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN');
-
-        if ($maintenance && !$this->isPermitUrl($request) && !$debug) {
+//        if ($debug) {
+            if ($maintenance && !$this->isPermitUrl($request) && !$debug) {
 //            if ($maintenance && !$this->isPermitUrl($request) && !$debug && !$isAdmin) {
-            $engine = $this->container->get('templating');
-            $content = $engine->render('@FrondOffice/Default/maintenance.html.twig');
-            $event->setResponse(new Response($content, 503));
-            $event->stopPropagation();
-        }
+                $engine = $this->container->get('templating');
+                $content = $engine->render('@FrondOffice/Default/maintenance.html.twig');
+                $event->setResponse(new Response($content, 503));
+                $event->stopPropagation();
+            }
+//        }
 
 //        }
 
@@ -92,6 +93,7 @@ class MaintenanceService
         $this->pathEnable[] = '/profile/';
         $this->pathEnable[] = '/admin/';
         $this->pathEnable[] = '/login';
+        $this->pathEnable[] = '/logout';
 
         foreach ($this->pathEnable as $path)
             if (preg_match('{' . $path . '}', $request->getPathInfo()))
