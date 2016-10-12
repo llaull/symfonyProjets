@@ -27,28 +27,62 @@ function uiNotific(themeN, stickyN, headingN, msg) {
 // ========================================================================
 //	modal - delete dans les tabledata
 // ========================================================================
+if ($('a.modal-delete').length) {
+    $("a.modal-delete").click(function (e) {
+        e.preventDefault();
+        var $link = $(this);
 
-$("a.modal-delete").click(function (e) {
-    e.preventDefault();
-    var $link = $(this);
-
-    bootbox.confirm({
-        title: 'danger - danger - danger',
-        message: 'Are you sure you want to delete this. If not, click Cancel. There is no undo!',
-        buttons: {
-            'cancel': {
-                label: 'Cancel',
-                className: 'btn-default pull-left'
+        bootbox.confirm({
+            title: 'danger - danger - danger',
+            message: 'Are you sure you want to delete this. If not, click Cancel. There is no undo!',
+            buttons: {
+                'cancel': {
+                    label: 'Cancel',
+                    className: 'btn-default pull-left'
+                },
+                'confirm': {
+                    label: 'Delete',
+                    className: 'btn-danger pull-right'
+                }
             },
-            'confirm': {
-                label: 'Delete',
-                className: 'btn-danger pull-right'
+            callback: function (result) {
+                if (result) {
+                    document.location.assign($link.attr('data-href'));
+                }
             }
-        },
-        callback: function (result) {
-            if (result) {
-                document.location.assign($link.attr('data-href'));
-            }
-        }
+        });
     });
-});
+}
+// ========================================================================
+//	modal - show
+// ========================================================================
+
+if ($('a.modal-show').length) {
+
+    $("a.modal-show").click(function (e) {
+        e.preventDefault();
+        var $link = $(this).attr('data');
+
+        var dialog = bootbox.dialog({
+            title: '',
+            message: '<p><i class="fa fa-spin fa-spinner"></i> Chargement...</p>',
+            buttons: {
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Fermer'
+                }
+            }
+        });
+
+        $.ajax({
+            url: $link,
+            success: function (data) {
+                dialog.init(function () {
+                    setTimeout(function () {
+                        dialog.find('.bootbox-body').html(data);
+                    }, 3000);
+                });
+            }
+        });
+
+    });
+}

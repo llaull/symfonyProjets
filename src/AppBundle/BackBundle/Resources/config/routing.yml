@@ -8,3 +8,7 @@ back_office_user:
 app_bundle_to_do:
     resource: "@AppBundleToDoBundle/Resources/config/routing.yml"
     prefix:   /todo
+
+app_options:
+    resource: "@BackOfficeBundle/Resources/config/routing/options.yml"
+    prefix:   /options

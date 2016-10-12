@@ -1,0 +1,24 @@
+app_options_index:
+    path:     /
+    defaults: { _controller: "BackOfficeBundle:Options:index" }
+    methods:  GET
+
+app_options_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackOfficeBundle:Options:show" }
+    methods:  GET
+
+app_options_new:
+    path:     /new
+    defaults: { _controller: "BackOfficeBundle:Options:new" }
+    methods:  [GET, POST]
+
+app_options_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BackOfficeBundle:Options:edit" }
+    methods:  [GET, POST]
+
+app_options_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackOfficeBundle:Options:delete" }
+    methods:  [DELETE, GET, POST]
