@@ -114,7 +114,7 @@ ORDER BY module_id , sensor_type , sonsor_unit';
         $unitOut = "sonsor_unit NOT IN ($unitOut)";
 
         $rq =
-        "SELECT a.id
+            "SELECT a.id
 FROM
     domotique__sensor_log a
         INNER JOIN
@@ -128,7 +128,6 @@ FROM
 GROUP BY HOUR(created) , YEAR(created) , MONTH(created) , DAY(created) , sonsor_unit , sensor_type , sonsor_id";
 
 
-
         $connection = $em->getConnection();
         $statement = $connection->prepare($rq);
         $statement->execute();
@@ -138,7 +137,7 @@ GROUP BY HOUR(created) , YEAR(created) , MONTH(created) , DAY(created) , sonsor_
     }
 
 
-    public function getMoyenneValue($em,$unitIn)
+    public function getMoyenneValue($em, $unitIn)
     {
         $unitIn = "sonsor_unit IN (2,3)";
         $rq =
@@ -173,7 +172,7 @@ GROUP BY YEAR(A.created) , MONTH(A.created) , DAY(A.created) , HOUR(A.created), 
                 $unit = 'humi';
             endif;
 
-            $array[$v['date']][$unit]  = $v['sonsor_value'];
+            $array[$v['date']][$unit] = $v['sonsor_value'];
         endforeach;
 
         // creation d'un tableau final avec les differentes valeurs
@@ -184,5 +183,54 @@ GROUP BY YEAR(A.created) , MONTH(A.created) , DAY(A.created) , HOUR(A.created), 
         endforeach;
 
         return $newArray;
+    }
+
+    public function getValueByEmplacement($em, $emplacement)
+    {
+
+        $rq = "SELECT
+    l.id,
+    l.module_id AS module_ID,
+    l.created AS date,
+    l.sonsor_unit,
+    l.sensor_type,
+    l.sonsor_value,
+    E.name AS emplacement,
+    u.symbole AS unitee_symbole
+FROM
+    domotique__sensor_log AS l
+        INNER JOIN
+    (SELECT
+        module_id,
+            sonsor_unit,
+            sensor_type,
+            MAX(created) AS max_temp
+    FROM
+        domotique__sensor_log
+    WHERE
+        created > CURDATE()
+            AND sensor_type IN (2 , 3, 4)
+            AND created > SUBTIME(NOW(), '00:10:00')
+    GROUP BY module_id , sonsor_unit , sensor_type) AS b ON b.module_id = l.module_id
+        AND b.sonsor_unit = l.sonsor_unit
+        AND b.max_temp = l.created
+        LEFT JOIN
+    domotique__module AS m ON l.module_id = m.id
+        LEFT JOIN
+    domotique__sensor_unit AS u ON l.sonsor_unit = u.id
+        LEFT JOIN
+    domotique__sensor_type AS t ON l.sensor_type = t.id
+        LEFT JOIN
+    domotique__module_emplacement AS E ON m.emplacement_id = E.id
+WHERE
+    l.created > CURDATE() AND E.id = 1
+ORDER BY module_id , sensor_type , sonsor_unit";
+
+        $connection = $em->getConnection();
+        $statement = $connection->prepare($rq);
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+        return $results;
     }
 }
