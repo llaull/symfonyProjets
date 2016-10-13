@@ -1,0 +1,4 @@
+snowboy_temperature_emplacement:
+    path:     /meteo/{emplacement}
+    defaults: { _controller: "DomotiqueDomoboxBundle:Snowboy:meteoByEmplacemeent" }
+    methods:  GET

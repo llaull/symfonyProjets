@@ -71,3 +71,8 @@ domotique_demobox_scheduled_add:
     path:     /scheduled/new/
     defaults: { _controller: "DomotiqueDomoboxBundle:ScheduledTask:new" }
     methods:  [GET,POST]
+
+domotique_reseau_admin_domotique_sensor_unit:
+    resource: "@DomotiqueDomoboxBundle/Resources/config/routing/snowboy.yml"
+    prefix:   /snowboy
+
