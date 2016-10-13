@@ -16,17 +16,22 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class SnowboyController extends Controller
 {
 
-    public function meteoByEmplacemeentAction($emplacement)
+    public function meteoByEmplacemeentAction(Request $request)
     {
 //        recherche l'emplacement et recuperer son id
 //
 //aller chercher les informations du modules
 //
 //construire la phrase de retour
+//
+        $key = $request->headers->get("domobox-key");
+        $emplacement = $request->attributes->get('emplacement');
+
+        $reponse = "la key est " . $key . " et l emplacement demander est " . $emplacement;
 
 
         //reponse temporaire
-        return new JsonResponse(array("data"=>$emplacement));
+        return new JsonResponse(array("data" => $reponse));
     }
 
 }
