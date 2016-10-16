@@ -15,6 +15,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class SnowboyController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function meteoByEmplacemeentAction(Request $request)
     {
         // variables
