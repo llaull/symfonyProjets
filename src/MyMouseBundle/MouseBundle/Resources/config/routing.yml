@@ -1,0 +1,3 @@
+my_mouse_bundle_mouse_homepage:
+    path:     /
+    defaults: { _controller: MyMouseBundleMouseBundle:Default:index }
