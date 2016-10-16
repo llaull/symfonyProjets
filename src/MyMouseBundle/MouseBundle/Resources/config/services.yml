@@ -1,4 +1,0 @@
-services:
-#    my_mouse_bundle_mouse.example:
-#        class: MyMouseBundle\MouseBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

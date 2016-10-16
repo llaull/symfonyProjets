@@ -32,9 +32,6 @@ class AppKernel extends Kernel
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
-
-            //app my mouse
-            new MyMouseBundle\MouseBundle\MyMouseBundleMouseBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

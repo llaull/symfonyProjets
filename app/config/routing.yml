@@ -15,7 +15,3 @@ app:
 back_office_homepage:
     resource: "@BackOfficeBundle/Resources/config/routing.yml"
     prefix:   /admin
-
-my_mouse_bundle_mouse:
-    resource: "@MyMouseBundleMouseBundle/Resources/config/routing.yml"
-    prefix:   /
