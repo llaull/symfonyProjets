@@ -17,12 +17,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Artiste
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=90, unique=true)
-     * @Gedmo\Slug(fields={"nom"}, unique=true)
+     * @Gedmo\Slug(fields={"prenom", "nom"})
+     * @Doctrine\ORM\Mapping\Column(length=128, unique=true)
      */
-    protected $slug;
+    private $slug;
     /**
      * @var int
      *
@@ -129,19 +127,16 @@ class Artiste
      * @ORM\Column(name="lieuTravail", type="string", length=255, nullable=true)
      */
     private $lieuTravail;
-
     /**
      * @var string
      * @ORM\Column(name="dep", type="string", length=255, nullable=true)
      */
     private $dep;
-
     /**
      * @var string
      * @ORM\Column(name="lieuNaissance", type="string", length=255, nullable=true)
      */
     private $lieuNaissance;
-
     /**
      * @var string
      * @ORM\Column(name="nationalite", type="string", length=255, nullable=true)
@@ -173,7 +168,7 @@ class Artiste
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getSlug()
     {
@@ -181,7 +176,7 @@ class Artiste
     }
 
     /**
-     * @param string $slug
+     * @param mixed $slug
      */
     public function setSlug($slug)
     {

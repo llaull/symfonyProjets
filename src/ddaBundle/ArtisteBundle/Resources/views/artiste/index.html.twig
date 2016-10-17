@@ -1,0 +1,83 @@
+{% block body %}
+    <h1>Artistes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Slug</th>
+                <th>Id</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Datedenaissance</th>
+                <th>Datededeces</th>
+                <th>Collectif</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Rue</th>
+                <th>Ville</th>
+                <th>Postepostale</th>
+                <th>Telephone</th>
+                <th>Fax</th>
+                <th>Portable</th>
+                <th>Mail</th>
+                <th>Site</th>
+                <th>Motecle</th>
+                <th>Lieutravail</th>
+                <th>Dep</th>
+                <th>Lieunaissance</th>
+                <th>Nationalite</th>
+                <th>Active</th>
+                <th>Lieudeces</th>
+                <th>Paysmort</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artiste in artistes %}
+            <tr>
+                <td><a href="{{ path('admin_artiste_show', { 'id': artiste.id }) }}">{{ artiste.slug }}</a></td>
+                <td>{{ artiste.id }}</td>
+                <td>{% if artiste.created %}{{ artiste.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if artiste.updated %}{{ artiste.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if artiste.dateDeNaissance %}{{ artiste.dateDeNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if artiste.dateDeDeces %}{{ artiste.dateDeDeces|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ artiste.collectif }}</td>
+                <td>{{ artiste.nom }}</td>
+                <td>{{ artiste.prenom }}</td>
+                <td>{{ artiste.rue }}</td>
+                <td>{{ artiste.ville }}</td>
+                <td>{{ artiste.postePostale }}</td>
+                <td>{{ artiste.telephone }}</td>
+                <td>{{ artiste.fax }}</td>
+                <td>{{ artiste.portable }}</td>
+                <td>{{ artiste.mail }}</td>
+                <td>{{ artiste.site }}</td>
+                <td>{{ artiste.moteCle }}</td>
+                <td>{{ artiste.lieuTravail }}</td>
+                <td>{{ artiste.dep }}</td>
+                <td>{{ artiste.lieuNaissance }}</td>
+                <td>{{ artiste.nationalite }}</td>
+                <td>{% if artiste.active %}Yes{% else %}No{% endif %}</td>
+                <td>{{ artiste.lieuDeces }}</td>
+                <td>{{ artiste.paysMort }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_artiste_show', { 'id': artiste.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_artiste_edit', { 'id': artiste.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_artiste_new') }}">Create a new artiste</a>
+        </li>
+    </ul>
+{% endblock %}

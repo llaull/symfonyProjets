@@ -1,3 +1,7 @@
+dda_bundle_artiste_admin_artiste:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing/artiste.yml"
+    prefix:   /admin/artiste
+
 dda_bundle_artiste_homepage:
     path:     /
     defaults: { _controller: ddaBundleArtisteBundle:Default:index }
