@@ -67,5 +67,5 @@ domotique_module_set_color:
     defaults: { _controller: "DomotiqueDomoboxBundle:Default:setModuleColor" }
     methods:  [POST]
 
-domotique_reseau_admin_domotique_emplacement:
+domotique_domobox_scheduledTask:
     resource: "@DomotiqueDomoboxBundle/Resources/config/routing/scheduledTask.yml"

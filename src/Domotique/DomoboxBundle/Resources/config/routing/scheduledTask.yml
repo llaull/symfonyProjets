@@ -1,0 +1,4 @@
+domobox_scheduled_add:
+    path:     /scheduled/new/
+    defaults: { _controller: "DomotiqueDomoboxBundle:ScheduledTask:new" }
+    methods:  [GET,POST]
