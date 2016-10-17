@@ -69,12 +69,12 @@ class Artiste
     private $collectif;
     /**
      * @var string
-     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
     /**
      * @var string
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      */
     private $prenom;
     /**
@@ -164,7 +164,7 @@ class Artiste
         $this->created = new \DateTime();
         $this->updated = new \DateTime();
         $this->dateDeNaissance = new \DateTime();
-        $this->dateDeDeces = new \DateTime();
+        $this->dateDeDeces = NULL;
     }
 
     /**

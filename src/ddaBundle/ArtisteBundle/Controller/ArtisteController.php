@@ -34,7 +34,7 @@ class ArtisteController extends Controller
     public function newAction(Request $request)
     {
         $artiste = new Artiste();
-        $form = $this->createForm('ddaBundle\ArtisteBundle\Form\ArtisteType', $artiste);
+        $form = $this->createForm('ddaBundle\ArtisteBundle\Form\Type\ArtisteType', $artiste);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -42,7 +42,7 @@ class ArtisteController extends Controller
             $em->persist($artiste);
             $em->flush($artiste);
 
-            return $this->redirectToRoute('admin_artiste_show', array('id' => $artiste->getId()));
+            return $this->redirectToRoute('admin_artiste_index');
         }
 
         return $this->render('@ddaBundleArtiste/artiste/new.html.twig', array(
@@ -72,7 +72,7 @@ class ArtisteController extends Controller
     public function editAction(Request $request, Artiste $artiste)
     {
         $deleteForm = $this->createDeleteForm($artiste);
-        $editForm = $this->createForm('ddaBundle\ArtisteBundle\Form\ArtisteType', $artiste);
+        $editForm = $this->createForm('ddaBundle\ArtisteBundle\Form\Type\ArtisteType', $artiste);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

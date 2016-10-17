@@ -3,11 +3,6 @@ admin_artiste_index:
     defaults: { _controller: "ddaBundleArtisteBundle:Artiste:index" }
     methods:  GET
 
-admin_artiste_show:
-    path:     /{id}/show
-    defaults: { _controller: "ddaBundleArtisteBundle:Artiste:show" }
-    methods:  GET
-
 admin_artiste_new:
     path:     /new
     defaults: { _controller: "ddaBundleArtisteBundle:Artiste:new" }
@@ -22,3 +17,11 @@ admin_artiste_delete:
     path:     /{id}/delete
     defaults: { _controller: "ddaBundleArtisteBundle:Artiste:delete" }
     methods:  DELETE
+
+#
+#        FRONT
+#
+artiste_show:
+    path:     /{slug}/show
+    defaults: { _controller: "ddaBundleArtisteBundle:Artiste:show" }
+    methods:  GET
