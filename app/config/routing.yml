@@ -19,3 +19,8 @@ back_office_homepage:
 dda_bundle_artiste:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
     prefix:   /
+
+dda_bundle_back:
+    resource: "@ddaBundleBackBundle/Resources/config/routing.yml"
+    prefix:   /admin
+

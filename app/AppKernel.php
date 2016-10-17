@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new FM\ElfinderBundle\FMElfinderBundle(),
             new ddaBundle\ArtisteBundle\ddaBundleArtisteBundle(),
             new ddaBundle\FrontBundle\ddaBundleFrontBundle(),
+            new ddaBundle\BackBundle\ddaBundleBackBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
