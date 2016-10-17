@@ -23,7 +23,9 @@ class ArtisteType extends AbstractType
             ->add('collectif')
             ->add('nom')
             ->add('prenom')
-            ->add('rue')
+            ->add('rue', null, array(
+                'attr' => array('onFocus' => 'geolocate()'))
+            )
             ->add('ville')
             ->add('postePostale')
             ->add('telephone')
