@@ -181,6 +181,30 @@
         <source>Options</source>
         <target>__Options</target>
       </trans-unit>
+      <trans-unit id="7781d3db711029b94329c0e79e4c2e88" resname="resetting.check_email">
+        <source>resetting.check_email</source>
+        <target>__resetting.check_email</target>
+      </trans-unit>
+      <trans-unit id="24ef36794ef0bffa786074f748d57525" resname="resetting.email.subject">
+        <source>resetting.email.subject</source>
+        <target>__resetting.email.subject</target>
+      </trans-unit>
+      <trans-unit id="f96be8411b3b48e5a82ee13dd33afeb4" resname="resetting.email.message">
+        <source>resetting.email.message</source>
+        <target>__resetting.email.message</target>
+      </trans-unit>
+      <trans-unit id="21e53e555f5b4785ecc485d7646e0b15" resname="resetting.request.username">
+        <source>resetting.request.username</source>
+        <target>__resetting.request.username</target>
+      </trans-unit>
+      <trans-unit id="ed196ca52af9245d737b4320c30a00c5" resname="resetting.request.submit">
+        <source>resetting.request.submit</source>
+        <target>__resetting.request.submit</target>
+      </trans-unit>
+      <trans-unit id="3f39dd085ae5b618d806836a094b5e66" resname="resetting.reset.submit">
+        <source>resetting.reset.submit</source>
+        <target>__resetting.reset.submit</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

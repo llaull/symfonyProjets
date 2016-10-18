@@ -1,0 +1,9 @@
+{% extends "@BackOffice/Metronic/body-simple.html.twig" %}
+
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% block fos_user_content %}
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime}) }}
+</p>
+{% endblock %}
