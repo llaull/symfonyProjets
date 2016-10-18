@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file datatype="plaintext" original="file.ext" source-language="fr" target-language="fr">
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
@@ -85,8 +86,8 @@
         <target state="translated">__Change Password</target>
       </trans-unit>
       <trans-unit id="c9cc8cce247e49bae79f15173ce97354" resname="Save">
-        <source>Save</source><target state="translated">Sauvegarder</target>
-        
+        <source>Save</source>
+        <target state="translated">Sauvegarder</target>
       </trans-unit>
       <trans-unit id="3903aab323863bd2e9b68218a7a65ebd" resname="Follow">
         <source>Follow</source>
@@ -143,6 +144,42 @@
       <trans-unit id="9671dfcb489e04d7ece6c484bf2d92d9" resname="registration.email.message">
         <source>registration.email.message</source>
         <target state="translated">__registration.email.message</target>
+      </trans-unit>
+      <trans-unit id="2aa97e44cace7cb882c9dcba32940f8f" resname="Attention">
+        <source>Attention</source>
+        <target>__Attention</target>
+      </trans-unit>
+      <trans-unit id="c1a51ac6ada6a046e58be5b5a7c15aae" resname="Ne modifier que si vous êtes sûr de ce que vos faites">
+        <source>Ne modifier que si vous êtes sûr de ce que vos faites</source>
+        <target>__Ne modifier que si vous êtes sûr de ce que vos faites</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
+        <source>Name</source>
+        <target>__Name</target>
+      </trans-unit>
+      <trans-unit id="689202409e48743b914713f96d93947c" resname="Value">
+        <source>Value</source>
+        <target>__Value</target>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53" resname="Action">
+        <source>Action</source>
+        <target>__Action</target>
+      </trans-unit>
+      <trans-unit id="a7dd12b1dab17d25467b0b0a4c8d4a92" resname="show">
+        <source>show</source>
+        <target>__show</target>
+      </trans-unit>
+      <trans-unit id="099af53f601532dbd31e0ea99ffdeb64" resname="delete">
+        <source>delete</source>
+        <target>__delete</target>
+      </trans-unit>
+      <trans-unit id="e498749f3c42246d50b15c81c101d988" resname="Application">
+        <source>Application</source>
+        <target>__Application</target>
+      </trans-unit>
+      <trans-unit id="dae8ace18bdcbcc6ae5aece263e14fe8" resname="Options">
+        <source>Options</source>
+        <target>__Options</target>
       </trans-unit>
     </body>
   </file>
