@@ -1,6 +1,9 @@
 {% trans_default_domain 'AppBundleMessage' %}
 
-<li class="nav-item start {% if app.request.attributes.get('_route') == 'back_office_user_index' %}active open{% endif %}">
+    {% set back_menu = ["back_office_homepage", "back_office_user_index"] %}
+    {% set current_route = app.request.attributes.get('_route') %}
+
+<li class="nav-item start {% if current_route in back_menu %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="icon-home"></i>
         <span class="title">{{ 'Dashboard'|trans }}</span>

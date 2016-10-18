@@ -12,8 +12,10 @@
     {% include 'BackOfficeBundle:Default:menu.html.twig' %}
     {% include ':default:appBackMenu.html.twig' ignore missing %}
 
+    {% set app_menu = ["app_options_index", "app_options_edit", "app_bundle_to_do_homepage"] %}
+    {% set current_route = app.request.attributes.get('_route') %}
 
-    <li class="nav-item start {% if app.request.attributes.get('_route') == 'app_bundle_to_do_homepage' %}active open{% endif %}">
+    <li class="nav-item start {% if current_route in app_menu %}active open{% endif %}">
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="icon-docs"></i>
             <span class="title">{{ 'Application'|trans }}</span>
