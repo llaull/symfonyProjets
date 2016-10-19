@@ -15,7 +15,7 @@ class Version20161004150513 extends AbstractMigration
      */
     public function up(Schema $schema)
     {
-        $this->addSql("INSERT INTO `app__options` (`option_id`, `option_modifier`, `option_name`, `option_value`, `option_updated`) VALUES
+        $this->addSql("INSERT INTO `app__options` (`option_id`, `option_modifieur_ID`, `option_name`, `option_value`, `option_updated`) VALUES
         (NULL, '1', 'app.maintenance.mode', '0', NOW()),
         (NULL, '1', 'app.todobundle', '0', NOW()),
         (NULL, '1', 'app.projet.global.quickSlidebar', '0', NOW()),

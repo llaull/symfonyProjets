@@ -27,7 +27,7 @@ class Options
 
     /**
      * @var string
-     * @ORM\Column(name="option_name", type="string", length=100, nullable=true)
+     * @ORM\Column(name="option_name", type="string", length=100, nullable=true, unique=true)
      */
     protected $name;
 
@@ -49,7 +49,7 @@ class Options
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\BackBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="option_modifier", referencedColumnName="id", nullable=false)
+     *   @ORM\JoinColumn(name="option_modifieur_ID", referencedColumnName="id", nullable=false)
      * })
      */
     private $user;

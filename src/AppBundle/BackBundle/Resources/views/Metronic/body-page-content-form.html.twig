@@ -22,12 +22,12 @@
 {#contenu form#}
 {% block pageContent %}
     {#<!-- BEGIN PAGE TITLE-->#}
-   <h3 class="page-title">  {{ title_page }}
+    <h3 class="page-title">  {{ title_page }}
         {#<small>{{ title_page }}</small>#}
     </h3>
     {#<!-- END PAGE TITLE-->#}
     {#<!-- END PAGE HEADER-->#}
-    {#<div class="note note-info">#}
+    {% block note_txt %}{% endblock note_txt %}
     <div class="row">
         <div class="{{ table_size }}">
             <div class="tabbable-line boxless tabbable-reversed">
@@ -36,7 +36,8 @@
                         <div class="portlet box green">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa fa-gift"></i>Form Actions On Bottom </div>
+                                    <i class="fa fa-gift"></i>Form Actions On Bottom
+                                </div>
                                 <div class="tools">
                                     <a href="javascript:;" class="collapse"> </a>
                                     {#<a href="#portlet-config" data-toggle="modal" class="config"> </a>#}
@@ -54,7 +55,8 @@
                                     <div class="row">
                                         <div class="col-md-offset-3 col-md-9">
                                             <button type="submit" class="btn green">{{ submit_btn }}</button>
-                                            <a class="btn grey-salsa btn-outline" href="{{ path( (path_entity_index) )  }}">{{ "Cancel"|trans }}</a>
+                                            <a class="btn grey-salsa btn-outline"
+                                               href="{{ path( (path_entity_index) ) }}">{{ "Cancel"|trans }}</a>
                                         </div>
                                     </div>
                                 </div>
