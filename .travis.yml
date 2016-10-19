@@ -8,7 +8,7 @@ before_install:
   - composer self-update
   - mysql -e 'create database symfony;'
   - mysql -e 'CREATE TABLE symfony.app__options  (option_id int(11) NOT NULL,
-                                                  option_modifier int(11) DEFAULT NULL,
+                                                  option_modifieur_ID int(11) DEFAULT NULL,
                                                   option_name varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
                                                   option_value varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
                                                   option_updated datetime NOT NULL
