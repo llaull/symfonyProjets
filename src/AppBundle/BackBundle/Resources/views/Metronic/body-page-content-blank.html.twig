@@ -1,8 +1,9 @@
 {% extends 'BackOfficeBundle:Metronic:body-page.html.twig' %}
+{% set texte = title_page|split(',') %}
 {% block pageContent %}
     {#<!-- BEGIN PAGE TITLE-->#}
-    <h3 class="page-title"> {{ title_page }}
-    <small>{{ title_page }}</small>
+    <h3 class="page-title"> {{ texte[0] }}
+        <small>{{ texte[1] }}</small>
     </h3>
     {#<!-- END PAGE TITLE-->#}
     {#<!-- END PAGE HEADER-->#}
