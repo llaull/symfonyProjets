@@ -1,0 +1,24 @@
+admin_actualitee_index:
+    path:     /
+    defaults: { _controller: "ddaBundleArtisteBundle:Actualite:index" }
+    methods:  GET
+
+admin_actualitee_show:
+    path:     /{id}/show
+    defaults: { _controller: "ddaBundleArtisteBundle:Actualite:show" }
+    methods:  GET
+
+admin_actualitee_new:
+    path:     /new
+    defaults: { _controller: "ddaBundleArtisteBundle:Actualite:new" }
+    methods:  [GET, POST]
+
+admin_actualitee_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ddaBundleArtisteBundle:Actualite:edit" }
+    methods:  [GET, POST]
+
+admin_actualitee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ddaBundleArtisteBundle:Actualite:delete" }
+    methods:  [DELETE, GET, POST]

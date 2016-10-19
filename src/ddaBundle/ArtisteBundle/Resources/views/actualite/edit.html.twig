@@ -3,6 +3,8 @@
 {% block moreCss %}
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+
     {% stylesheets
     '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'
     output='assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' %}
@@ -17,7 +19,12 @@
     <!-- END PAGE LEVEL PLUGINS -->
 
 {% endblock moreCss %}
-
+  {% block moreJsBefore %}
+      {% javascripts
+      '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js' %}
+      <script src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+  {% endblock moreJsBefore %}
 {% block moreJs %}
     {% javascripts
     '@BackOfficeBundle/Resources/public/assets/global/plugins/moment.min.js'
@@ -28,14 +35,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(function () {
-                $('#ddabundle_artistebundle_artiste_dateDeNaissance').datetimepicker({
-                    format: "dd/mm/yyyy",
-                    autoclose: "true",
-                    pickerPosition: "bottom-left",
-                    language: "fr"
-                });
-                $('#ddabundle_artistebundle_artiste_dateDeDeces').datetimepicker({
-                    format: "dd/mm/yyyy",
+                $('.datetime').datetimepicker({
+                    format: "dd/mm/yyyy hh:mm",
                     autoclose: "true",
                     pickerPosition: "bottom-left",
                     language: "fr"
@@ -43,14 +44,10 @@
 
             })
         });
-
     </script>
-
-
-
 {% endblock moreJs %}
 
 {% set form = edit_form %}
 {% set title_page = 'editer un Artiste' %}
 {% set path_entity_index = 'admin_artiste_index' %}
-{% set table_size = 'col-md-6' %}
+{% set table_size = 'col-md-12' %}

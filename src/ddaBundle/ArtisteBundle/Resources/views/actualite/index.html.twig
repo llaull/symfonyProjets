@@ -1,0 +1,41 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-managed_datatables.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% set title_page = 'Les actualitées des artistes DDA' %}
+{% set path_entity_new = 'admin_actualitee_new' %}
+{% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}
+
+{% block content_txt %}
+    <tr>
+        <th>Titre</th>
+        <th>Artiste</th>
+        <th>Publicationdate</th>
+        <th>Depublicationdate</th>
+        <th>Active</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for actualite in actualites %}
+        <tr>
+            <td>{{ actualite.titre }}</td>
+            <td>{{ actualite.artiste.prenom }} {{ actualite.artiste.nom }}</td>
+            <td>{% if actualite.publicationDate %}{{ actualite.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if actualite.depublicationDate %}{{ actualite.depublicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{% if actualite.active %}Yes{% else %}No{% endif %}</td>
+            <td>
+                <div class="btn-toolbar">
+                    <div class="btn-group btn-group-xs btn-group-solid">
+                        <a class="btn red"
+                           href="{{ path('admin_actualitee_show', { 'id': actualite.id }) }}">{{ 'show'|trans }}</a>
+                        <a class="btn green"
+                           href="{{ path('admin_actualitee_edit', { 'id': actualite.id }) }}">{{ 'edit'|trans }}</a>
+                        <a class="btn yellow modal-delete"
+                           data-href="{{ path('admin_actualitee_delete', { 'id': actualite.id }) }}"
+                           href="{{ path('admin_actualitee_delete', { 'id': actualite.id }) }}">{{ 'delete'|trans }}</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock content_txt %}

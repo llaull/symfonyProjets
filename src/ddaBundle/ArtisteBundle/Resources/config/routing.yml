@@ -2,6 +2,11 @@ dda_bundle_artiste_admin_artiste:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/artiste.yml"
     prefix:   /admin/artiste
 
+dda_bundle_admin_actualitee:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing/actualite.yml"
+    prefix:   /admin/actualite
+
+
 dda_bundle_artiste_homepage:
     path:     /
     defaults: { _controller: ddaBundleArtisteBundle:Default:index }
