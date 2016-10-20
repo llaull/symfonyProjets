@@ -17,36 +17,28 @@
                 <span class="title">{{ 'Gérer les artistes'|trans }}</span>
             </a>
         </li>
-    </ul>
 
-    <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexs' %}active open{% endif %}">
+        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexw' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les dossier'|trans }}</span>
             </a>
         </li>
-    </ul>
 
-    <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexs' %}active open{% endif %}">
+        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexw' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-file-text-o"></i>
                 <span class="title">{{ 'Gérer les textes'|trans }}</span>
             </a>
         </li>
-    </ul>
 
-    <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexs' %}active open{% endif %}">
+        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexx' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-file-video-o"></i>
                 <span class="title">{{ 'Gérer les vidéos'|trans }}</span>
             </a>
         </li>
-    </ul>
 
-    <ul class="sub-menu">
         <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_actualitee_index' %}active open{% endif %}">
             <a href="{{ path('admin_actualitee_index') }}" class="nav-link ">
                 <i class="fa fa-newspaper-o"></i>

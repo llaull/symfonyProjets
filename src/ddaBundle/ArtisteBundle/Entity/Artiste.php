@@ -159,12 +159,33 @@ class Artiste
      */
     private $paysMort;
 
+    /**
+     * @ORM\Column(type="text", nullable=true, options={"default":NULL})
+     */
+    private $popUpText;
+
     public function __construct()
     {
         $this->created = new \DateTime();
         $this->updated = new \DateTime();
         $this->dateDeNaissance = new \DateTime();
         $this->dateDeDeces = NULL;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPopUpText()
+    {
+        return $this->popUpText;
+    }
+
+    /**
+     * @param mixed $popUpText
+     */
+    public function setPopUpText($popUpText)
+    {
+        $this->popUpText = $popUpText;
     }
 
     /**
