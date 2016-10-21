@@ -1,6 +1,11 @@
 {% extends 'BackOfficeBundle:Metronic:body-page.html.twig' %}
 {% trans_default_domain 'AppBundleMessage' %}
-{% form_theme form 'BackOfficeBundle:Default:bootstrap_3_horizontal_layout.html.twig' %}
+
+{% if table_size == "col-md-12" %}
+    {% form_theme form 'BackOfficeBundle:Default:bootstrap_8_horizontal_layout.html.twig' %}
+{% else %}
+    {% form_theme form 'BackOfficeBundle:Default:bootstrap_3_horizontal_layout.html.twig' %}
+{% endif %}
 
 {% block moreCss %}{% endblock moreCss %}
 {% block moreJs %}
@@ -22,7 +27,7 @@
 {#contenu form#}
 {% block pageContent %}
     {#<!-- BEGIN PAGE TITLE-->#}
-    <h3 class="page-title">  {{ title_page }}
+    <h3 class="page-title">  {{ title_page|trans }}
         {#<small>{{ title_page }}</small>#}
     </h3>
     {#<!-- END PAGE TITLE-->#}

@@ -20,7 +20,6 @@ class ProfileFormType extends BaseType
 
         $builder->add('avatar', ElFinderType::class, array(
             'instance'=>'form',
-            'label' => 'form.avatar',
             'translation_domain' => 'AppBundleMessage',
             'required' => false,
             'attr' => array('class' => 'form-control')));
