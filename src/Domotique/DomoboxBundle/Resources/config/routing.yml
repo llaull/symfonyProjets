@@ -69,3 +69,7 @@ domotique_module_set_color:
 
 domotique_domobox_scheduledTask:
     resource: "@DomotiqueDomoboxBundle/Resources/config/routing/scheduledTask.yml"
+
+domotique_reseau_snowboy:
+    resource: "@DomotiqueDomoboxBundle/Resources/config/routing/snowboy.yml"
+    prefix:   /snowboy
