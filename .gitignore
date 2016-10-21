@@ -22,4 +22,4 @@
 /web/uploads/*
 
 /web/amcharts/
-.idea/
+!.idea/
