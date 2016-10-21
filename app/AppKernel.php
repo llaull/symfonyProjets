@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             // WYSIWYG
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
+
             new ddaBundle\ArtisteBundle\ddaBundleArtisteBundle(),
             new ddaBundle\FrontBundle\ddaBundleFrontBundle(),
             new ddaBundle\BackBundle\ddaBundleBackBundle(),

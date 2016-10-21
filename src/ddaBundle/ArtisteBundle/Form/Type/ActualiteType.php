@@ -25,39 +25,38 @@ class ActualiteType extends AbstractType
 
         $builder
             ->add('titre')
-
             ->add('image', ElFinderType::class, array(
-                'instance'=>'form',
-                'label' => 'form.image',
-                'translation_domain' => 'AppBundleMessage',
-                'required' => false,
-                'attr' => array('class' => 'form-control')))
-
-//            ->add('contenu', CKEditorType::class)
-//
-//            ->add('contenu', ElFinderType::class, array(
-//                'config_name'=>'my_config',
-//                'label' => 'form.image',
-//                'translation_domain' => 'AppBundleMessage',
-//                'required' => false,
-//                'attr' => array('class' => 'form-control')))
-
+                    'instance' => 'form',
+                    'translation_domain' => 'AppBundleMessage',
+                    'required' => false,
+                    'attr' => array('class' => 'form-control'))
+            )
             ->add('publicationDate', DateTimeType::class, array(
                     'widget' => 'single_text',
+                    'translation_domain' => 'AppBundleMessage',
                     'format' => 'dd/MM/yyyy HH:mm',
                     'attr' => ['class' => 'form-control datetime'])
             )
             ->add('depublicationDate', DateTimeType::class, array(
                     'widget' => 'single_text',
+                    'translation_domain' => 'AppBundleMessage',
                     'format' => 'dd/MM/yyyy HH:mm',
                     'attr' => ['class' => 'form-control datetime'])
             )
-            ->add('artiste')
-            ->add('active', CheckboxType::class, array('required' => false) )
-        ;
+            ->add('artiste', null, array(
+                'translation_domain' => 'AppBundleMessage',
+            ))
+            ->add('active', CheckboxType::class, array(
+                    'required' => false,
+                    'translation_domain' => 'AppBundleMessage',
+                    'label_attr' => array(
+                        'class' => 'checkbox-inline'),
+                        'attr' => array('class' => '')
+                )
+            );
     }
 
-    /**
+    /**mt-checkbox
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

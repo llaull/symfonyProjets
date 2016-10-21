@@ -4,7 +4,7 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     {% stylesheets
-    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'
     output='assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
     {% endstylesheets %}
@@ -17,16 +17,16 @@
     <!-- END PAGE LEVEL PLUGINS -->
 
 {% endblock moreCss %}
- {% block moreJsBefore %}
-     {% javascripts
-     '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js' %}
-     <script src="{{ asset_url }}"></script>
-     {% endjavascripts %}
- {% endblock moreJsBefore %}
+  {% block moreJsBefore %}
+      {% javascripts
+      '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js' %}
+      <script src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+  {% endblock moreJsBefore %}
 {% block moreJs %}
     {% javascripts
     '@BackOfficeBundle/Resources/public/assets/global/plugins/moment.min.js'
-    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
@@ -45,6 +45,6 @@
     </script>
 {% endblock moreJs %}
 
-{% set title_page = 'ajouter un Artiste' %}
+{% set title_page = 'ajouter un actualité' %}
 {% set path_entity_index = 'admin_actualitee_index' %}
 {% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}
