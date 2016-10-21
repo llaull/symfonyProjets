@@ -89,4 +89,9 @@ class Title
         $this->name = $name;
     }
 
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+        // your own logic
+    }
 }
