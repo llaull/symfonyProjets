@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="613a326f800ca00c2c4e4a30d491bcc4" resname="Dossier d'Artiste">
+        <source>Dossier d'Artiste</source>
+        <target>__Dossier d'Artiste</target>
+      </trans-unit>
+      <trans-unit id="3975134d75243d7b6c5e60e3bf55260c" resname="Gérer les artistes">
+        <source>Gérer les artistes</source>
+        <target>__Gérer les artistes</target>
+      </trans-unit>
+      <trans-unit id="06f0b97b5b6712f95ddd902feec1ea7c" resname="Gérer les dossier">
+        <source>Gérer les dossier</source>
+        <target>__Gérer les dossier</target>
+      </trans-unit>
+      <trans-unit id="0c0d225c45ba2bdc1dc1524c216d51ee" resname="Gérer les textes">
+        <source>Gérer les textes</source>
+        <target>__Gérer les textes</target>
+      </trans-unit>
+      <trans-unit id="0ea37c23881bef26f7b9d6db83bdca0d" resname="Gérer les vidéos">
+        <source>Gérer les vidéos</source>
+        <target>__Gérer les vidéos</target>
+      </trans-unit>
+      <trans-unit id="b3b1c053e9ae98302de9e918e42704c5" resname="Gérer les actualitées">
+        <source>Gérer les actualitées</source>
+        <target>__Gérer les actualitées</target>
+      </trans-unit>
+      <trans-unit id="c7f7d3217fcf76052fc3246ccbef663d" resname="Etudes et recherches">
+        <source>Etudes et recherches</source>
+        <target>__Etudes et recherches</target>
+      </trans-unit>
+      <trans-unit id="4290480aebbcc4352012546e88c47abe" resname="Gérer les pages statiques">
+        <source>Gérer les pages statiques</source>
+        <target>__Gérer les pages statiques</target>
+      </trans-unit>
+      <trans-unit id="1f9afd3e9db0965aa5539177ab26b4db" resname="EAC">
+        <source>EAC</source>
+        <target>__EAC</target>
+      </trans-unit>
+      <trans-unit id="0558c4724c1321605189662a0e3f66f6" resname="Front Office">
+        <source>Front Office</source>
+        <target>__Front Office</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
