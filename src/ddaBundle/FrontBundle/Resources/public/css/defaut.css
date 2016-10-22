@@ -1,0 +1,26 @@
+/* @group FONTFACE */
+
+@font-face {
+    font-family: 'AbelRegular';
+    src: url('../font/abel-regular-webfont.eot');
+    src: url('../font/abel-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/abel-regular-webfont.woff') format('woff'),
+    url('../font/abel-regular-webfont.ttf') format('truetype'),
+    url('../font/abel-regular-webfont.svg#AbelRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OvoRegular';
+    src: url('../font/ovo-regular-webfont.eot');
+    src: url('../font/ovo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/ovo-regular-webfont.woff') format('woff'),
+    url('../font/ovo-regular-webfont.ttf') format('truetype'),
+    url('../font/ovo-regular-webfont.svg#OvoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* @end */
