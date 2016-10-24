@@ -150,6 +150,35 @@ assetic:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
             output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
 
+#
+#        pour dda
+#
+        AbelRegular-eot:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.eot'
+            output: 'Resources/public/font/abel-regular-webfont.eot'
+        AbelRegular-svg:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.svg'
+            output: 'Resources/public/font/abel-regular-webfont.svg'
+        AbelRegular-ttf:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.ttf'
+            output: 'Resources/public/font/abel-regular-webfont.ttf'
+        AbelRegular-woff:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.woff'
+            output: 'Resources/public/font/abel-regular-webfont.woff'
+
+        OvoRegular-eot:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.eot'
+            output: 'Resources/public/font/ovo-regular-webfont.eot'
+        OvoRegular-svg:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.svg'
+            output: 'Resources/public/font/ovo-regular-webfont.svg'
+        OvoRegular-ttf:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.ttf'
+            output: 'Resources/public/font/ovo-regular-webfont.ttf'
+        OvoRegular-woff:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.woff'
+            output: 'Resources/public/font/ovo-regular-webfont.woff'
+
 fos_user:
     db_driver: orm
     firewall_name: main

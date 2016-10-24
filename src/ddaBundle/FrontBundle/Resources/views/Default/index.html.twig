@@ -1,17 +1,84 @@
 {% stylesheets
-'@BackOfficeBundle/Resources/public/assets/global/plugins/font-awesome/css/font-awesome.min.css'
-output='assets/global/plugins/font-awesome/css/font-awesome.css' %}
+'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
 <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
 {% endstylesheets %}
 
+{% stylesheets filter='cssrewrite'
+'@ddaBundleBackBundle/Resources/public/css/font.css'
+output='web/bundles/ddabundleback/css/font.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+{% endstylesheets %}
 
-<div class="container-fluid">
+{% stylesheets filter='cssrewrite'
+'@ddaBundleBackBundle/Resources/public/css/defaut.css'
+output='web/bundles/ddabundleback/css/defaut.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+{% endstylesheets %}
+
+<div class="container">
+    {#<div class="row">#}
+    {#<div class="center-block">row center-block</div>#}
+    {#</div>#}
+    {#<div class="row">#}
+    {#<div class="col-md-6 brd">#}
+    {#<div class="center-block">1 center-block</div>#}
+    {#</div>#}
+    {#<div class="col-md-6 brd">#}
+    {#<div class="center-block">2 center-block</div>#}
+    {#</div>#}
+    {#</div>#}
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-2">logo</div>
+        <div class="col-sm-8">
+            <div class="nav-side-menu col-sm-2">
+                <div class="menu-list">
+                    <ul id="menu-content" class="menu-content">
+                        <li><a href="{{ path('frond_office_homepage') }}">{{ 'accueil'|trans }}</a></li>
+                        <li><a href="#">{{ 'presentation'|trans }}</a></li>
+                        <li><a href="#">{{ 'partenaires'|trans }}</a></li>
+                        <li><a href="#">{{ 'reseau'|trans }}</a></li>
+                        <li><a href="#">{{ 'contact'|trans }}</a></li>
+                        <li><a href="#">{{ 'liens'|trans }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-side-menu col-sm-2">
+                <div class="menu-list">
+                    <ul id="menu-content" class="menu-content">
+                        <li><a href="#">{{ 'dossiers d\'artistes'|trans }}</a></li>
+                        <li><a href="#">{{ 'textes'|trans }}</a></li>
+                        <li><a href="#">{{ 'entretiens video'|trans }}</a></li>
+                        <li><a href="#">{{ 'eac'|trans }}</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">{{ 'etudes et recherches'|trans }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-side-menu col-sm-2">
+                <div class="menu-list">
+                    <ul id="menu-content" class="menu-content">
+                        <li><a href="#">{{ 'liste des artistes'|trans }}</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div class="col-sm-2">fr-</div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-        </div>
+        <div class="col-sm-12">alpha</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12"></div>
     </div>
 </div>
