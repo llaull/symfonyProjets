@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+<?xml version="1.0" encoding="utf-8"?><xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="plaintext" original="file.ext" source-language="fr" target-language="fr">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
       <trans-unit id="accaadbea56cdf27b83766bc084ef60e" resname="security.login.username">
         <source>security.login.username</source>
-        <target state="translated">utilisateur</target>
+        <target state="translated">Nom d'utilisateur</target>
       </trans-unit>
       <trans-unit id="3e6fda7a3e4805b55f02fb7d4732182e" resname="security.login.password">
         <source>security.login.password</source>
@@ -71,19 +70,19 @@
       </trans-unit>
       <trans-unit id="8cf04a9734132302f96da8e113e80ce5" resname="Home">
         <source>Home</source>
-        <target state="translated">__Home</target>
+        <target state="translated">Accueil</target>
       </trans-unit>
       <trans-unit id="972d3272be925f3d1f3b7c7709b6a84c" resname="Profile Account">
         <source>Profile Account</source>
-        <target state="translated">__Profile Account</target>
+        <target state="translated">Mon compte</target>
       </trans-unit>
       <trans-unit id="952a2efe1be422bd61edb06a3b931988" resname="Personal Info">
         <source>Personal Info</source>
-        <target state="translated">__Personal Info</target>
+        <target state="translated">Mes informations</target>
       </trans-unit>
       <trans-unit id="8f1e77e0d2be21da93cd4d9a939148f7" resname="Change Password">
         <source>Change Password</source>
-        <target state="translated">__Change Password</target>
+        <target state="translated">Modifier le mot de passe</target>
       </trans-unit>
       <trans-unit id="c9cc8cce247e49bae79f15173ce97354" resname="Save">
         <source>Save</source>
@@ -107,27 +106,27 @@
       </trans-unit>
       <trans-unit id="8f7f4c1ce7a4f933663d10543562b096" resname="About">
         <source>About</source>
-        <target state="translated">__About</target>
+        <target state="translated">A propros</target>
       </trans-unit>
       <trans-unit id="2938c7f7e560ed972f8a4f68e80ff834" resname="Dashboard">
         <source>Dashboard</source>
-        <target state="translated">__Dashboard</target>
+        <target state="translated">BackOffice</target>
       </trans-unit>
       <trans-unit id="e6ec529ba185279aa0adcf93e645c7cd" resname="front">
         <source>front</source>
-        <target state="translated">__front</target>
+        <target state="translated">Front Office</target>
       </trans-unit>
       <trans-unit id="9bc65c2abec141778ffaa729489f3e87" resname="users">
         <source>users</source>
-        <target state="translated">__users</target>
+        <target state="translated">Utilisateurs</target>
       </trans-unit>
       <trans-unit id="f71197a4e184b581df9cb4fc27955b79" resname="registration.submit">
         <source>registration.submit</source>
-        <target state="translated">__registration.submit</target>
+        <target state="translated">Créer un compte</target>
       </trans-unit>
       <trans-unit id="d56b699830e77ba53855679cb1d252da" resname="login">
         <source>login</source>
-        <target state="translated">__login</target>
+        <target state="translated">Connexion</target>
       </trans-unit>
       <trans-unit id="de95b43bceeb4b998aed4aed5cef1ae7" resname="edit">
         <source>edit</source>
@@ -135,75 +134,92 @@
       </trans-unit>
       <trans-unit id="e9ade8c73d8a8ea7b6f53956dc36608b" resname="registration.check_email">
         <source>registration.check_email</source>
-        <target state="translated">__registration.check_email</target>
+        <target state="translated">Un e-mail a été envoyé à l''adresse %email%. Il contient un lien d''activation sur lequel il vous faudra cliquer afin d''activer votre compte.
+</target>
       </trans-unit>
       <trans-unit id="90997929bcfdafefc75086643afea54d" resname="registration.email.subject">
         <source>registration.email.subject</source>
-        <target state="translated">__registration.email.subject</target>
+        <target state="translated">Bienvenue %username% !</target>
       </trans-unit>
       <trans-unit id="9671dfcb489e04d7ece6c484bf2d92d9" resname="registration.email.message">
         <source>registration.email.message</source>
-        <target state="translated">__registration.email.message</target>
+        <target state="translated">|
+            Bonjour %username% !
+            
+            Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%
+            
+            Cordialement,
+            L'équipe</target>
       </trans-unit>
       <trans-unit id="2aa97e44cace7cb882c9dcba32940f8f" resname="Attention">
         <source>Attention</source>
-        <target>__Attention</target>
+        <target state="translated">Attention</target>
       </trans-unit>
       <trans-unit id="c1a51ac6ada6a046e58be5b5a7c15aae" resname="Ne modifier que si vous êtes sûr de ce que vos faites">
         <source>Ne modifier que si vous êtes sûr de ce que vos faites</source>
-        <target>__Ne modifier que si vous êtes sûr de ce que vos faites</target>
+        <target state="translated">Ne modifier que si vous êtes sûr de ce que vos faites</target>
       </trans-unit>
       <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
         <source>Name</source>
-        <target>__Name</target>
+        <target state="translated">Nom d'utilisateur</target>
       </trans-unit>
       <trans-unit id="689202409e48743b914713f96d93947c" resname="Value">
         <source>Value</source>
-        <target>__Value</target>
+        <target state="translated">__Value</target>
       </trans-unit>
       <trans-unit id="004bf6c9a40003140292e97330236c53" resname="Action">
         <source>Action</source>
-        <target>__Action</target>
+        <target state="translated">Action</target>
       </trans-unit>
       <trans-unit id="a7dd12b1dab17d25467b0b0a4c8d4a92" resname="show">
         <source>show</source>
-        <target>__show</target>
+        <target state="translated">Afficher</target>
       </trans-unit>
       <trans-unit id="099af53f601532dbd31e0ea99ffdeb64" resname="delete">
         <source>delete</source>
-        <target>__delete</target>
+        <target state="translated">Supprimer</target>
       </trans-unit>
       <trans-unit id="e498749f3c42246d50b15c81c101d988" resname="Application">
         <source>Application</source>
-        <target>__Application</target>
+        <target state="translated">Application</target>
       </trans-unit>
       <trans-unit id="dae8ace18bdcbcc6ae5aece263e14fe8" resname="Options">
         <source>Options</source>
-        <target>__Options</target>
+        <target state="translated">Options</target>
       </trans-unit>
       <trans-unit id="7781d3db711029b94329c0e79e4c2e88" resname="resetting.check_email">
         <source>resetting.check_email</source>
-        <target>__resetting.check_email</target>
+        <target state="translated">|
+        Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+        Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les %tokenLifetime% heures.
+        
+        Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.</target>
       </trans-unit>
       <trans-unit id="24ef36794ef0bffa786074f748d57525" resname="resetting.email.subject">
         <source>resetting.email.subject</source>
-        <target>__resetting.email.subject</target>
+        <target state="translated">Réinitialisation de votre mot de passe</target>
       </trans-unit>
       <trans-unit id="f96be8411b3b48e5a82ee13dd33afeb4" resname="resetting.email.message">
         <source>resetting.email.message</source>
-        <target>__resetting.email.message</target>
+        <target state="translated">|
+            Bonjour %username% !
+            
+            Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+            
+            Cordialement,
+            L'équipe</target>
       </trans-unit>
       <trans-unit id="21e53e555f5b4785ecc485d7646e0b15" resname="resetting.request.username">
         <source>resetting.request.username</source>
-        <target>__resetting.request.username</target>
+        <target state="translated">Nom d''utilisateur ou adresse e-mail</target>
       </trans-unit>
       <trans-unit id="ed196ca52af9245d737b4320c30a00c5" resname="resetting.request.submit">
         <source>resetting.request.submit</source>
-        <target>__resetting.request.submit</target>
+        <target state="translated">Modifier le mot de passe</target>
       </trans-unit>
       <trans-unit id="3f39dd085ae5b618d806836a094b5e66" resname="resetting.reset.submit">
         <source>resetting.reset.submit</source>
-        <target>__resetting.reset.submit</target>
+        <target state="translated">Réinitialiser le mot de passe</target>
       </trans-unit>
     </body>
   </file>
