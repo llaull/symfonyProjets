@@ -23,13 +23,11 @@ AnotherRoute:
     defaults:
         _controller: ddaBundleFrontBundle:Default:index
         route: app
-        permanent: true # this is for 301
-
+        permanent: true
 
 dda_bundle_back:
     resource: "@ddaBundleBackBundle/Resources/config/routing.yml"
     prefix:   /admin
-
 
 dda_bundle_artiste:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
