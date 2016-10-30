@@ -30,10 +30,8 @@ build:
          before:
             - mysql -e "CREATE DATABASE symfony"
             - mysql -e "CREATE TABLE symfony.app__options  (option_id int(11) NOT NULL, option_modifieur_ID int(11) DEFAULT NULL, option_name varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, option_value varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, option_updated datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
-            - php bin/console doctrine:schema:update --force
-            - php bin/console doctrine:fixtures:load -q
-            - php bin/console fos:user:create test test test --super-admin
-            - php bin/console doctrine:migrations:migrate -n
+            - mysql -e "INSERT INTO `app__options` (`option_id`, `option_modifieur_ID`, `option_name`, `option_value`, `option_updated`) VALUES (NULL, '1', 'app.maintenance.mode', '0', NOW()), (NULL, '1', 'app.todobundle', '0', NOW()), (NULL, '1', 'app.projet.global.quickSlidebar', '0', NOW()), (NULL, '1', 'app.projet.global.nom', 'Alpha |', NOW()), (NULL, '1', 'app.projet.back.copyright', 'Alpha dashboard 2016', NOW()), (NULL, '1', 'app.projet.front.copyright', 'Alpha', NOW())"
+            - mysql -e "INSERT INTO `app__user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `lastname`, `firstname`, `avatar`) VALUES (1, 'test', 'test', 'email@gmail.com', 'email@gmail.com', 1, 'szxz1hoshtwggo8oko08k044w4o8kg4', 'qM+mE1CyuDj8GCU0ZaCYPgezCUFG/tnPiDKqBogdK5LhQ4Qi7sFMnmBqJ+TQNVOew+KYJRGUmGt6+4UQdA6hMQ==', '2016-10-30 16:00:49', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:\"ROLE_SUPER_ADMIN\";}', 0, NULL, 'lastname', 'firstname', NULL); opyright', 'Alpha', NOW())"
 
     tests:
         override:
