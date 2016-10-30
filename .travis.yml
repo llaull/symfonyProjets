@@ -23,9 +23,9 @@ script:
   - php vendor/phpunit/phpunit/phpunit --colors=always --coverage-clover coverage.clover
   - dir
 
-#after_script:
-#  - wget https://scrutinizer-ci.com/ocular.phar
-#  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=coverage-clover coverage.clover
 
 notifications:
   - email: false
