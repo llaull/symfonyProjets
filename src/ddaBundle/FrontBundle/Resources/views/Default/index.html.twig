@@ -1,84 +1,111 @@
-{% stylesheets
-'@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
-output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
-<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-{% endstylesheets %}
+{% trans_default_domain 'ddaBundleBackBundle' %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% stylesheets filter='cssrewrite'
-'@ddaBundleBackBundle/Resources/public/css/font.css'
-output='web/bundles/ddabundleback/css/font.css' %}
-<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-{% endstylesheets %}
+    <title>{{ appOptions.optionName('app.projet.global.nom').value|raw }}</title>
 
-{% stylesheets filter='cssrewrite'
-'@ddaBundleBackBundle/Resources/public/css/defaut.css'
-output='web/bundles/ddabundleback/css/defaut.css' %}
-<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-{% endstylesheets %}
+    <!-- Bootstrap -->
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+    output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets filter='cssrewrite'
+    '@ddaBundleBackBundle/Resources/public/css/font.css'
+    output='web/bundles/ddabundleback/css/font.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets filter='cssrewrite'
+    '@ddaBundleBackBundle/Resources/public/css/defaut.css'
+    output='web/bundles/ddabundleback/css/defaut.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+</head>
+
+<body>
+
 
 <div class="container">
-    {#<div class="row">#}
-    {#<div class="center-block">row center-block</div>#}
-    {#</div>#}
-    {#<div class="row">#}
-    {#<div class="col-md-6 brd">#}
-    {#<div class="center-block">1 center-block</div>#}
-    {#</div>#}
-    {#<div class="col-md-6 brd">#}
-    {#<div class="center-block">2 center-block</div>#}
-    {#</div>#}
-    {#</div>#}
-    <div class="row">
-        <div class="col-sm-2">logo</div>
-        <div class="col-sm-8">
-            <div class="nav-side-menu col-sm-2">
-                <div class="menu-list">
-                    <ul id="menu-content" class="menu-content">
-                        <li><a href="{{ path('frond_office_homepage') }}">{{ 'accueil'|trans }}</a></li>
-                        <li><a href="#">{{ 'presentation'|trans }}</a></li>
-                        <li><a href="#">{{ 'partenaires'|trans }}</a></li>
-                        <li><a href="#">{{ 'reseau'|trans }}</a></li>
-                        <li><a href="#">{{ 'contact'|trans }}</a></li>
-                        <li><a href="#">{{ 'liens'|trans }}</a></li>
-                    </ul>
+    <div class="row ontop">
+        <div class="col-sm-12">
+            <div class="col-sm-5 logo">
+                <a href="{{ path('front_office_homepage') }}">
+                    <img src="http://dda-aquitaine.org/images/ddaa-logo.png"
+                         alt="{{ "logo Documents d'artistes Aquitaine"|trans }}">
+                </a>
+                <p>{{ "documents d'artistes"|trans }}<br>{{ "aquitaine"|trans }}</p>
+            </div>
+            <div class="col-sm-6 main-menu" role="navigation">
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li><a href="{{ path('front_office_homepage') }}">{{ "accueil"|trans }}</a></li>
+                            <li><a href="#">{{ "presentation"|trans }}</a></li>
+                            <li><a href="#">{{ "partenaires"|trans }}</a></li>
+                            <li><a href="#">{{ "reseau"|trans }}</a></li>
+                            <li><a href="#">{{ "contact"|trans }}</a></li>
+                            <li><a href="#">{{ "liens"|trans }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li><a href="#">{{ "dossiers d'artistes"|trans }}</a></li>
+                            <li><a href="#">{{ "textes"|trans }}</a></li>
+                            <li><a href="#">{{ "entretiens video"|trans }}</a></li>
+                            <li class="eac"><a href="#">
+                                    {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
+                                    <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>
+                                    {% endimage %}
+                                </a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#">{{ "etudes et recherches"|trans }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li><a href="#">{{ "liste des artistes"|trans }}</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="nav-side-menu col-sm-2">
-                <div class="menu-list">
-                    <ul id="menu-content" class="menu-content">
-                        <li><a href="#">{{ 'dossiers d\'artistes'|trans }}</a></li>
-                        <li><a href="#">{{ 'textes'|trans }}</a></li>
-                        <li><a href="#">{{ 'entretiens video'|trans }}</a></li>
-                        <li><a href="#">{{ 'eac'|trans }}</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">{{ 'etudes et recherches'|trans }}</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav-side-menu col-sm-2">
-                <div class="menu-list">
-                    <ul id="menu-content" class="menu-content">
-                        <li><a href="#">{{ 'liste des artistes'|trans }}</a></li>
-                    </ul>
-                </div>
+            <div class="col-sm-1">
+                <a href="{{ path("front_office_homepage", {"_locale": "fr"}) }}">fr</a> -
+                <a href="{{ path("front_office_homepage", {"_locale": "en"}) }}">en</a>
             </div>
         </div>
-        <div class="col-sm-2">fr-</div>
+        <div class="col-sm-12 alphabet">
+            <div class="col-sm-12">alpha</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">a {{ app.request.locale }}</div>
+        <div class="col-sm-4">
+            bbr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="col-sm-4">c</div>
     </div>
     <div class="row">
-        <div class="col-sm-12">alpha</div>
+        <div class="col-sm-4">lslsl</div>
+        <div class="col-sm-4">
+            d<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+        <div class="col-sm-4">e</div>
     </div>
     <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12">footer</div>
     </div>
 </div>
+
+</body>
+</html>

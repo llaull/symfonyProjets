@@ -10,17 +10,27 @@ fos_user:
 
 app:
     resource: "@ddaBundleFrontBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /{_locale}
+    requirements:
+      _locale: en|fr
 
 back_office_homepage:
     resource: "@BackOfficeBundle/Resources/config/routing.yml"
     prefix:   /admin
 
-dda_bundle_artiste:
-    resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
-    prefix:   /
+AnotherRoute:
+    path: /
+    defaults:
+        _controller: ddaBundleFrontBundle:Default:index
+        route: app
+        permanent: true # this is for 301
+
 
 dda_bundle_back:
     resource: "@ddaBundleBackBundle/Resources/config/routing.yml"
     prefix:   /admin
 
+
+dda_bundle_artiste:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,4 +1,4 @@
-div {
+.container div {
     border: 1px solid red;
 }
 
@@ -9,4 +9,50 @@ p.ab {
 p.ovo {
     font-family: 'OvoRegular', sans-serif;
     color: #1e818a;
+}
+
+.ontop {
+    height: 180px;
+    position: fixed;
+    z-index: 999999;
+    top: 0px;
+    background-color: #fff;
+    width: 1170px;
+
+}
+
+.ontop + div {
+    margin-top: 180px;
+}
+
+.ontop .logo p {
+    font-family: 'AbelRegular', sans-serif;
+    font-size: 14px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.main-menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu ul li a {
+    font-family: 'AbelRegular', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.main-menu ul li.actif a { /** ICI REGLE DOMINANTE **/
+    color: #009DE0;
+}
+.main-menu ul li a:hover {
+    color: #009DE0;
+}
+
+.main-menu ul li.eac {
+    margin-left: -9px;
 }
