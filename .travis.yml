@@ -21,7 +21,6 @@ before_script:
 
 script:
   - php vendor/phpunit/phpunit/phpunit --colors=always --coverage-clover coverage.clover
-  - dir
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
