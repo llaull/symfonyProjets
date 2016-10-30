@@ -20,7 +20,8 @@ before_script:
   - php -d memory_limit=-1 bin/composer update
 
 script:
-  - php vendor/phpunit/phpunit/phpunit --coverage-clover=coverage.clover
+  - php vendor/phpunit/phpunit/phpunit --colors=always --coverage-clover coverage.clover
+  - dir
 
 #after_script:
 #  - wget https://scrutinizer-ci.com/ocular.phar
