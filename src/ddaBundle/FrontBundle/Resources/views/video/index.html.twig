@@ -1,0 +1,9 @@
+{% trans_default_domain 'ddaBundle' %}
+
+{% extends '@ddaBundleFront/Default/index.html.twig' %}
+
+{% block content_txt %}
+    <div class="row">
+        {{ dump(videos) }}
+    </div>
+{% endblock content_txt %}

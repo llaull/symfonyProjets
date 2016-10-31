@@ -1,4 +1,4 @@
-{% trans_default_domain 'ddaBundleBackBundle' %}
+{% trans_default_domain 'ddaBundle' %}
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
 <head>
@@ -47,10 +47,10 @@
                         <ul class="menu-content">
                             <li><a href="{{ path('front_office_homepage') }}">{{ "accueil"|trans }}</a></li>
                             <li><a href="#">{{ "presentation"|trans }}</a></li>
-                            <li><a href="#">{{ "partenaires"|trans }}</a></li>
-                            <li><a href="#">{{ "reseau"|trans }}</a></li>
+                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "partenaires" }) }}">{{ "partenaires"|trans }}</a></li>
+                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "reseau" }) }}">{{ "reseau"|trans }}</a></li>
                             <li><a href="#">{{ "contact"|trans }}</a></li>
-                            <li><a href="#">{{ "liens"|trans }}</a></li>
+                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <ul class="menu-content">
                             <li><a href="#">{{ "dossiers d'artistes"|trans }}</a></li>
                             <li><a href="#">{{ "textes"|trans }}</a></li>
-                            <li><a href="#">{{ "entretiens video"|trans }}</a></li>
+                            <li><a href="{{ path('front_office_video') }}">{{ "entretiens video"|trans }}</a></li>
                             <li class="eac"><a href="#">
                                     {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
                                     <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>

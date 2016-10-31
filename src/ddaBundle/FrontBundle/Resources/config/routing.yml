@@ -6,7 +6,11 @@ front_office_homepage:
     path:     /index.html
     defaults: { _controller: ddaBundleFrontBundle:Default:index }
 
-admin_page_statique_show:
+front_office_video:
+    path:     /entretiens-video.html
+    defaults: { _controller: ddaBundleFrontBundle:Default:allVideo }
+
+front_office_page_statique_show:
     path:     /{slug}.html
-    defaults: { _controller: "ddaBundleFrontBundle:Page:show" }
+    defaults: { _controller: "ddaBundleFrontBundle:Default:allPage" }
     methods:  GET

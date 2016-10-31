@@ -22,7 +22,7 @@ class PageController extends Controller
 
         $pages = $em->getRepository('ddaBundleFrontBundle:Page')->findAll();
 
-        return $this->render('@ddaBundleFront/page/index.html.twig', array(
+        return $this->render('@ddaBundleBack/page/index.html.twig', array(
             'pages' => $pages,
         ));
     }
@@ -46,7 +46,7 @@ class PageController extends Controller
             return $this->redirectToRoute('admin_page_statique_index');
         }
 
-        return $this->render('@ddaBundleFront/page/new.html.twig', array(
+        return $this->render('@ddaBundleBack/page/new.html.twig', array(
             'page' => $page,
             'form' => $form->createView(),
         ));
@@ -85,7 +85,7 @@ class PageController extends Controller
             return $this->redirectToRoute('admin_page_statique_edit', array('id' => $page->getId()));
         }
 
-        return $this->render('@ddaBundleFront/page/edit.html.twig', array(
+        return $this->render('@ddaBundleBack/page/edit.html.twig', array(
             'page' => $page,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
