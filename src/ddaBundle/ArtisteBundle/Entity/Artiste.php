@@ -623,4 +623,3 @@ class Artiste
         return $this->prenom . " " . $this->nom;
     }
 }
-

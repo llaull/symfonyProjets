@@ -310,4 +310,3 @@ class Actualite
         return $this->artiste->getSlug() . ' ' . $this->titre;
     }
 }
-
