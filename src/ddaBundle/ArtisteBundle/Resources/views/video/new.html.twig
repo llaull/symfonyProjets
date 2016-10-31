@@ -1,0 +1,16 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-form.html.twig' %}
+
+{% block moreCss %}{% endblock moreCss %}
+
+  {% block moreJsBefore %}
+      {% javascripts
+      '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery.min.js' %}
+      <script src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+  {% endblock moreJsBefore %}
+
+{% block moreJs %}{% endblock moreJs %}
+
+{% set title_page = 'ajouter une vidéo' %}
+{% set path_entity_index = 'admin_video_index' %}
+{% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}

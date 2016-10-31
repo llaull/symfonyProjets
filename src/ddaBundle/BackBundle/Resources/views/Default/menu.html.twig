@@ -1,45 +1,55 @@
 {% trans_default_domain 'ddaBundleBackBundle' %}
 
-    {% set dossier_artiste_menu = ["admin_artiste_index", "admin_actualitee_index"] %}
+    {% set dossier_artiste_menu = [
+                                "admin_artiste_index",
+                                "admin_artiste_new",
+                                "admin_artiste_edit",
+                                "admin_actualitee_index",
+                                "admin_actualitee_new",
+                                "admin_actualitee_edit",
+                                "admin_video_index",
+                                "admin_video_new",
+                                "admin_video_edit"
+    ] %}
     {% set current_route = app.request.attributes.get('_route') %}
 
 <li class="nav-item start {% if current_route in dossier_artiste_menu %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-archive"></i>
-        <span class="title">{{ 'Dossier d\'Artiste'|trans }}</span>
+        <span class="title">{{ "Dossier d'Artiste"|trans }}</span>
         <span class="arrow"></span>
     </a>
 
     <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_index' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_artiste_index' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-male"></i>
                 <span class="title">{{ 'Gérer les artistes'|trans }}</span>
             </a>
         </li>
 
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexw' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les dossier'|trans }}</span>
             </a>
         </li>
 
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexw' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-file-text-o"></i>
                 <span class="title">{{ 'Gérer les textes'|trans }}</span>
             </a>
         </li>
 
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexx' %}active open{% endif %}">
-            <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
+        <li class="nav-item start {% if current_route == 'admin_video_index' %}active open{% endif %}">
+            <a href="{{ path('admin_video_index') }}" class="nav-link ">
                 <i class="fa fa-file-video-o"></i>
                 <span class="title">{{ 'Gérer les vidéos'|trans }}</span>
             </a>
         </li>
 
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_actualitee_index' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_actualitee_index' %}active open{% endif %}">
             <a href="{{ path('admin_actualitee_index') }}" class="nav-link ">
                 <i class="fa fa-newspaper-o"></i>
                 <span class="title">{{ 'Gérer les actualitées'|trans }}</span>
@@ -50,7 +60,7 @@
 </li>
 
 
-<li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexc' %}active open{% endif %}">
+<li class="nav-item start {% if current_route == 'admin_artiste_indexc' %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-search"></i>
         <span class="title">{{ 'Etudes et recherches'|trans }}</span>
@@ -58,7 +68,7 @@
     </a>
 
     <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexx' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_artiste_indexx' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les pages statiques'|trans }}</span>
@@ -68,7 +78,7 @@
 
 </li>
 
-<li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexw' %}active open{% endif %}">
+<li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-archive"></i>
         <span class="title">{{ 'EAC'|trans }}</span>
@@ -76,7 +86,7 @@
     </a>
 
     <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_indexc' %}active open{% endif %}">
+        <li class="nav-item start {% if current_route == 'admin_artiste_indexc' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les pages statiques'|trans }}</span>
@@ -86,7 +96,14 @@
 
 </li>
 
-<li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_incdex' %}active open{% endif %}">
+
+{% set dossier_artiste_menu_page_statique = [
+"admin_page_statique_index",
+"admin_page_statique_new",
+"admin_page_statique_edit"
+] %}
+
+<li class="nav-item start {% if current_route in dossier_artiste_menu_page_statique %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-archive"></i>
         <span class="title">{{ 'Front Office'|trans }}</span>
@@ -94,8 +111,8 @@
     </a>
 
     <ul class="sub-menu">
-        <li class="nav-item start {% if app.request.attributes.get('_route') == 'admin_artiste_index' %}active open{% endif %}">
-            <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
+        <li class="nav-item start {% if current_route == 'admin_page_statique_index' %}active open{% endif %}">
+            <a href="{{ path('admin_page_statique_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les pages statiques'|trans }}</span>
             </a>

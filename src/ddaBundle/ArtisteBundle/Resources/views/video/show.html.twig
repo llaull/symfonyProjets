@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Video</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ video.id }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ video.slug }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ video.nom }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if video.created %}{{ video.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if video.updated %}{{ video.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ video.auteur }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ video.date }}</td>
+            </tr>
+            <tr>
+                <th>Fichiermp4</th>
+                <td>{{ video.fichierMp4 }}</td>
+            </tr>
+            <tr>
+                <th>Fichierogg</th>
+                <td>{{ video.fichierOgg }}</td>
+            </tr>
+            <tr>
+                <th>Thumbnail</th>
+                <td>{{ video.thumbnail }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if video.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_video_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_video_edit', { 'id': video.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

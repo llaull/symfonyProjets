@@ -1,7 +1,12 @@
-frond_office_homepage:
-    path:     /index.html
-    defaults: { _controller: ddaBundleFrontBundle:Default:index }
+dda_bundle_front_admin_page_statique:
+    resource: "@ddaBundleFrontBundle/Resources/config/routing/page.yml"
+    prefix:   /admin/page/statique
 
 front_office_homepage:
     path:     /index.html
     defaults: { _controller: ddaBundleFrontBundle:Default:index }
+
+admin_page_statique_show:
+    path:     /{slug}.html
+    defaults: { _controller: "ddaBundleFrontBundle:Page:show" }
+    methods:  GET

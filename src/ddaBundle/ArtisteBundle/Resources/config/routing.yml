@@ -6,6 +6,9 @@ dda_bundle_admin_actualitee:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/actualite.yml"
     prefix:   /admin/actualite
 
+dda_bundle_admin_video:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing/video.yml"
+    prefix:   /admin/video
 
 dda_bundle_artiste_homepage:
     path:     /

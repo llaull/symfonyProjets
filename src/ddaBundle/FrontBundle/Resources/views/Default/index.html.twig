@@ -88,23 +88,10 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-4">a {{ app.request.locale }}</div>
-        <div class="col-sm-4">
-            bbr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-        <div class="col-sm-4">c</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">lslsl</div>
-        <div class="col-sm-4">
-            d<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-        <div class="col-sm-4">e</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">footer</div>
-    </div>
+    {% block content_txt %}
+
+    {% endblock content_txt %}
+
 </div>
 
 </body>

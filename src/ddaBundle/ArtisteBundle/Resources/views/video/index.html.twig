@@ -1,0 +1,41 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-managed_datatables.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% set title_page = 'Les videos des artistes' %}
+{% set path_entity_new = 'admin_video_new' %}
+{% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}
+
+{% block content_txt %}
+<tr>
+    <th>artiste</th>
+    <th>Auteur</th>
+    <th>Date</th>
+    <th>Fichiermp4</th>
+    <th>Active</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for video in videos %}
+    <tr>
+        <td>{{ video.artiste.slug }}</td>
+        <td>{{ video.auteur }}</td>
+        <td>{{ video.date }}</td>
+        <td>{{ video.fichierMp4 }}</td>
+        <td>{% if video.active %}Yes{% else %}No{% endif %}</td>
+        <td>
+            <div class="btn-toolbar">
+                <div class="btn-group btn-group-xs btn-group-solid">
+                    <a class="btn red"
+                       href="{{ path('admin_video_show', { 'id': video.id }) }}">{{ 'show'|trans }}</a>
+                    <a class="btn green"
+                       href="{{ path('admin_video_edit', { 'id': video.id }) }}">{{ 'edit'|trans }}</a>
+                    <a class="btn yellow modal-delete"
+                       data-href="{{ path('admin_video_delete', { 'id': video.id }) }}"
+                       href="{{ path('admin_video_delete', { 'id': video.id }) }}">{{ 'delete'|trans }}</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+{% endfor %}
+{% endblock content_txt %}
