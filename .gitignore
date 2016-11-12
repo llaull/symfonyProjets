@@ -22,3 +22,5 @@
 /web/uploads/*
 
 /web/amcharts/
+!.idea/
+/bin/symfony_requirements

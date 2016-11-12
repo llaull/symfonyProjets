@@ -3,15 +3,8 @@
 {% block moreCss %}{% endblock moreCss %}
 {% block moreJs %}{% endblock moreJs %}
 
-{% set title_page = 'Blank Page Layout' %}
+{% set title_page = 'Blank, Page Layout' %}
 
 {% block content_txt %}
-    <p>A black page template with a minimal dependency assets to use as a base for any custom page
-    you create </p>
-    >{{ app.request.attributes.get('_route') }}
-    <br>
-    >
-    {{ app.request.attributes.get('_internal') }}
-    <br>
-    {{ dump() }}
+    <p>A black page template with a minimal dependency assets to use as a base for any custom page you create </p>
 {% endblock content_txt %}

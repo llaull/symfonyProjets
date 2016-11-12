@@ -80,6 +80,7 @@ class OptionsController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $option->setUser($this->getUser());
             $em->persist($option);
             $em->flush();
 
