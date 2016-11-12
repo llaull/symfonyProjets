@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dossierpages list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Slug</th>
+                <th>Id</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Active</th>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dossierPage in dossierPages %}
+            <tr>
+                <td><a href="{{ path('admin_artiste_dossier_page_show', { 'id': dossierPage.id }) }}">{{ dossierPage.slug }}</a></td>
+                <td>{{ dossierPage.id }}</td>
+                <td>{% if dossierPage.created %}{{ dossierPage.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if dossierPage.updated %}{{ dossierPage.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if dossierPage.active %}Yes{% else %}No{% endif %}</td>
+                <td>{{ dossierPage.titre }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_artiste_dossier_page_show', { 'id': dossierPage.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_artiste_dossier_page_edit', { 'id': dossierPage.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_artiste_dossier_page_new') }}">Create a new dossierPage</a>
+        </li>
+    </ul>
+{% endblock %}

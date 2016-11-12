@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dossierpage</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Slug</th>
+                <td>{{ dossierPage.slug }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossierPage.id }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if dossierPage.created %}{{ dossierPage.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if dossierPage.updated %}{{ dossierPage.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if dossierPage.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ dossierPage.titre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_artiste_dossier_page_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_artiste_dossier_page_edit', { 'id': dossierPage.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

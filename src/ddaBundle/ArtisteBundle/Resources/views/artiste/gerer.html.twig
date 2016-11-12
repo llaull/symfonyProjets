@@ -1,0 +1,43 @@
+<div class="col-md-4 ">
+    {#<!-- BEGIN Portlet PORTLET-->#}
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>{{ "Gérer les catégories"|trans }}
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse"> </a>
+                <a href="" class="fullscreen"> </a>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            {{ dump() }}
+            <div class="dd" id="nestable_list_2">
+                <ol class="dd-list">
+                    <li class="dd-item" data-id="13">
+                        <div class="dd-handle"> Item 13</div>
+                    </li>
+                    <li class="dd-item" data-id="14">
+                        <div class="dd-handle"> Item 14</div>
+                    </li>
+                    <li class="dd-item" data-id="15">
+                        <div class="dd-handle"> Item 15</div>
+                        <ol class="dd-list">
+                            <li class="dd-item" data-id="16">
+                                <div class="dd-handle"> Item 16</div>
+                            </li>
+                            <li class="dd-item" data-id="17">
+                                <div class="dd-handle"> Item 17</div>
+                            </li>
+                            <li class="dd-item" data-id="18">
+                                <div class="dd-handle"> Item 18</div>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    {#<!-- END Portlet PORTLET-->#}
+</div>

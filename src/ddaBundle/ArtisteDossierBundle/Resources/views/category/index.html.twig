@@ -1,0 +1,25 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-managed_datatables.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% set title_page = 'Les catégories des dossiers' %}
+{% set path_entity_new = 'admin_artiste_dossier_categorie_new' %}
+{% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}
+
+{% block content_txt %}
+<tr>
+    <th>Titre</th>
+    <th>Active</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for category in categories %}
+    <tr>
+        <td>{{ category.titre }}</td>
+        <td>{% if category.active %}Yes{% else %}No{% endif %}</td>
+        <td>
+
+        </td>
+    </tr>
+{% endfor %}
+{% endblock content_txt %}

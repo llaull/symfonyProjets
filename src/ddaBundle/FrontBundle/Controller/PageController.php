@@ -82,7 +82,7 @@ class PageController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_page_statique_edit', array('id' => $page->getId()));
+            return $this->redirectToRoute('admin_page_statique_index');
         }
 
         return $this->render('@ddaBundleBack/page/edit.html.twig', array(

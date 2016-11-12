@@ -18,6 +18,10 @@ admin_artiste_delete:
     defaults: { _controller: "ddaBundleArtisteBundle:Artiste:delete" }
     methods:  DELETE
 
+admin_artiste_gerer:
+    path:     /{id}/gerer
+    defaults: { _controller: "ddaBundleArtisteBundle:Artiste:gerer" }
+    methods:  [GET]
 #
 #        FRONT
 #

@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new ddaBundle\ArtisteBundle\ddaBundleArtisteBundle(),
             new ddaBundle\FrontBundle\ddaBundleFrontBundle(),
             new ddaBundle\BackBundle\ddaBundleBackBundle(),
+            new ddaBundle\ArtisteDossierBundle\ArtisteDossierBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
