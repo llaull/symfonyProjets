@@ -7,6 +7,7 @@
 
 {% block content_txt %}
 <tr>
+    <th>Artiste</th>
     <th>Titre</th>
     <th>Active</th>
     <th>Actions</th>
@@ -15,6 +16,7 @@
 <tbody>
 {% for category in categories %}
     <tr>
+        <td>{{ category.artiste.prenom }} {{ category.artiste.nome }}</td>
         <td>{{ category.titre }}</td>
         <td>{% if category.active %}Yes{% else %}No{% endif %}</td>
         <td>
