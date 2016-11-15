@@ -50,8 +50,8 @@
                 var array = jQuery('.dd li').map(function () {
                     return '{"id":"' + $(this).attr("data-id") + '", "order":"' + ++i + '"}';
                 }).get();
-                var artiste = ',{"artiste":"' + $(this).attr("artiste-id") + '"}';
-                var order = '[' + '"dossier":"' + '[' + array.join(',') + "]" + artiste + ']';
+                var artiste = ',"artiste":"' + $(this).attr("artiste-id") + '"';
+                var order = '{' + '"dossier":[' + array.join(',') + "]" + artiste + '}';
                 console.log(order);
                 $.ajax({
                     data: 'data=' + order,
