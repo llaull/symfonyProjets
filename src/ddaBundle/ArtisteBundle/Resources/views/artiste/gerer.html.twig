@@ -24,9 +24,9 @@
                                            href="{{ path('admin_artiste_dossier_categorie_edit', { 'id': categorie.id }) }}"><i
                                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         {% if categorie.active %}
-                                            {% set foo = 'fa-unlock' %}
+                                            {% set foo = 'fa-eye' %}
                                         {% else %}
-                                            {% set foo = 'fa-lock' %}
+                                            {% set foo = 'fa-eye-slash' %}
                                         {% endif %}
                                         <i class="fa {{ foo }}" aria-hidden="true"></i>
                                     </div>
@@ -43,9 +43,9 @@
                                                                     class="fa fa-pencil-square-o"
                                                                     aria-hidden="true"></i></a>
                                                         {% if categorieEnfant.active %}
-                                                            {% set foo = 'fa-unlock' %}
+                                                            {% set foo = 'fa-eye' %}
                                                         {% else %}
-                                                            {% set foo = 'fa-lock' %}
+                                                            {% set foo = 'fa-eye-slash' %}
                                                         {% endif %}
                                                         <i class="fa {{ foo }}" aria-hidden="true"></i>
                                                     </div>

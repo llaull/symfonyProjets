@@ -45,24 +45,48 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var updateOutput = function () {
-                var i = 0;
-                var array = jQuery('.dd li').map(function () {
-                    return '{"id":"' + $(this).attr("data-id") + '", "order":"' + ++i + '"}';
-                }).get();
-                var artiste = ',"artiste":"' + $(this).attr("artiste-id") + '"';
-                var order = '{' + '"dossier":[' + array.join(',') + "]" + artiste + '}';
-                console.log(order);
-                $.ajax({
-                    data: 'data=' + order,
-                    cache: false,
-                    type: 'POST',
-                    url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
-                    success: function (data) {
-                        console.log(data);
-                    }
-                });
+            var updateOutput = function (e) {
+                var list = e.length ? e : $(e.target),
+                        output = list.data('output');
+                if (window.JSON) {
+                    var order = window.JSON.stringify(list.nestable('serialize'));
+                    console.log(order);//, null, 2));
+
+                    $.ajax({
+                        data: 'data=' + order,
+                        cache: false,
+                        type: 'POST',
+                        url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
+                        success: function (data) {
+//                            console.log(data);
+                        }
+                    });
+
+
+                } else {
+                    console.log('JSON browser support required for this demo.');
+                }
             };
+
+
+            /*var updateOutput = function () {
+             var i = 0;
+             var array = jQuery('.dd li').map(function () {
+             return '{"id":"' + $(this).attr("data-id") + '","parent":"' + $(this).attr("data-id-parent") + '", "order":"' + ++i + '"}';
+             }).get();
+             var artiste = ',"artiste":"' + $(this).attr("artiste-id") + '"';
+             var order = '{' + '"dossier":[' + array.join(',') + "]" + artiste + '}';
+             console.log(order);
+             $.ajax({
+             data: 'data=' + order,
+             cache: false,
+             type: 'POST',
+             url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
+             success: function (data) {
+             console.log(data);
+             }
+             });
+             };*/
 
 
             if ($('.dd').length) {

@@ -5,6 +5,7 @@ namespace ddaBundle\ArtisteDossierBundle\Controller;
 use ddaBundle\ArtisteDossierBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Category controller.
@@ -14,18 +15,57 @@ class CategoryController extends Controller
 {
 
     /**
-     * https://github.com/llaull/mySymfony2/blob/master/src/CarnetApp/CarnetBundle/Controller/PageController.php
      * @param Request $request
      */
     public function orderAction(Request $request)
     {
         $data = $request->request->get('data');
-        $params = json_decode($data);
+        $params = json_decode($data, true);
         $em = $this->getDoctrine()->getManager();
 
-        die(var_dump($params));
+
+        function run_array_parent($array, $parent)
+        {
+            $post_db = array();
+            foreach ($array as $head => $body) {
+                if (isset($body['children'])) {
+                    $head++;
+                    $post_db[$body['id']] = ['parent' => $parent, 'order' => $head, 'id' => $body['id']];
+                    $post_db = $post_db + run_array_parent($body['children'], $body['id']);
+                } else {
+                    $head++;
+                    $post_db[$body['id']] = ['parent' => $parent, 'order' => $head, 'id' => $body['id']];
+                }
+            }
+
+            return $post_db;
+        }
+
+        $post_db = run_array_parent($params, '0');
+
+        foreach ($post_db as $v) {
+            $categories = $em->getRepository('ArtisteDossierBundle:Category')->findOneBy(array("id" => $v["id"]));
+
+            if (!$categories) {
+                throw $this->createNotFoundException('Unable to find Lieu entity.');
+            }
+
+            $categoriesParent = $em->getRepository('ArtisteDossierBundle:Category')->findOneBy(array("id" => $v["parent"]));
+
+            if (!$categoriesParent) {
+                throw $this->createNotFoundException('Unable to find Lieu entity.');
+            }
+
+            $categories->setCategory($categoriesParent);
+            $categories->setOrdre($v["order"]);
+
+        }
+        $em->flush();
+
+        return new JsonResponse(array('result' => "ok"));
     }
-        /**
+
+    /**
      * Lists all category entities.
      *
      */
@@ -40,7 +80,8 @@ class CategoryController extends Controller
         ));
     }
 
-    public function getCategoryCount(){
+    public function getCategoryCount()
+    {
         $em = $this->getDoctrine()->getManager();
 
         //$categories = $em->getRepository('ArtisteDossierBundle:Category')->();
@@ -138,7 +179,6 @@ class CategoryController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_artiste_dossier_categorie_delete', array('id' => $category->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
