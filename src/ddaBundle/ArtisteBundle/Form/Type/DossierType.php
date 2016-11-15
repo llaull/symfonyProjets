@@ -1,12 +1,12 @@
 <?php
 
-namespace ddaBundle\ArtisteDossierBundle\Form\Type;
+namespace ddaBundle\ArtisteBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoryType extends AbstractType
+class DossierType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,20 +15,23 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('artiste')
             ->add('image')
+            ->add('contenu')
             ->add('active')
+            ->add('titreView')
+            ->add('creator')
+            ->add('artiste')
             ->add('category')
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ddaBundle\ArtisteDossierBundle\Entity\Category'
+            'data_class' => 'ddaBundle\ArtisteBundle\Entity\Dossier'
         ));
     }
 
@@ -37,7 +40,7 @@ class CategoryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'ddabundle_artistedossierbundle_category';
+        return 'ddabundle_artistebundle_dossier';
     }
 
 

@@ -10,9 +10,10 @@
                                 "admin_video_index",
                                 "admin_video_new",
                                 "admin_video_edit",
-                                "admin_artiste_dossier_categorie_index",
-                                "admin_artiste_dossier_categorie_new",
-                                "admin_artiste_dossier_categorie_edit"
+                                "admin_artiste_dossier_index",
+                                "admin_artiste_dossier_new",
+                                "admin_artiste_dossier_edit",
+                                "admin_artiste_dossier_edit"
     ] %}
     {% set current_route = app.request.attributes.get('_route') %}
 
@@ -31,19 +32,11 @@
             </a>
         </li>
 
-        <li class="nav-item start {% if current_route == 'admin_artiste_dossier_categorie_index' %}active open{% endif %}">
-            <a href="{{ path('admin_artiste_dossier_categorie_index') }}" class="nav-link ">
+        <li class="nav-item start {% if current_route == 'admin_artiste_dossier_index' %}active open{% endif %}">
+            <a href="{{ path('admin_artiste_dossier_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
-                <span class="title">{{ 'Gérer les categories'|trans }}</span>
+                <span class="title">{{ 'Gérer les dossiers'|trans }}</span>
             </a>
-
-
-        <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
-            <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
-                <i class="fa fa-folder-o"></i>
-                <span class="title">{{ 'Gérer les dossier'|trans }}</span>
-            </a>
-        </li>
 
         <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">

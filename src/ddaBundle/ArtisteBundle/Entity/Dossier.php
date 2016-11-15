@@ -1,20 +1,19 @@
 <?php
 
-namespace ddaBundle\ArtisteDossierBundle\Entity;
+namespace ddaBundle\ArtisteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Category
+ * Dossier
  *
- * @ORM\Table(name="dda__artiste_dossier_category")
- * @ORM\Entity(repositoryClass="ddaBundle\ArtisteDossierBundle\Repository\CategoryRepository")
+ * @ORM\Table(name="dda__artiste_dossier")
+ * @ORM\Entity(repositoryClass="ddaBundle\ArtisteBundle\Repository\DossierRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Category
+class Dossier
 {
-
     /**
      * @Gedmo\Slug(fields={"titre"})
      * @Doctrine\ORM\Mapping\Column(length=128, unique=true)
@@ -59,11 +58,11 @@ class Category
      */
     private $artiste;
     /**
-     * @var \ddaBundle\ArtisteDossierBundle\Entity\Category
+     * @var \ddaBundle\ArtisteBundle\Entity\Dossier
      *
-     * @ORM\ManyToOne(targetEntity="\ddaBundle\ArtisteDossierBundle\Entity\Category")
+     * @ORM\ManyToOne(targetEntity="\ddaBundle\ArtisteBundle\Entity\Dossier")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="dossier_id", referencedColumnName="id", nullable=true)
      * })
      */
     private $category;
@@ -84,11 +83,43 @@ class Category
      */
     private $image;
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $contenu;
+    /**
      * @var boolean
      *
      * @ORM\Column(name="isActive", type="boolean", nullable=true, options={"default":false})
      */
     private $active;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="$titreView", type="boolean", nullable=true, options={"default":true})
+     */
+    private $titreView;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+        $this->updated = new \DateTime();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTitreView()
+    {
+        return $this->titreView;
+    }
+
+    /**
+     * @param boolean $titreView
+     */
+    public function setTitreView($titreView)
+    {
+        $this->titreView = $titreView;
+    }
 
     /**
      * @return mixed
@@ -155,7 +186,7 @@ class Category
     }
 
     /**
-     * @return \ddaBundle\ArtisteBundle\Entity\Artiste
+     * @return Artiste
      */
     public function getArtiste()
     {
@@ -163,7 +194,7 @@ class Category
     }
 
     /**
-     * @param \ddaBundle\ArtisteBundle\Entity\Artiste $artiste
+     * @param Artiste $artiste
      */
     public function setArtiste($artiste)
     {
@@ -171,7 +202,7 @@ class Category
     }
 
     /**
-     * @return Category
+     * @return Dossier
      */
     public function getCategory()
     {
@@ -179,7 +210,7 @@ class Category
     }
 
     /**
-     * @param Category $category
+     * @param Dossier $category
      */
     public function setCategory($category)
     {
@@ -235,6 +266,22 @@ class Category
     }
 
     /**
+     * @return mixed
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * @param mixed $contenu
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+    }
+
+    /**
      * @return boolean
      */
     public function isActive()
@@ -283,11 +330,5 @@ class Category
     public function __toString()
     {
         return $this->titre;
-    }
-
-    public function __construct()
-    {
-        $this->created = new \DateTime();
-        $this->updated = new \DateTime();
     }
 }

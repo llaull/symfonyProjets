@@ -3,7 +3,7 @@
     <div class="portlet box red">
         <div class="portlet-title">
             <div class="caption">
-                <i class="fa fa-gift"></i>{{ "Gérer les catégories"|trans }}
+                <i class="fa fa-gift"></i>{{ "Gérer le dossier"|trans }}
             </div>
             <div class="tools">
                 <a href="javascript:;" class="collapse"> </a>
@@ -21,7 +21,7 @@
                                     {{ categorie.titre }}
                                     <div class="pull-right">
                                         <a title="{{ "edit"|trans }}"
-                                           href="{{ path('admin_artiste_dossier_categorie_edit', { 'id': categorie.id }) }}"><i
+                                           href="{{ path('admin_artiste_dossier_edit', { 'id': categorie.id }) }}"><i
                                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         {% if categorie.active %}
                                             {% set foo = 'fa-eye' %}
@@ -39,7 +39,7 @@
                                                     {{ categorieEnfant.titre }}
                                                     <div class="pull-right">
                                                         <a title="{{ "edit"|trans }}"
-                                                           href="{{ path('admin_artiste_dossier_categorie_edit', { 'id': categorieEnfant.id }) }}"><i
+                                                           href="{{ path('admin_artiste_dossier_edit', { 'id': categorieEnfant.id }) }}"><i
                                                                     class="fa fa-pencil-square-o"
                                                                     aria-hidden="true"></i></a>
                                                         {% if categorieEnfant.active %}

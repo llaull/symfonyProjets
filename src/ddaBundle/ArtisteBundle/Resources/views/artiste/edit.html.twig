@@ -56,7 +56,7 @@
                         data: 'data=' + order,
                         cache: false,
                         type: 'POST',
-                        url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
+                        url: "{{ path ('admin_artiste_dossier_order') }}",
                         success: function (data) {
 //                            console.log(data);
                         }
@@ -67,26 +67,6 @@
                     console.log('JSON browser support required for this demo.');
                 }
             };
-
-
-            /*var updateOutput = function () {
-             var i = 0;
-             var array = jQuery('.dd li').map(function () {
-             return '{"id":"' + $(this).attr("data-id") + '","parent":"' + $(this).attr("data-id-parent") + '", "order":"' + ++i + '"}';
-             }).get();
-             var artiste = ',"artiste":"' + $(this).attr("artiste-id") + '"';
-             var order = '{' + '"dossier":[' + array.join(',') + "]" + artiste + '}';
-             console.log(order);
-             $.ajax({
-             data: 'data=' + order,
-             cache: false,
-             type: 'POST',
-             url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
-             success: function (data) {
-             console.log(data);
-             }
-             });
-             };*/
 
 
             if ($('.dd').length) {
@@ -122,5 +102,5 @@
 {% set path_entity_index = 'admin_artiste_index' %}
 {% set table_size = 'col-md-6' %}
 {% block content_AB %}
-    {{ render(controller('ddaBundleArtisteBundle:Artiste:gerer', {'id':artiste.id})) }}
+    {{ render(controller('ddaBundleArtisteBundle:Dossier:gerer', {'id':artiste.id})) }}
 {% endblock content_AB %}

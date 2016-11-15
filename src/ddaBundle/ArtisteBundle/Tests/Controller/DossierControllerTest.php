@@ -1,10 +1,10 @@
 <?php
 
-namespace ddaBundle\ArtisteDossierBundle\Tests\Controller;
+namespace ddaBundle\ArtisteBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DossierPageControllerTest extends WebTestCase
+class DossierControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class DossierPageControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/artiste/dossier/page/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/artiste/dossier/page/");
+        $crawler = $client->request('GET', '/admin/artiste/dossier/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/artiste/dossier/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'ddabundle_artistedossierbundle_dossierpage[field_name]'  => 'Test',
+            'ddabundle_artistebundle_dossier[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class DossierPageControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'ddabundle_artistedossierbundle_dossierpage[field_name]'  => 'Foo',
+            'ddabundle_artistebundle_dossier[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

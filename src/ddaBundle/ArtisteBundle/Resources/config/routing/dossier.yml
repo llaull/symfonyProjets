@@ -1,0 +1,30 @@
+admin_artiste_dossier_index:
+    path:     /
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:index" }
+    methods:  GET
+
+admin_artiste_dossier_show:
+    path:     /{id}/show
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:show" }
+    methods:  GET
+
+admin_artiste_dossier_new:
+    path:     /new
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:new" }
+    methods:  [GET, POST]
+
+admin_artiste_dossier_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:edit" }
+    methods:  [GET, POST]
+
+admin_artiste_dossier_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:delete" }
+    methods:  DELETE
+
+## AJAX
+admin_artiste_dossier_order:
+    path:     /order
+    defaults: { _controller: "ddaBundleArtisteBundle:Dossier:order" }
+    methods:  [POST]
