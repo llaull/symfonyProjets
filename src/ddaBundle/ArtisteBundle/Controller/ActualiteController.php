@@ -42,7 +42,7 @@ class ActualiteController extends Controller
             $actualite->setCreator($this->getUser());
             $actualite->setSlug($actualite->getArtiste()->getSlug() . '-' . $actualite->getTitre());
             $em->persist($actualite);
-            $em->flush($actualite);
+            $em->flush();
 
             return $this->redirectToRoute('admin_actualitee_index');
         }

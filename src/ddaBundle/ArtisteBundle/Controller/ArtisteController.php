@@ -40,8 +40,9 @@ class ArtisteController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $artiste->setCreator($this->getUser());
             $em->persist($artiste);
-            $em->flush($artiste);
+            $em->flush();
 
             return $this->redirectToRoute('admin_artiste_index');
         }
@@ -77,7 +78,10 @@ class ArtisteController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $artiste->setCreator($this->getUser());
+            $em->persist($artiste);
+            $em->flush();
 
             return $this->redirectToRoute('admin_artiste_index');
         }

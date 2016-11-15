@@ -42,7 +42,7 @@ class VideoController extends Controller
             $video->setCreator($this->getUser());
             $video->setSlug($video->getArtiste()->getSlug() . '-par-' . $video->getAuteur());
             $em->persist($video);
-            $em->flush($video);
+            $em->flush();
 
             return $this->redirectToRoute('admin_video_index');
         }
@@ -82,7 +82,7 @@ class VideoController extends Controller
             $video->setCreator($this->getUser());
             $video->setSlug($video->getArtiste()->getSlug() . '-par-' . $video->getAuteur());
             $em->persist($video);
-            $em->flush($video);
+            $em->flush();
 
             return $this->redirectToRoute('admin_video_index');
         }

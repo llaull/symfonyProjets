@@ -110,8 +110,9 @@ class DossierController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $dossier->setCreator($this->getUser());
             $em->persist($dossier);
-            $em->flush($dossier);
+            $em->flush();
 
             return $this->redirectToRoute('admin_artiste_dossier_index');
         }
@@ -147,7 +148,10 @@ class DossierController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $dossier->setCreator($this->getUser());
+            $em->persist($dossier);
+            $em->flush();
 
             return $this->redirectToRoute('admin_artiste_dossier_index');
         }
