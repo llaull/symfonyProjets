@@ -32,7 +32,3 @@ dda_bundle_back:
 dda_bundle_artiste:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing.yml"
     prefix:   /
-
-dda_artiste_dossier:
-    resource: "@ArtisteDossierBundle/Resources/config/routing.yml"
-    prefix:   /

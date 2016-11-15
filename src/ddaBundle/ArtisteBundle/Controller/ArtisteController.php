@@ -27,23 +27,6 @@ class ArtisteController extends Controller
         ));
     }
 
-    /**
-     * Lists all artiste entities.
-     *
-     */
-    public function gererAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $artiste = $em->getRepository('ddaBundleArtisteBundle:Artiste')->findOneBy(array("id" => $id));
-
-        $categories = $em->getRepository('ArtisteDossierBundle:Category')->findBy(array("artiste" => $artiste));
-
-        return $this->render('@ddaBundleArtiste/artiste/gerer.html.twig', array(
-            'artiste' => $artiste,
-            'categories' => $categories,
-        ));
-    }
 
     /**
      * Creates a new artiste entity.

@@ -1,7 +1,0 @@
-artiste_dossier_categorie:
-    resource: "@ArtisteDossierBundle/Resources/config/routing/category.yml"
-    prefix:   /admin/dossier/categorie
-
-artiste_dossier_homepage:
-    path:     /
-    defaults: { _controller: ArtisteDossierBundle:Default:index }
