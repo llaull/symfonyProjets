@@ -12,29 +12,51 @@
 
         </div>
         <div class="portlet-body">
-            {{ dump() }}
-            <div class="dd" id="nestable_list_2">
+            <div class="dd" artiste-id="{{ artiste.id }}">
                 <ol class="dd-list">
-                    <li class="dd-item" data-id="13">
-                        <div class="dd-handle"> Item 13</div>
-                    </li>
-                    <li class="dd-item" data-id="14">
-                        <div class="dd-handle"> Item 14</div>
-                    </li>
-                    <li class="dd-item" data-id="15">
-                        <div class="dd-handle"> Item 15</div>
-                        <ol class="dd-list">
-                            <li class="dd-item" data-id="16">
-                                <div class="dd-handle"> Item 16</div>
+                    {% for categorie in categories %}
+                        {% if categorie.category is null %}
+                            <li class="dd-item" data-id="{{ categorie.id }}">
+                                <div class="dd-handle">
+                                    {{ categorie.titre }}
+                                    <div class="pull-right">
+                                        <a title="{{ "edit"|trans }}"
+                                           href="{{ path('admin_artiste_dossier_categorie_edit', { 'id': categorie.id }) }}"><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        {% if categorie.active %}
+                                            {% set foo = 'fa-unlock' %}
+                                        {% else %}
+                                            {% set foo = 'fa-lock' %}
+                                        {% endif %}
+                                        <i class="fa {{ foo }}" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                {% for categorieEnfant in categories %}
+                                    {% if categorieEnfant.category == categorie %}
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="{{ categorieEnfant.id }}">
+                                                <div class="dd-handle">
+                                                    {{ categorieEnfant.titre }}
+                                                    <div class="pull-right">
+                                                        <a title="{{ "edit"|trans }}"
+                                                           href="{{ path('admin_artiste_dossier_categorie_edit', { 'id': categorieEnfant.id }) }}"><i
+                                                                    class="fa fa-pencil-square-o"
+                                                                    aria-hidden="true"></i></a>
+                                                        {% if categorieEnfant.active %}
+                                                            {% set foo = 'fa-unlock' %}
+                                                        {% else %}
+                                                            {% set foo = 'fa-lock' %}
+                                                        {% endif %}
+                                                        <i class="fa {{ foo }}" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    {% endif %}
+                                {% endfor %}
                             </li>
-                            <li class="dd-item" data-id="17">
-                                <div class="dd-handle"> Item 17</div>
-                            </li>
-                            <li class="dd-item" data-id="18">
-                                <div class="dd-handle"> Item 18</div>
-                            </li>
-                        </ol>
-                    </li>
+                        {% endif %}
+                    {% endfor %}
                 </ol>
             </div>
         </div>

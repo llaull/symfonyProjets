@@ -16,12 +16,10 @@
 <tbody>
 {% for category in categories %}
     <tr>
-        <td>{{ category.artiste.prenom }} {{ category.artiste.nome }}</td>
+        <td>{{ category.artiste.prenom }} {{ category.artiste.nom }}</td>
         <td>{{ category.titre }}</td>
         <td>{% if category.active %}Yes{% else %}No{% endif %}</td>
-        <td>
-
-        </td>
+        <td></td>
     </tr>
 {% endfor %}
 {% endblock content_txt %}

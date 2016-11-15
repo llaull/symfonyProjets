@@ -1,4 +1,5 @@
 {% extends 'BackOfficeBundle:Metronic:body-page-content-form.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
 
 {% block moreCss %}
 
@@ -32,14 +33,45 @@
 {% block moreJs %}
     {% javascripts
     '@BackOfficeBundle/Resources/public/assets/global/plugins/moment.min.js'
-    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js'
-    '@BackOfficeBundle/Resources/public/assets/pages/scripts/ui-nestable.min.js'
-    %}
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% javascripts
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/jquery-nestable/jquery.nestable.js' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            var updateOutput = function () {
+                var i = 0;
+                var array = jQuery('.dd li').map(function () {
+                    return '{"id":"' + $(this).attr("data-id") + '", "order":"' + ++i + '"}';
+                }).get();
+                var artiste = ',{"artiste":"' + $(this).attr("artiste-id") + '"}';
+                var order = '[' + '"dossier":"' + '[' + array.join(',') + "]" + artiste + ']';
+                console.log(order);
+                $.ajax({
+                    data: 'data=' + order,
+                    cache: false,
+                    type: 'POST',
+                    url: "{{ path ('admin_artiste_dossier_categorie_edit_order') }}",
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            };
+
+
+            if ($('.dd').length) {
+                $('.dd').nestable({
+                    group: 1,
+                    maxDepth: 2
+                }).on('change', updateOutput);
+            }
+
             $(function () {
                 $('#ddabundle_artistebundle_artiste_dateDeNaissance').datetimepicker({
                     format: "dd/mm/yyyy",

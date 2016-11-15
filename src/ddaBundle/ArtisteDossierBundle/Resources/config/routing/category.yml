@@ -22,3 +22,9 @@ admin_artiste_dossier_categorie_delete:
     path:     /{id}/delete
     defaults: { _controller: "ArtisteDossierBundle:Category:delete" }
     methods:  DELETE
+
+## AJAX
+admin_artiste_dossier_categorie_edit_order:
+    path:     /order
+    defaults: { _controller: "ArtisteDossierBundle:Category:order" }
+    methods:  [POST]

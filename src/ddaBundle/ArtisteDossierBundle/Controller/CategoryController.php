@@ -12,7 +12,20 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CategoryController extends Controller
 {
+
     /**
+     * https://github.com/llaull/mySymfony2/blob/master/src/CarnetApp/CarnetBundle/Controller/PageController.php
+     * @param Request $request
+     */
+    public function orderAction(Request $request)
+    {
+        $data = $request->request->get('data');
+        $params = json_decode($data);
+        $em = $this->getDoctrine()->getManager();
+
+        die(var_dump($params));
+    }
+        /**
      * Lists all category entities.
      *
      */
