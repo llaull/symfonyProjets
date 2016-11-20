@@ -1,4 +1,4 @@
 services:
-#    dda_bundle_back.example:
-#        class: ddaBundle\BackBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    dda_bundle_back.MenuBadge:
+        class: ddaBundle\BackBundle\Services\MenuBadgeService
+        arguments: ["@doctrine.orm.entity_manager"]

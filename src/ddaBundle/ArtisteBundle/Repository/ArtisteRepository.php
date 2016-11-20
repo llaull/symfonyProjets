@@ -10,4 +10,32 @@ namespace ddaBundle\ArtisteBundle\Repository;
  */
 class ArtisteRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+    /*
+     * return count ddaBundleArtisteBundle:Artiste
+     */
+    public function getActiveCount()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('COUNT(a)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /*
+     * return number ddaBundleArtisteBundle:Artiste active
+     */
+    public function getNoActiveCount()
+    {
+        $qb = $this->_em->createQueryBuilder();
+
+        return $qb
+            ->select('COUNT(a)')
+            ->from('ddaBundleArtisteBundle:Artiste', 'a')
+            ->where($qb->expr()->notIn('a.active', 1))
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 }

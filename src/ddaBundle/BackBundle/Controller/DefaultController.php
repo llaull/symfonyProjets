@@ -8,6 +8,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ddaBundleBackBundle:Default:index.html.twig');
+
+        $em = $this->getDoctrine()->getManager();
+        $artistes = $em->getRepository('ddaBundleArtisteBundle:Artiste');
+        $artistesNb = $artistes->getActiveCount();
+
+        return $this->render('ddaBundleBackBundle:Default:index.html.twig', array(
+            'artistes' => $artistesNb,
+        ));
+
     }
 }
