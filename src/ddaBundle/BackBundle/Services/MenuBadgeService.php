@@ -9,18 +9,22 @@ class MenuBadgeService
 {
 
     private $em;
-    private $s;
 
     public function __construct(EntityManager $entityManager)
     {
         $this->em = $entityManager;
+    }
 
-        $artistes = $entityManager->getRepository('ddaBundleArtisteBundle:Artiste');
-        $artistesNb = $artistes->getActiveCount();
-        $artistesNbG = $artistes->getNoActiveCount();
 
-        $this->s = array("a" => $artistesNb, "e" => $artistesNbG);
+    public function getArtisteNotActived()
+    {
+        $artistes = $this->em->getRepository('ddaBundleArtisteBundle:Artiste');
+        $artisteNotActived = $artistes->getNoActiveCount();
 
+        if ($artisteNotActived != 0)
+            return '<span class="badge badge-warning">' . $artisteNotActived . "</span>";
+        else
+            return "";
     }
 
 

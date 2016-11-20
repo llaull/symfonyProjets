@@ -28,7 +28,7 @@
         <li class="nav-item start {% if current_route == 'admin_artiste_index' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-male"></i>
-                <span class="title">{{ 'Gérer les artistes'|trans }}</span>
+                <span class="title">{{ 'Gérer les artistes'|trans }}</span> {{ BackMenuBadge.artisteNotActived()|raw }}
             </a>
         </li>
 
