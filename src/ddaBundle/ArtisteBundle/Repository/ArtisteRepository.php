@@ -11,7 +11,6 @@ namespace ddaBundle\ArtisteBundle\Repository;
 class ArtisteRepository extends \Doctrine\ORM\EntityRepository
 {
 
-
     /*
      * return count ddaBundleArtisteBundle:Artiste
      */

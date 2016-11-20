@@ -28,14 +28,14 @@
         <li class="nav-item start {% if current_route == 'admin_artiste_index' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
                 <i class="fa fa-male"></i>
-                <span class="title">{{ 'Gérer les artistes'|trans }}</span> {{ BackMenuBadge.artisteNotActived()|raw }}
+                <span class="title">{{ 'Gérer les artistes'|trans }}</span> {{ BackMenuBadge.getNotActived('Artiste')|raw }}
             </a>
         </li>
 
         <li class="nav-item start {% if current_route == 'admin_artiste_dossier_index' %}active open{% endif %}">
             <a href="{{ path('admin_artiste_dossier_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
-                <span class="title">{{ 'Gérer les dossiers'|trans }}</span>
+                <span class="title">{{ 'Gérer les dossiers'|trans }}</span> {{ BackMenuBadge.getNotActived('Dossier')|raw }}
             </a>
 
         <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">

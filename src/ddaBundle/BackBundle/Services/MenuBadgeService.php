@@ -16,16 +16,20 @@ class MenuBadgeService
     }
 
 
-    public function getArtisteNotActived()
+    public function makeResult($rq)
     {
-        $artistes = $this->em->getRepository('ddaBundleArtisteBundle:Artiste');
-        $artisteNotActived = $artistes->getNoActiveCount();
-
-        if ($artisteNotActived != 0)
-            return '<span class="badge badge-warning">' . $artisteNotActived . "</span>";
+        if ($rq != 0)
+            return '<span class="badge badge-warning">' . $rq . "</span>";
         else
             return "";
     }
 
+    public function getNotActived($entity)
+    {
+        $entity = $this->em->getRepository('ddaBundleArtisteBundle:'.$entity);
+        $entityNotActived = $entity->getNoActiveCount();
+
+        return $this->makeResult($entityNotActived);
+    }
 
 }

@@ -10,4 +10,29 @@ namespace ddaBundle\ArtisteBundle\Repository;
  */
 class VideoRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*
+* return count ddaBundleArtisteBundle:Dossier
+*/
+    public function getActiveCount()
+    {
+        return $this->createQueryBuilder('v')
+            ->select('COUNT(v)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /*
+     * return number ddaBundleArtisteBundle:Dossier active
+     */
+    public function getNoActiveCount()
+    {
+        $qb = $this->_em->createQueryBuilder();
+
+        return $qb
+            ->select('COUNT(v)')
+            ->from('ddaBundleArtisteBundle:Video', 'v')
+            ->where($qb->expr()->notIn('v.active', 1))
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }
