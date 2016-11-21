@@ -16,7 +16,7 @@ class Dossier
 {
     /**
      * @Gedmo\Slug(fields={"titre"})
-     * @Doctrine\ORM\Mapping\Column(length=128, unique=true)
+     * @Doctrine\ORM\Mapping\Column(length=128, unique=false)
      */
     private $slug;
     /**
@@ -95,7 +95,7 @@ class Dossier
     /**
      * @var boolean
      *
-     * @ORM\Column(name="$titreView", type="boolean", nullable=true, options={"default":true})
+     * @ORM\Column(name="titreView", type="boolean", nullable=true, options={"default":true})
      */
     private $titreView;
 
