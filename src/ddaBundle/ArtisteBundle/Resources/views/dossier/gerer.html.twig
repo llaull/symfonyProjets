@@ -1,0 +1,65 @@
+<div class="col-md-4 ">
+    {#<!-- BEGIN Portlet PORTLET-->#}
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-gift"></i>{{ "Gérer le dossier"|trans }}
+            </div>
+            <div class="tools">
+                <a href="javascript:;" class="collapse"> </a>
+                <a href="" class="fullscreen"> </a>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            <div class="dd" artiste-id="{{ artiste.id }}">
+                <ol class="dd-list">
+                    {% for categorie in categories %}
+                        {% if categorie.category is null %}
+                            <li class="dd-item" data-id="{{ categorie.id }}">
+                                <div class="dd-handle">
+                                    {{ categorie.titre }}
+                                    <div class="pull-right">
+                                        <a title="{{ "edit"|trans }}"
+                                           href="{{ path('admin_artiste_dossier_edit', { 'id': categorie.id }) }}"><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        {% if categorie.active %}
+                                            {% set foo = 'fa-eye' %}
+                                        {% else %}
+                                            {% set foo = 'fa-eye-slash' %}
+                                        {% endif %}
+                                        <i class="fa {{ foo }}" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                {% for categorieEnfant in categories %}
+                                    {% if categorieEnfant.category == categorie %}
+                                        <ol class="dd-list">
+                                            <li class="dd-item" data-id="{{ categorieEnfant.id }}">
+                                                <div class="dd-handle">
+                                                    {{ categorieEnfant.titre }}
+                                                    <div class="pull-right">
+                                                        <a title="{{ "edit"|trans }}"
+                                                           href="{{ path('admin_artiste_dossier_edit', { 'id': categorieEnfant.id }) }}"><i
+                                                                    class="fa fa-pencil-square-o"
+                                                                    aria-hidden="true"></i></a>
+                                                        {% if categorieEnfant.active %}
+                                                            {% set foo = 'fa-eye' %}
+                                                        {% else %}
+                                                            {% set foo = 'fa-eye-slash' %}
+                                                        {% endif %}
+                                                        <i class="fa {{ foo }}" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+    {#<!-- END Portlet PORTLET-->#}
+</div>
