@@ -14,7 +14,7 @@
     <th>Portable</th>
     <th>Mail</th>
     <th>Site</th>
-    <th>Active</th>
+    <th>Publier</th>
     <th>Actions</th>
 </tr>
 </thead>
@@ -32,8 +32,6 @@
         <td>
             <div class="btn-toolbar">
                 <div class="btn-group btn-group-xs btn-group-solid">
-                    <a class="btn red"
-                       href="{{ path('admin_artiste_gerer', { 'id': artiste.id }) }}">{{ 'gérer'|trans }}</a>
                     <a class="btn red"
                        href="{{ path('artiste_show', { 'slug': artiste.slug }) }}">{{ 'show'|trans }}</a>
                     <a class="btn green"

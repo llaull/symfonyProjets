@@ -25,7 +25,7 @@ class Video
 
     /**
      * @Gedmo\Slug(fields={"auteur"})
-     * @Doctrine\ORM\Mapping\Column(length=128, unique=true)
+     * @Doctrine\ORM\Mapping\Column(length=128, unique=false)
      */
     private $slug;
 

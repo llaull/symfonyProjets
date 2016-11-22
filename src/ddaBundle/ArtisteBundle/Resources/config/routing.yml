@@ -4,11 +4,11 @@ dda_bundle_artiste_admin_artiste:
 
 dda_bundle_admin_actualitee:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/actualite.yml"
-    prefix:   /admin/actualite
+    prefix:   /admin/artiste/actualite
 
 dda_bundle_admin_video:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/video.yml"
-    prefix:   /admin/video
+    prefix:   /admin/artiste/video
 
 dda_bundle_artiste_admin_artiste_dossier:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/dossier.yml"
