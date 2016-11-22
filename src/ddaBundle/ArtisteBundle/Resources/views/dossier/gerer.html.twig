@@ -20,7 +20,7 @@
                                 <div class="dd-handle">
                                     {{ categorie.titre }}
                                     <div class="pull-right">
-                                        <a title="{{ "edit"|trans }}"
+                                        <a title="{{ "edit"|trans }}" class="dd-nodrag"
                                            href="{{ path('admin_artiste_dossier_edit', { 'id': categorie.id }) }}"><i
                                                     class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         {% if categorie.active %}
@@ -38,7 +38,7 @@
                                                 <div class="dd-handle">
                                                     {{ categorieEnfant.titre }}
                                                     <div class="pull-right">
-                                                        <a title="{{ "edit"|trans }}"
+                                                        <a title="{{ "edit"|trans }}" class="dd-nodrag"
                                                            href="{{ path('admin_artiste_dossier_edit', { 'id': categorieEnfant.id }) }}"><i
                                                                     class="fa fa-pencil-square-o"
                                                                     aria-hidden="true"></i></a>
