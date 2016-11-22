@@ -98,11 +98,33 @@ class Dossier
      * @ORM\Column(name="titreView", type="boolean", nullable=true, options={"default":true})
      */
     private $titreView;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isNormalise", type="boolean", nullable=false, options={"default":false})
+     */
+    private $normalise;
 
     public function __construct()
     {
         $this->created = new \DateTime();
         $this->updated = new \DateTime();
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getNormalise()
+    {
+        return $this->normalise;
+    }
+
+    /**
+     * @param boolean $normalise
+     */
+    public function setNormalise($normalise)
+    {
+        $this->normalise = $normalise;
     }
 
     /**
@@ -270,7 +292,13 @@ class Dossier
      */
     public function getContenu()
     {
-        return $this->contenu;
+
+        if ($this->getNormalise())
+            return $this->videoDDAA($this->contenu);
+//            return html_entity_decode($this->videoDDAA($this->contenu));
+        else
+            $p = str_replace("http://medias.dda-aquitaine.org/", "/uploads/", $this->contenu);
+            return html_entity_decode($this->videoDDAA($p));
     }
 
     /**
@@ -279,6 +307,36 @@ class Dossier
     public function setContenu($contenu)
     {
         $this->contenu = $contenu;
+    }
+
+    /**
+     * @param $texte
+     * @return mixed
+     */
+    static public function videoDDAA($texte)
+    {
+        //Délimiteurs
+        $marqueurDebutLien = '[-VIDEO-]';
+        $marqueurFinLien = '[-VIDEOFIN-]';
+
+        //Délimiteurs
+        $Tableau1 = explode($marqueurDebutLien, $texte);
+        $Tab_Chemin_Vid = array();
+
+        $i = 0;
+
+        foreach ($Tableau1 as $txt_nondecoup) {
+            array_push($Tab_Chemin_Vid, substr($txt_nondecoup, 0, strpos($txt_nondecoup, $marqueurFinLien)));
+
+            $i++;
+        }
+
+        for ($j = 1; $j < $i; $j++) {
+            $texte = str_replace($marqueurDebutLien . $Tab_Chemin_Vid[$j] . $marqueurFinLien, '<video controls="controls" preload="none"><source src="' . _MEDIA_DIR_ . '' . $Tab_Chemin_Vid[$j] . '" type="video/mp4" /><source src="' . _MEDIA_DIR_ . $Tab_Chemin_Vid[$j] . '.ogv" type="video/ogg" />Vous n\'avez pas de navigateur moderne, donc pas de balise video HTML5 !</video>', $texte);
+        }
+
+        return $texte;
+
     }
 
     /**
@@ -327,8 +385,10 @@ class Dossier
         $this->updated = $updated;
     }
 
+
     public function __toString()
     {
         return $this->titre;
     }
+
 }
