@@ -6,6 +6,7 @@ services:
 
 before_install:
   - composer self-update
+  - mysql -e 'create database symfony;'
   - mysql -e 'create database symfony_test;'
   - mysql -e 'CREATE TABLE symfony_test.app__options  (option_id int(11) NOT NULL, option_modifieur_ID int(11) DEFAULT NULL, option_name varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, option_value varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL, option_updated datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;'
 
