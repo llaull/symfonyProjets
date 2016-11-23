@@ -20,14 +20,13 @@ class ActualiteControllerTest extends WebTestCase
 
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/admin/actualite/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/actualitee/");
+        $crawler = $client->request('GET', '/admin/artiste/actualite/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /admin/artiste/actualite/");
         $crawler = $client->click($crawler->selectLink('Ajouter')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Créer')->form(array(
             'ddabundle_artistebundle_actualite[titre]'  => 'TestTitre',
-            // ... other fields to fill
         ));
 
         $client->submit($form);

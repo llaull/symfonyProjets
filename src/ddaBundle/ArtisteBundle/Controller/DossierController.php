@@ -111,6 +111,7 @@ class DossierController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $dossier->setCreator($this->getUser());
+            $dossier->setNormalise(true);
             $em->persist($dossier);
             $em->flush();
 
