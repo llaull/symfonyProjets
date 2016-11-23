@@ -1,0 +1,16 @@
+{% trans_default_domain 'ddaBundle' %}
+
+{% extends '@ddaBundleFront/Default/index.html.twig' %}
+
+{% block content_txt %}
+    <div class="row">
+        {#{{ dump(artistes) }}#}
+        <ul>
+        {% for artiste in artistes %}
+            <img src="{{ artiste.category | imagine_filter('my_thumb') }}" />
+            <li>{{ artiste.slug }}</li>
+        {% endfor %}
+            </ul>
+    </div>
+{% endblock content_txt %}
+

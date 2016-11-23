@@ -104,6 +104,12 @@ class Dossier
      * @ORM\Column(name="isNormalise", type="boolean", nullable=false, options={"default":false})
      */
     private $normalise;
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="home", type="boolean", nullable=false, options={"default":false})
+     */
+    private $home;
 
     public function __construct()
     {
@@ -114,17 +120,17 @@ class Dossier
     /**
      * @return boolean
      */
-    public function getNormalise()
+    public function isHome()
     {
-        return $this->normalise;
+        return $this->home;
     }
 
     /**
-     * @param boolean $normalise
+     * @param boolean $home
      */
-    public function setNormalise($normalise)
+    public function setHome($home)
     {
-        $this->normalise = $normalise;
+        $this->home = $home;
     }
 
     /**
@@ -307,6 +313,22 @@ class Dossier
     public function setContenu($contenu)
     {
         $this->contenu = $contenu;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getNormalise()
+    {
+        return $this->normalise;
+    }
+
+    /**
+     * @param boolean $normalise
+     */
+    public function setNormalise($normalise)
+    {
+        $this->normalise = $normalise;
     }
 
     /**

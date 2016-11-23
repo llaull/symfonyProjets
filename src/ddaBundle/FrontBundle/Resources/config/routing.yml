@@ -2,6 +2,10 @@ dda_bundle_front_admin_page_statique:
     resource: "@ddaBundleFrontBundle/Resources/config/routing/page.yml"
     prefix:   /admin/page/statique
 
+dda_bundle_front_artiste:
+    resource: "@ddaBundleFrontBundle/Resources/config/routing/artiste.yml"
+    prefix:   /
+
 front_office_homepage:
     path:     /index.html
     defaults: { _controller: ddaBundleFrontBundle:Default:index }

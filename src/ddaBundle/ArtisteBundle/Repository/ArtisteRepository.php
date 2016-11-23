@@ -37,4 +37,45 @@ class ArtisteRepository extends \Doctrine\ORM\EntityRepository
             ->getSingleScalarResult();
     }
 
+    public function getArtisteWithCatgeory()
+    {
+
+        $rq = "SELECT
+    LOWER(A.slug) AS slug,
+    A.nom,
+    A.prenom,
+    IF((SELECT
+                D.image
+            FROM
+                dda__artiste_dossier AS D
+            WHERE
+                D.artiste_id = A.id AND D.home IS TRUE
+            LIMIT 1) IS NULL,
+        (SELECT
+                D.image
+            FROM
+                dda__artiste_dossier AS D
+            WHERE
+                D.artiste_id = A.id
+            ORDER BY RAND()
+            LIMIT 1),
+        (SELECT
+                D.image
+            FROM
+                dda__artiste_dossier AS D
+            WHERE
+                D.artiste_id = A.id AND D.home IS TRUE
+            LIMIT 1)) AS category
+FROM
+    dda__artiste AS A
+ORDER BY A.nom ASC
+
+        ";
+        $connection = $this->_em->getConnection();
+        $statement = $connection->prepare($rq);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        return $results;
+    }
+
 }

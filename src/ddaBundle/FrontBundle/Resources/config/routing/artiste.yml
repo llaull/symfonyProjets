@@ -1,0 +1,4 @@
+dda_bundle_front_artiste_all:
+    path:     /dossiers-d-artistes.html
+    defaults: { _controller: "ddaBundleFrontBundle:Default:allArtiste" }
+    methods:  GET

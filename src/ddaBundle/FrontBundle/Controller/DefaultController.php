@@ -37,4 +37,17 @@ class DefaultController extends Controller
             'videos' => $videos,
         ));
     }
+
+    public function allArtisteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+
+        $artistes = $em->getRepository('ddaBundleArtisteBundle:Artiste');
+        $artistesWithCategory = $artistes->getArtisteWithCatgeory();
+
+        return $this->render('@ddaBundleFront/Artiste/index.html.twig', array(
+            'artistes' => $artistesWithCategory,
+        ));
+    }
 }
