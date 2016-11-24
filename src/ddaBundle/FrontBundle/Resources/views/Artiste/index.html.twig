@@ -5,6 +5,7 @@
 {% block content_txt %}
     <div class="row">
         {#{{ dump(artistes) }}#}
+        dossier :
         <ul>
         {% for artiste in artistes %}
             <img src="{{ artiste.category | imagine_filter('my_thumb') }}" />
