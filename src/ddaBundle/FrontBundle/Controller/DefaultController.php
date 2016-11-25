@@ -16,10 +16,14 @@ class DefaultController extends Controller
      * Finds and displays a page entity.
      *
      */
-    public function allPageAction(Page $page)
+    public function allPageAction($slug)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $pages = $em->getRepository('ddaBundleFrontBundle:Page')->findBy(array('slug' => $slug));
+
         return $this->render('@ddaBundleFront/page/show.html.twig', array(
-            'page' => $page
+            'page' => $pages
         ));
     }
 
@@ -42,7 +46,6 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-
         $artistes = $em->getRepository('ddaBundleArtisteBundle:Artiste');
         $artistesWithCategory = $artistes->getArtisteWithCatgeory();
 
@@ -50,4 +53,9 @@ class DefaultController extends Controller
             'artistes' => $artistesWithCategory,
         ));
     }
+    public function artisteAction($slug)
+    {
+        return $this->render('@ddaBundleFront/Artiste/dossier.html.twig');
+    }
+
 }

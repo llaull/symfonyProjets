@@ -32,12 +32,9 @@ class DossierControllerTest extends WebTestCase
 
         $client->submit($form);
         $crawler = $client->followRedirect();
-//
+
         // Check data in the show view
         $this->assertGreaterThan(0, $crawler->filter('td:contains("titreTest")')->count(), 'Missing element td:contains("titreTest")');
-
-
     }
-
 
 }

@@ -56,3 +56,24 @@ p.ovo {
 .main-menu ul li.eac {
     margin-left: -9px;
 }
+
+.ovoRegular{
+    font-family: 'OvoRegular', sans-serif;
+    font-size: 13px;
+}
+/* dossiers */
+.row ul.artistes {
+    padding: 0;
+    margin: 0;
+}
+
+.row ul.artistes li{
+    margin: 5px;
+    list-style: none;
+    float: left;
+    text-align: center;
+}
+
+a{text-decoration: none; color: black;}
+a:hover{text-decoration: none; color: #009DE0;}
+

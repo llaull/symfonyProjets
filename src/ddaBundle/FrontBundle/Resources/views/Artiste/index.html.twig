@@ -3,15 +3,20 @@
 {% extends '@ddaBundleFront/Default/index.html.twig' %}
 
 {% block content_txt %}
-    <div class="row">
-        {#{{ dump(artistes) }}#}
-        dossier :
-        <ul>
-        {% for artiste in artistes %}
-            <img src="{{ artiste.category | imagine_filter('my_thumb') }}" />
-            <li>{{ artiste.slug }}</li>
-        {% endfor %}
-            </ul>
+    <div class="row ovoRegular">
+        <ul class="artistes">
+            {% for artiste in artistes %}
+                {% set img = artiste.category %}
+                {% if img %}
+                    <li>
+                        <a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':artiste.slug}) }}">
+                            <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
+                            <br><span>{{ artiste.prenom }} {{ artiste.nom }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
+    <div style="clear: both"></div>
 {% endblock content_txt %}
-

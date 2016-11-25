@@ -45,6 +45,14 @@ class DossierType extends AbstractType
                     'attr' => array('class' => '')
                 )
             )
+            ->add('home', CheckboxType::class, array(
+                    'required' => false,
+                    'translation_domain' => 'AppBundleMessage',
+                    'label_attr' => array(
+                        'class' => 'checkbox-inline'),
+                    'attr' => array('class' => '')
+                )
+            )
             ->add('artiste')
             ->add('category')
         ;

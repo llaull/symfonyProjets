@@ -1,3 +1,21 @@
+front_office_homepage:
+    path:     /index.html
+    defaults: { _controller: ddaBundleFrontBundle:Default:index }
+
+# page
+# dossiers-d-artistes.html
+# qui liste tous les artistes publier
+dda_bundle_front_artiste_all:
+    path:     /dossiers-d-artistes.html
+    defaults: { _controller: "ddaBundleFrontBundle:Default:allArtiste" }
+    methods:  GET
+
+
+front_office_page_statique_show:
+    path:     /{slug}.html
+    defaults: { _controller: "ddaBundleFrontBundle:Default:allPage" }
+    methods:  GET
+
 dda_bundle_front_admin_page_statique:
     resource: "@ddaBundleFrontBundle/Resources/config/routing/page.yml"
     prefix:   /admin/page/statique
@@ -6,15 +24,8 @@ dda_bundle_front_artiste:
     resource: "@ddaBundleFrontBundle/Resources/config/routing/artiste.yml"
     prefix:   /
 
-front_office_homepage:
-    path:     /index.html
-    defaults: { _controller: ddaBundleFrontBundle:Default:index }
-
 front_office_video:
     path:     /entretiens-video.html
     defaults: { _controller: ddaBundleFrontBundle:Default:allVideo }
 
-front_office_page_statique_show:
-    path:     /{slug}.html
-    defaults: { _controller: "ddaBundleFrontBundle:Default:allPage" }
-    methods:  GET
+

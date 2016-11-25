@@ -44,33 +44,37 @@ class ArtisteRepository extends \Doctrine\ORM\EntityRepository
     LOWER(A.slug) AS slug,
     A.nom,
     A.prenom,
-    IF((SELECT
-                D.image
+    IF(
+		-- si une categorie avec home est a true
+		(SELECT
+                D.id
             FROM
                 dda__artiste_dossier AS D
             WHERE
                 D.artiste_id = A.id AND D.home IS TRUE
             LIMIT 1) IS NULL,
-        (SELECT
+		-- affiche une categorie de l'artiste aléatoire
+         (SELECT
                 D.image
             FROM
                 dda__artiste_dossier AS D
             WHERE
-                D.artiste_id = A.id
+                D.artiste_id = A.id AND D.image IS NOT NULL AND D.image NOT LIKE \"/uploads/categorie/\"
             ORDER BY RAND()
             LIMIT 1),
+        -- affiche la categorie avec home a true
         (SELECT
                 D.image
             FROM
                 dda__artiste_dossier AS D
             WHERE
                 D.artiste_id = A.id AND D.home IS TRUE
-            LIMIT 1)) AS category
+            LIMIT 1)
+        ) AS category
 FROM
     dda__artiste AS A
-ORDER BY A.nom ASC
+ORDER BY A.nom ASC";
 
-        ";
         $connection = $this->_em->getConnection();
         $statement = $connection->prepare($rq);
         $statement->execute();
