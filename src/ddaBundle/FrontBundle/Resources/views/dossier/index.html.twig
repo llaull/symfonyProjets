@@ -1,0 +1,35 @@
+{% trans_default_domain 'ddaBundle' %}
+
+{% extends '@ddaBundleFront/Default/index.html.twig' %}
+
+{% block content_txt %}
+    <div class="row ovoRegular">
+
+        <div class="col-sm-2">
+            {{ artiste.prenom }} {{ artiste.nom }}
+            {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
+        </div>
+        <div class="col-sm-10">
+            {{ dump() }}
+
+            <div class="row ovoRegular">
+                <ul class="dossiers">
+                    {% for dossier in dossiers %}
+                        {% set img = dossier.image %}
+                        {% if img and dossier.category is null %}
+                            {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and dossier.active)
+                            or is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li>
+                                    <a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':dossier.slug}) }}">
+                                        <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
+                                        <br><span>{{ dossier.titre }}</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content_txt %}

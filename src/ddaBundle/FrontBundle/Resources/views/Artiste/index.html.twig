@@ -8,12 +8,15 @@
             {% for artiste in artistes %}
                 {% set img = artiste.category %}
                 {% if img %}
-                    <li>
-                        <a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':artiste.slug}) }}">
-                            <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
-                            <br><span>{{ artiste.prenom }} {{ artiste.nom }}</span>
-                        </a>
-                    </li>
+                    {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and artiste.active)
+                        or is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li>
+                            <a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':artiste.slug}) }}">
+                                <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
+                                <br><span>{{ artiste.prenom }} {{ artiste.nom }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </ul>

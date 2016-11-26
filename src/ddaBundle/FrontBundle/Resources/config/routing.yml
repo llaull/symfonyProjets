@@ -11,6 +11,14 @@ dda_bundle_front_artiste_all:
     methods:  GET
 
 
+# affiche un dossier d'artiste
+# via le slug de l'artiste
+dda_bundle_front_artiste_accueil:
+    path:     /{slug}/
+    defaults: { _controller: "ddaBundleFrontBundle:Dossier:showDossier" }
+    methods:  GET
+
+
 front_office_page_statique_show:
     path:     /{slug}.html
     defaults: { _controller: "ddaBundleFrontBundle:Default:allPage" }

@@ -62,17 +62,18 @@ p.ovo {
     font-size: 13px;
 }
 /* dossiers */
-.row ul.artistes {
+.row ul.artistes, .row ul.dossiers{
     padding: 0;
     margin: 0;
 }
 
-.row ul.artistes li{
+.row ul.artistes li, .row ul.dossiers li{
     margin: 5px;
     list-style: none;
     float: left;
     text-align: center;
 }
+/* menu dans dossiers */
 
 a{text-decoration: none; color: black;}
 a:hover{text-decoration: none; color: #009DE0;}

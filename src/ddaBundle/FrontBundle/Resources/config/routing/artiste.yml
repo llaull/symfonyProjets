@@ -1,6 +1,0 @@
-
-# page d'accueil du dossier d'artiste
-dda_bundle_front_artiste_accueil:
-    path:     /{slug}/
-    defaults: { _controller: "ddaBundleFrontBundle:Default:artiste" }
-    methods:  GET

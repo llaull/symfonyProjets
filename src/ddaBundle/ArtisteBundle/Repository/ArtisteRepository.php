@@ -44,6 +44,7 @@ class ArtisteRepository extends \Doctrine\ORM\EntityRepository
     LOWER(A.slug) AS slug,
     A.nom,
     A.prenom,
+    A.isActive AS active,
     IF(
 		-- si une categorie avec home est a true
 		(SELECT

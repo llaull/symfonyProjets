@@ -3,7 +3,6 @@
 namespace ddaBundle\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use ddaBundle\FrontBundle\Entity\Page;
 
 class DefaultController extends Controller
 {
@@ -53,9 +52,7 @@ class DefaultController extends Controller
             'artistes' => $artistesWithCategory,
         ));
     }
-    public function artisteAction($slug)
-    {
-        return $this->render('@ddaBundleFront/Artiste/dossier.html.twig');
-    }
+
+
 
 }

@@ -47,26 +47,34 @@
                         <ul class="menu-content">
                             <li><a href="{{ path('front_office_homepage') }}">{{ "accueil"|trans }}</a></li>
                             <li><a href="#">{{ "presentation"|trans }}</a></li>
-                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "partenaires" }) }}">{{ "partenaires"|trans }}</a></li>
-                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "reseau" }) }}">{{ "reseau"|trans }}</a></li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "partenaires" }) }}">{{ "partenaires"|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "reseau" }) }}">{{ "reseau"|trans }}</a>
+                            </li>
                             <li><a href="#">{{ "contact"|trans }}</a></li>
-                            <li><a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a></li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="nav-side-menu col-sm-4">
                     <div class="menu-list">
                         <ul class="menu-content">
-                            <li><a href="{{ path('dda_bundle_front_artiste_all') }}">{{ "dossiers d'artistes"|trans }}</a></li>
+                            <li>
+                                <a href="{{ path('dda_bundle_front_artiste_all') }}">{{ "dossiers d'artistes"|trans }}</a>
+                            </li>
                             <li><a href="#">{{ "textes"|trans }}</a></li>
                             <li><a href="{{ path('front_office_video') }}">{{ "entretiens video"|trans }}</a></li>
+                            <li>&nbsp; </li>
+                            <li><a href="#">{{ "etudes et recherches"|trans }}</a></li>
                             <li class="eac"><a href="#">
                                     {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
                                     <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>
                                     {% endimage %}
                                 </a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#">{{ "etudes et recherches"|trans }}</a></li>
                         </ul>
                     </div>
                 </div>
