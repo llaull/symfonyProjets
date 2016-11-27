@@ -5,12 +5,8 @@
 {% block content_txt %}
     <div class="row ovoRegular">
 
-        <div class="col-sm-2">
-            {{ artiste.prenom }} {{ artiste.nom }}
-            {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
-        </div>
+        {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
         <div class="col-sm-10">
-            {{ dump() }}
 
             <div class="row ovoRegular">
                 <ul class="dossiers">
@@ -20,7 +16,7 @@
                             {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and dossier.active)
                             or is_granted('IS_AUTHENTICATED_FULLY') %}
                                 <li>
-                                    <a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':dossier.slug}) }}">
+                                    <a href="{{ path('dda_bundle_front_artiste_dossier',{'artiste':artiste.slug,'dossier':dossier.slug}) }}">
                                         <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
                                         <br><span>{{ dossier.titre }}</span>
                                     </a>

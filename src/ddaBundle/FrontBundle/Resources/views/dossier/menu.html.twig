@@ -1,26 +1,30 @@
 {% trans_default_domain 'ddaBundle' %}
 
-<div class="sidebar-nav">
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                <span class="sr-only">{{ "Toggle navigation"|trans }}</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="visible-xs navbar-brand">{{ "Sidebar menu"|trans }}</span>
+<div class="col-sm-2">
+    {{ artiste.prenom }} {{ artiste.nom }}
+    <div class="sidebar-nav">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">{{ "Toggle navigation"|trans }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="visible-xs navbar-brand">{{ "Sidebar menu"|trans }}</span>
+            </div>
+            <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':artisteSlug}) }}"
+                           title="{% trans with {'%name%': artisteNom} from "app" %}Dossier de %name%{% endtrans %}">{{ "Dossier"|trans }}</a>
+                    </li>
+                    <li><a href="#" title="vidéothèque de">{{ "vidéothèque"|trans }}</a></li>
+                    <li><a href="#" title="Biographie de">{{ "bio-bibliographie"|trans }}</a></li>
+                    <li><a href="#" title="Textes sur ">{{ "textes"|trans }}</a></li>
+                    <li><a href="#" title="Actus de ">{{ "actus"|trans }}</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ path('dda_bundle_front_artiste_accueil',{'slug':artisteSlug}) }}"
-                       title="{% trans with {'%name%': artisteNom} from "app" %}Dossier de %name%{% endtrans %}">{{ "Dossier"|trans }}</a>
-                </li>
-                <li><a href="#" title="vidéothèque de">{{ "vidéothèque"|trans }}</a></li>
-                <li><a href="#" title="Biographie de">{{ "bio-bibliographie"|trans }}</a></li>
-                <li><a href="#" title="Textes sur ">{{ "textes"|trans }}</a></li>
-                <li><a href="#" title="Actus de ">{{ "actus"|trans }}</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
     </div>
 </div>

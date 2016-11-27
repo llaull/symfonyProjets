@@ -41,17 +41,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function allArtisteAction()
-    {
-        $em = $this->getDoctrine()->getManager();
 
-        $artistes = $em->getRepository('ddaBundleArtisteBundle:Artiste');
-        $artistesWithCategory = $artistes->getArtisteWithCatgeory();
-
-        return $this->render('@ddaBundleFront/Artiste/index.html.twig', array(
-            'artistes' => $artistesWithCategory,
-        ));
-    }
 
 
 
