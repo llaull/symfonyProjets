@@ -7,17 +7,19 @@
 
         {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
         <div class="col-sm-10">
-            <div class="row ovoRegular">
-                {% for dossier in dossiers %}
-                    {% set img = dossier.image %}
-                    {% if img and dossier.category is null %}
-                        {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and dossier.active)
-                        or is_granted('IS_AUTHENTICATED_FULLY') %}
-                            {{ dossier.contenu|raw }}
+            {{ dump() }}
 
+            <div class="row ovoRegular">
+                    {% for dossier in dossiers %}
+                        {% set img = dossier.image %}
+                        {% if img and dossier.category is null %}
+                            {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and dossier.active)
+                            or is_granted('IS_AUTHENTICATED_FULLY') %}
+                                {{ dossier.contenu|raw }}
+
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
+                    {% endfor %}
             </div>
         </div>
     </div>

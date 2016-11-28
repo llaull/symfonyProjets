@@ -23,10 +23,17 @@ class DossierController extends Controller
 
         $artiste = $em->getRepository('ddaBundleArtisteBundle:Artiste')->findOneBy(array("slug" => $artiste));
 
+        //dossier selectionner
         $dossiers = $em->getRepository('ddaBundleArtisteBundle:Dossier')->findBy(
-                                                            array("artiste" => $artiste, 'slug' => $dossier),
-                                                            array("ordre" => 'ASC')
-                                                            );
+            array("artiste" => $artiste),
+            array("ordre" => 'ASC')
+        );
+
+        //liste les dossiers enfant
+//        $dossiers = $em->getRepository('ddaBundleArtisteBundle:Dossier')->findBy(
+//            array("artiste" => $artiste, 'slug' => $dossier),
+//            array("ordre" => 'ASC')
+//        );
 
         return $this->render('@ddaBundleFront/dossier/show.html.twig', array(
             'artiste' => $artiste,
