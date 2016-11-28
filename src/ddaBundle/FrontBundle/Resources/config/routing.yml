@@ -25,6 +25,13 @@ dda_bundle_front_artiste_dossier:
     defaults: { _controller: "ddaBundleFrontBundle:Dossier:showDossier" }
     methods:  GET
 
+# affiche un dossier d'artiste
+# via le slug de l'artiste
+dda_bundle_front_artiste_dossier_enfant:
+    path:     /{artiste}/{parent}/{dossier}.html
+    defaults: { _controller: "ddaBundleFrontBundle:Dossier:showDossierEnfant" }
+    methods:  GET
+
 
 
 front_office_page_statique_show:

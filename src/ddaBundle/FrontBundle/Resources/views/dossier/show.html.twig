@@ -7,19 +7,31 @@
 
         {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
         <div class="col-sm-10">
-            {{ dump() }}
-
             <div class="row ovoRegular">
-                    {% for dossier in dossiers %}
+                <ul class="dossiers">
+                    {% for dossier in dossiersEnfant %}
                         {% set img = dossier.image %}
-                        {% if img and dossier.category is null %}
+                        {% if img %}
                             {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and dossier.active)
                             or is_granted('IS_AUTHENTICATED_FULLY') %}
-                                {{ dossier.contenu|raw }}
-
+                                <li>
+                                    <a href="{{ path('dda_bundle_front_artiste_dossier_enfant',{
+                                        'artiste':artiste.slug,
+                                        'parent':dossier.category.slug,
+                                        'dossier':dossier.slug
+                                    }) }}">
+                                        <img src="{{ img | imagine_filter('artiste_categorie') }}"/>
+                                        <br><span>{{ dossier.titre }}</span>
+                                    </a>
+                                </li>
                             {% endif %}
                         {% endif %}
                     {% endfor %}
+                </ul>
+            </div>
+
+            <div class="row ovoRegular">
+                {{ dossiers.contenu|raw }}
             </div>
         </div>
     </div>

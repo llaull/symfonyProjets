@@ -39,8 +39,10 @@ class ArtisteController extends Controller
 
         $artiste = $em->getRepository('ddaBundleArtisteBundle:Artiste')->findOneBy(array("slug" => $slug));
 
-        $dossiers = $em->getRepository('ddaBundleArtisteBundle:Dossier')->findBy(array("artiste" => $artiste), array("ordre" => 'ASC'));
-
+        $dossiers = $em->getRepository('ddaBundleArtisteBundle:Dossier')->findBy(
+            array("artiste" => $artiste, "category" => null),
+            array("ordre" => 'ASC')
+        );
 
         return $this->render('@ddaBundleFront/dossier/index.html.twig', array(
             'artiste' => $artiste,
