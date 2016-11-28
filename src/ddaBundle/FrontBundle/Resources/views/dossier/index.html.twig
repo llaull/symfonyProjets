@@ -7,8 +7,6 @@
 
         {% include '@ddaBundleFront/dossier/menu.html.twig' with {'artisteNom': artiste.prenom~' '~artiste.nom, 'artisteSlug': artiste.slug} %}
         <div class="col-sm-10">
-            {{ dump() }}
-
             <div class="row ovoRegular">
                 <ul class="dossiers">
                     {% for dossier in dossiers %}
