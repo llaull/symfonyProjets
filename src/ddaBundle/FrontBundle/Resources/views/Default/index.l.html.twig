@@ -1,0 +1,106 @@
+{% trans_default_domain 'ddaBundle' %}
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ appOptions.optionName('app.projet.global.nom').value|raw }}</title>
+
+    <!-- Bootstrap -->
+    {% stylesheets
+    '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap/css/bootstrap.min.css'
+    output='assets/global/plugins/bootstrap/css/bootstrap.min.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets filter='cssrewrite'
+    '@ddaBundleBackBundle/Resources/public/css/font.css'
+    output='web/bundles/ddabundleback/css/font.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets filter='cssrewrite'
+    '@ddaBundleBackBundle/Resources/public/css/defaut.css'
+    output='web/bundles/ddabundleback/css/defaut.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="row ontop">
+        <div class="col-sm-12">
+            <div class="col-sm-5 logo">
+                <a href="{{ path('front_office_homepage') }}">
+                    <img src="http://dda-aquitaine.org/images/ddaa-logo.png"
+                         alt="{{ "logo Documents d'artistes Aquitaine"|trans }}">
+                </a>
+                <p>{{ "documents d'artistes"|trans }}<br>{{ "aquitaine"|trans }}</p>
+            </div>
+            <div class="col-sm-6 main-menu" role="navigation">
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li><a href="{{ path('front_office_homepage') }}">{{ "accueil"|trans }}</a></li>
+                            <li><a href="#">{{ "presentation"|trans }}</a></li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "partenaires" }) }}">{{ "partenaires"|trans }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "reseau" }) }}">{{ "reseau"|trans }}</a>
+                            </li>
+                            <li><a href="#">{{ "contact"|trans }}</a></li>
+                            <li>
+                                <a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li>
+                                <a href="{{ path('dda_bundle_front_artiste_all') }}">{{ "dossiers d'artistes"|trans }}</a>
+                            </li>
+                            <li><a href="#">{{ "textes"|trans }}</a></li>
+                            <li><a href="{{ path('front_office_video') }}">{{ "entretiens video"|trans }}</a></li>
+                            <li>&nbsp; </li>
+                            <li><a href="#">{{ "etudes et recherches"|trans }}</a></li>
+                            <li class="eac"><a href="#">
+                                    {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
+                                    <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>
+                                    {% endimage %}
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-side-menu col-sm-4">
+                    <div class="menu-list">
+                        <ul class="menu-content">
+                            <li><a href="#">{{ "liste des artistes"|trans }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <a href="{{ path("front_office_homepage", {"_locale": "fr"}) }}">fr</a> -
+                <a href="{{ path("front_office_homepage", {"_locale": "en"}) }}">en</a>
+            </div>
+        </div>
+        <div class="col-sm-12 alphabet">
+            <div class="col-sm-12">alpha</div>
+        </div>
+    </div>
+
+    {% block content_txt %}
+
+    {% endblock content_txt %}
+
+</div>
+
+</body>
+</html>
