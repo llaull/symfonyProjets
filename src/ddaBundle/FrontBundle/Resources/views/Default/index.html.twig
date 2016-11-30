@@ -24,8 +24,8 @@
         .nav-side-menu ul,
         .nav-side-menu li {
             list-style: none;
-            padding: 0px;
-            margin: 0px;
+            /*padding: 0px;*/
+            /*margin: 0px;*/
             line-height: 15px;
             cursor: pointer;
             /*width: 122px;*/
@@ -42,15 +42,6 @@
                       }
                }
           */
-        }
-
-        .ontop {
-            height: 180px;
-            position: fixed;
-            z-index: 999999;
-            top: 0;
-            background-color: #fff;
-            width: 1170px;
         }
 
         .nav-side-menu li {
@@ -120,14 +111,31 @@
         }
 
         @media screen and (min-width: 992px) {
+            .ontop {
+                height: 140px;
+                position: fixed;
+                z-index: 999999;
+                top: 0;
+                background-color: #fff;
+                width: 1170px;
+            }
+
             .columns {
-                -moz-column-count: 3;
-                /* Firefox */
-                -webkit-column-count: 3;
-                /* Safari and Chrome */
-                column-count: 3;
-                width: 500px;
-                height: 170px;
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+                column-count: 4;
+                /*width: 500px;*/
+                /*height: 170px;*/
+            }
+
+            .jump {
+                break-before: column
+            }
+
+            .espaceTop {
+
+                padding-top: 20px;
+
             }
         }
 
@@ -146,7 +154,7 @@
             <div class="brand col-sm-5">Brand Logo</div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-            <div class="menu-list col-sm-6">
+            <div class="menu-list col-sm-7">
 
                 <ul id="menu-content" class="menu-content collapse out columns">
 
@@ -160,27 +168,26 @@
                     </li>
                     <li><a href="#">{{ "contact"|trans }}</a></li>
                     <li>
-                    <a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a>
+                        <a href="{{ path('front_office_page_statique_show', { 'slug': "liens" }) }}">{{ "liens"|trans }}</a>
                     </li>
-{##}
-                    <li>
-                    <a href="{{ path('dda_bundle_front_artiste_all') }}">{{ "dossiers d'artistes"|trans }}</a>
+                    {##}
+                    <li class="jump">
+                        <a href="{{ path('dda_bundle_front_artiste_all') }}">{{ "dossiers d'artistes"|trans }}</a>
                     </li>
                     <li><a href="#">{{ "textes"|trans }}</a></li>
                     <li><a href="{{ path('front_office_video') }}">{{ "entretiens video"|trans }}</a></li>
-
-                    <li><a href="#">{{ "etudes et recherches"|trans }}</a></li>
+                    <li class="espaceTop"><a href="#">{{ "etudes et recherches"|trans }}</a></li>
                     <li class="eac"><a href="#">
-                    {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
-                    <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>
-                    {% endimage %}
-                    </a></li>
-{##}
-                    <li><a href="#">{{ "liste des artistes"|trans }}</a></li>
+                            {% image '@ddaBundleFrontBundle/Resources/public/images/eac_logo_menu.gif' %}
+                            <img src="{{ asset_url }}" alt="{{ 'eac'|trans }}" class="logo-default"/>
+                            {% endimage %}
+                        </a></li>
+                    {##}
+                    <li class="jump"><a href="#">{{ "liste des artistes"|trans }}</a></li>
+                    <li class="jump">fr-en</li>
 
                 </ul>
             </div>
-            <div class="col-sm-1">fr-en</div>
         </div>
     </div>
     <div class="row">
