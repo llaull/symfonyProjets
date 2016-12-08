@@ -49,4 +49,19 @@ class ArtisteController extends Controller
             'dossiers' => $dossiers,
         ));
     }
+
+    /*
+* affiche un artiste
+*/
+    public function showByNameAction($lettre)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ddaBundleArtisteBundle:Artiste');
+        $entityNotActived = $entity->findByLettreNom($lettre);
+
+        return $this->render('@ddaBundleFront/Artiste/showByName.html.twig', array(
+            'artistes' => $entityNotActived,
+        ));
+    }
 }

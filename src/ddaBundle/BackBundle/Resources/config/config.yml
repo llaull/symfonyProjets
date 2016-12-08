@@ -1,6 +1,7 @@
 twig:
     globals:
         BackMenuBadge: '@dda_bundle_back.menubadge'
+        AlphabetBar: '@dda_bundle_front.alphabetBar'
 
 liip_imagine :
     resolvers :
