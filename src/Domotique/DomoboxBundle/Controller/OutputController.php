@@ -50,8 +50,9 @@ class OutputController extends Controller
         $now = new \DateTime();
         $currentDate = $now->format('d-m-Y');
         $currentHour = $now->format('G:i:s');
+        $currentTime = $now->getTimestamp();
 
-        $return = array("date" => $currentDate, "hour" => $currentHour);
+        $return = array("date" => $currentDate, "hour" => $currentHour, "timestamp" => $currentTime);
         return new JsonResponse($return);
     }
 
