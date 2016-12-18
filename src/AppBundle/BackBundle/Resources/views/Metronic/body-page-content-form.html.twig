@@ -33,48 +33,45 @@
     {#<!-- END PAGE TITLE-->#}
     {#<!-- END PAGE HEADER-->#}
     {% block note_txt %}{% endblock note_txt %}
-    <div class="row">
-        <div class="{{ table_size }}">
-            <div class="tabbable-line boxless tabbable-reversed">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab_0">
-                        <div class="portlet box green">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class="fa fa-gift"></i>Form Actions On Bottom
-                                </div>
-                                <div class="tools">
-                                    <a href="javascript:;" class="collapse"> </a>
-                                    {#<a href="#portlet-config" data-toggle="modal" class="config"> </a>#}
-                                    <a href="javascript:;" class="reload"> </a>
-                                    {#<a href="javascript:;" class="remove"> </a>#}
-                                </div>
-                            </div>
-                            <div class="portlet-body form">
-                                {#<!-- BEGIN FORM-->#}
-                                {{ form_start(form) }}
-                                <div class="form-body">
-                                    {{ form_widget(form) }}
-                                </div>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <button type="submit" class="btn green">{{ submit_btn }}</button>
-                                            <a class="btn grey-salsa btn-outline"
-                                               href="{{ path( (path_entity_index) ) }}">{{ "Cancel"|trans }}</a>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                {{ form_end(form) }}
-                                {#<!-- END FORM-->#}
+    <div class="row">
+
+        <div class="{{ table_size }} ">
+            <!-- BEGIN Portlet PORTLET-->
+            <div class="portlet box green">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-feed"></i>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="" class="fullscreen"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="portlet-body form">
+                        {#<!-- BEGIN FORM-->#}
+                        {{ form_start(form) }}
+                        <div class="form-body">
+                            {{ form_widget(form) }}
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" class="btn green">{{ submit_btn }}</button>
+                                    <a class="btn grey-salsa btn-outline"
+                                       href="{{ path( (path_entity_index) ) }}">{{ "Cancel"|trans }}</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                        {{ form_end(form) }}
+                        {#<!-- END FORM-->#}
+                    </div>
                 </div>
             </div>
+            <!-- END Portlet PORTLET-->
         </div>
+        {% block content_AB %}{% endblock content_AB %}
     </div>
-
 {% endblock pageContent %}

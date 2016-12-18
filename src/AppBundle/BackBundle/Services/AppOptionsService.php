@@ -14,7 +14,6 @@ class AppOptionsService
 {
 
     private $options;
-    private $em;
 
     public function __construct(EntityManager $entityManager)
     {

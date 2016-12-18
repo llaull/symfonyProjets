@@ -23,3 +23,6 @@
 
 /web/amcharts/
 !.idea/
+/bin/symfony_requirements
+/web/Resources/
+/web/web/
