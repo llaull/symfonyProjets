@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Texte</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Slug</th>
+                <td>{{ texte.slug }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ texte.id }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if texte.created %}{{ texte.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>{% if texte.updated %}{{ texte.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{% if texte.active %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Commande</th>
+                <td>{% if texte.commande %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ texte.date }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ texte.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ texte.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Normalise</th>
+                <td>{% if texte.normalise %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Auteur</th>
+                <td>{{ texte.auteur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_artiste_texte_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_artiste_texte_edit', { 'id': texte.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

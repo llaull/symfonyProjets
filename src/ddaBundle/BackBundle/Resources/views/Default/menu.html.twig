@@ -13,7 +13,10 @@
                                 "admin_artiste_dossier_index",
                                 "admin_artiste_dossier_new",
                                 "admin_artiste_dossier_edit",
-                                "admin_artiste_dossier_edit"
+                                "admin_artiste_dossier_edit",
+                                "admin_artiste_texte_index",
+                                "admin_artiste_texte_new",
+                                "admin_artiste_texte_edit"
     ] %}
     {% set current_route = app.request.attributes.get('_route') %}
 
@@ -38,8 +41,8 @@
                 <span class="title">{{ 'Gérer les dossiers'|trans }}</span> {{ BackMenuBadge.getNotActived('Dossier')|raw }}
             </a>
 
-        <li class="nav-item start {% if current_route == 'admin_artiste_indexw' %}active open{% endif %}">
-            <a href="{{ path('admin_artiste_index') }}" class="nav-link ">
+        <li class="nav-item start {% if current_route == 'admin_artiste_texte_index' %}active open{% endif %}">
+            <a href="{{ path('admin_artiste_texte_index') }}" class="nav-link ">
                 <i class="fa fa-file-text-o"></i>
                 <span class="title">{{ 'Gérer les textes'|trans }}</span>
             </a>

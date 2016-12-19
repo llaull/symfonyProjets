@@ -14,6 +14,10 @@ dda_bundle_artiste_admin_artiste_dossier:
     resource: "@ddaBundleArtisteBundle/Resources/config/routing/dossier.yml"
     prefix:   /admin/artiste/dossier
 
+dda_bundle_artiste_admin_artiste_texte:
+    resource: "@ddaBundleArtisteBundle/Resources/config/routing/texte.yml"
+    prefix:   /admin/artiste/texte
+
 dda_bundle_artiste_homepage:
     path:     /
     defaults: { _controller: ddaBundleArtisteBundle:Default:index }

@@ -1,0 +1,24 @@
+admin_artiste_texte_index:
+    path:     /
+    defaults: { _controller: "ddaBundleArtisteBundle:Texte:index" }
+    methods:  GET
+
+admin_artiste_texte_show:
+    path:     /{id}/show
+    defaults: { _controller: "ddaBundleArtisteBundle:Texte:show" }
+    methods:  GET
+
+admin_artiste_texte_new:
+    path:     /new
+    defaults: { _controller: "ddaBundleArtisteBundle:Texte:new" }
+    methods:  [GET, POST]
+
+admin_artiste_texte_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ddaBundleArtisteBundle:Texte:edit" }
+    methods:  [GET, POST]
+
+admin_artiste_texte_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ddaBundleArtisteBundle:Texte:delete" }
+    methods:  DELETE
