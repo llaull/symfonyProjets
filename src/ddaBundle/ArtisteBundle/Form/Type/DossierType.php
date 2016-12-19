@@ -8,6 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use FM\ElfinderBundle\Form\Type\ElFinderType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class DossierType extends AbstractType
 {
@@ -53,9 +55,17 @@ class DossierType extends AbstractType
                     'attr' => array('class' => '')
                 )
             )
-            ->add('artiste')
-            ->add('category')
-        ;
+            ->add('artiste');
+
+        $builder->add('category', EntityType::class, array(
+            'class' => 'ddaBundleArtisteBundle:Dossier',
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('d')
+                    ->where('d.category is NULL')
+                    ->orderBy('d.artiste', 'ASC')
+                    ->addOrderBy('d.titre', 'ASC');
+            }
+        ));
     }
 
     /**
