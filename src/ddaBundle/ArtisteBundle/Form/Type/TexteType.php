@@ -13,7 +13,15 @@ class TexteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('slug')->add('created')->add('updated')->add('active')->add('commande')->add('date')->add('titre')->add('contenu')->add('normalise')->add('auteur')->add('creator')->add('artiste')        ;
+        $builder
+            ->add('active')
+            ->add('commande')
+            ->add('date')
+            ->add('titre')
+            ->add('contenu')
+            ->add('auteur')
+            ->add('artiste')
+        ;
     }
     
     /**

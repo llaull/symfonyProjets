@@ -7,16 +7,10 @@
 
 {% block content_txt %}
 <tr>
-    <th>Slug</th>
-    <th>Id</th>
-    <th>Created</th>
-    <th>Updated</th>
     <th>Active</th>
     <th>Commande</th>
     <th>Date</th>
     <th>Titre</th>
-    <th>Contenu</th>
-    <th>Normalise</th>
     <th>Auteur</th>
     <th>Actions</th>
 </tr>
@@ -24,16 +18,10 @@
 <tbody>
 {% for texte in textes %}
     <tr>
-        <td><a href="{{ path('admin_artiste_texte_show', { 'id': texte.id }) }}">{{ texte.slug }}</a></td>
-        <td>{{ texte.id }}</td>
-        <td>{% if texte.created %}{{ texte.created|date('Y-m-d H:i:s') }}{% endif %}</td>
-        <td>{% if texte.updated %}{{ texte.updated|date('Y-m-d H:i:s') }}{% endif %}</td>
         <td>{% if texte.active %}Yes{% else %}No{% endif %}</td>
         <td>{% if texte.commande %}Yes{% else %}No{% endif %}</td>
         <td>{{ texte.date }}</td>
         <td>{{ texte.titre }}</td>
-        <td>{{ texte.contenu }}</td>
-        <td>{% if texte.normalise %}Yes{% else %}No{% endif %}</td>
         <td>{{ texte.auteur }}</td>
         <td>
             <div class="btn-toolbar">

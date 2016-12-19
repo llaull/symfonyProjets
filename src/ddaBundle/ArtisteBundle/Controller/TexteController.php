@@ -39,10 +39,12 @@ class TexteController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $texte->setCreator($this->getUser());
+            $texte->setNormalise(true);
             $em->persist($texte);
-            $em->flush($texte);
+            $em->flush();
 
-            return $this->redirectToRoute('admin_artiste_texte_show', array('id' => $texte->getId()));
+            return $this->redirectToRoute('admin_artiste_texte_index');
         }
 
         return $this->render('@ddaBundleArtiste/texte/new.html.twig', array(
