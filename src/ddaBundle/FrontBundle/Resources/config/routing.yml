@@ -34,6 +34,11 @@ dda_bundle_front_artiste_dossier_enfant:
 
 
 
+front_office_artiste_sss:
+    path:     /ajax/artiste/find/byName/{lettre}/
+    defaults: { _controller: "ddaBundleFrontBundle:Artiste:showByName" }
+    methods:  GET
+
 front_office_page_statique_show:
     path:     /{slug}.html
     defaults: { _controller: "ddaBundleFrontBundle:Default:allPage" }

@@ -37,6 +37,21 @@ class ArtisteRepository extends \Doctrine\ORM\EntityRepository
             ->getSingleScalarResult();
     }
 
+    public function findByLettreNom($nom)
+    {
+
+        $qb = $this->_em->createQueryBuilder();
+
+        return $qb
+            ->select('a')
+            ->from('ddaBundleArtisteBundle:Artiste', 'a')
+            ->where('a.nom LIKE :lettre')
+            ->setParameter('lettre', $nom.'%')
+            ->getQuery()
+            ->getResult();
+
+    }
+
     public function getArtisteWithCatgeory()
     {
 
