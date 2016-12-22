@@ -1,0 +1,35 @@
+{% extends 'BackOfficeBundle:Metronic:body-page-content-managed_datatables.html.twig' %}
+{% trans_default_domain 'AppBundleMessage' %}
+
+{% set title_page = 'Les actualitées de dda et du reseau' %}
+{% set path_entity_new = 'admin_dda_actualite_new' %}
+{% set table_size = 'col-md-12' %}{# col-md-6 col-sm-12#}
+
+{% block content_txt %}
+<tr>
+    <th>Titre</th>
+    <th>Publicationdate</th>
+    <th>Depublicationdate</th>
+    <th>Active</th>
+    <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for actualite in actualites %}
+    <tr>
+        <td>{{ actualite.titre }}</td>
+        <td>{% if actualite.publicationDate %}{{ actualite.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{% if actualite.depublicationDate %}{{ actualite.depublicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{% if actualite.active %}Yes{% else %}No{% endif %}</td>
+        <td>
+            <div class="btn-toolbar">
+                <div class="btn-group btn-group-xs btn-group-solid">
+                    <a class="btn green"
+                       href="{{ path('admin_dda_actualite_edit', { 'id': page.id }) }}">{{ 'edit'|trans }}</a>
+                </div>
+            </div>
+        </td>
+
+    </tr>
+{% endfor %}
+{% endblock content_txt %}

@@ -1,0 +1,24 @@
+admin_dda_actualite_index:
+    path:     /
+    defaults: { _controller: "ddaBundleFrontBundle:Actualite:index" }
+    methods:  GET
+
+admin_dda_actualite_show:
+    path:     /{id}/show
+    defaults: { _controller: "ddaBundleFrontBundle:Actualite:show" }
+    methods:  GET
+
+admin_dda_actualite_new:
+    path:     /new
+    defaults: { _controller: "ddaBundleFrontBundle:Actualite:new" }
+    methods:  [GET, POST]
+
+admin_dda_actualite_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ddaBundleFrontBundle:Actualite:edit" }
+    methods:  [GET, POST]
+
+admin_dda_actualite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ddaBundleFrontBundle:Actualite:delete" }
+    methods:  DELETE

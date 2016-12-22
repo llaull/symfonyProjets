@@ -106,7 +106,10 @@
 {% set dossier_artiste_menu_page_statique = [
 "admin_page_statique_index",
 "admin_page_statique_new",
-"admin_page_statique_edit"
+"admin_page_statique_edit",*
+    "admin_dda_actualite_new",
+    "admin_dda_actualite_new",
+    "admin_dda_actualite_edit"
 ] %}
 
 <li class="nav-item start {% if current_route in dossier_artiste_menu_page_statique %}active open{% endif %}">
@@ -121,6 +124,14 @@
             <a href="{{ path('admin_page_statique_index') }}" class="nav-link ">
                 <i class="fa fa-folder-o"></i>
                 <span class="title">{{ 'Gérer les pages statiques'|trans }}</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="sub-menu">
+        <li class="nav-item start {% if current_route == 'admin_dda_actualite_index' %}active open{% endif %}">
+            <a href="{{ path('admin_dda_actualite_index') }}" class="nav-link ">
+                <i class="fa fa-folder-o"></i>
+                <span class="title">{{ 'Actualitées DDA & rezo'|trans }}</span>
             </a>
         </li>
     </ul>

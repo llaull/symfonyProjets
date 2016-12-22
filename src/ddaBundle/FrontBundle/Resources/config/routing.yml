@@ -48,6 +48,10 @@ dda_bundle_front_admin_page_statique:
     resource: "@ddaBundleFrontBundle/Resources/config/routing/page.yml"
     prefix:   /admin/page/statique
 
+dda_bundle_front_admin_dda_actualite:
+        resource: "@ddaBundleFrontBundle/Resources/config/routing/actualite.yml"
+        prefix:   /admin/dda/actualite
+
 dda_bundle_front_artiste:
     resource: "@ddaBundleFrontBundle/Resources/config/routing/artiste.yml"
     prefix:   /
