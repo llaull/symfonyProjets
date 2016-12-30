@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\BackBundle\Tests;
+namespace AppBundle\UserBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ProfileChangePwdTest extends WebTestCase
+class ProfileEditTest extends WebTestCase
 {
 
     public function testIndex()
@@ -18,21 +18,20 @@ class ProfileChangePwdTest extends WebTestCase
         $s->logIn($client);
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/profile/change-password');
+        $crawler = $client->request('GET', '/profile/edit');
         $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /profile/edit");
 
         $form = $crawler->selectButton('Sauvegarder')->form(array(
-            'fos_user_change_password_form[current_password]'  => 'test',
-            'fos_user_change_password_form[plainPassword][first]'  => 'test',
-            'fos_user_change_password_form[plainPassword][second]'  => 'test',
+            'rest_user_profile[firstname]'  => 'firstname',
+            'rest_user_profile[lastname]'  => 'lastname',
+            'rest_user_profile[email]' => 'email@gmail.com',
+            'rest_user_profile[current_password]'  => 'test',
         ));
 
         $client->submit($form);
-        $crawler = $client->followRedirect();
-
 
         // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('div:contains("test")')->count(), 'Missing element td:contains("test")');
+        $this->assertGreaterThan(0, $crawler->filter('div:contains("test")')->count(), 'Missing element div:contains("test")');
 
     }
 }
