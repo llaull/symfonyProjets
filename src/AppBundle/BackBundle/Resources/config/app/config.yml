@@ -27,7 +27,7 @@ assetic:
         sort_asc:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_asc.png'
             output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_asc.png'
-        sort_asc:
+        sort_both:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_both.png'
             output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_both.png'
 
@@ -112,9 +112,9 @@ assetic:
         #
         # Simple-Line-Icons
         #
-        simple-line-icons-svg:
+        simple-line-icons-dev-svg:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg'
-            output: 'assets/global/plugins/simple-line-icons/Simple-Line-Icons.dev.svg'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg'
         simple-line-icons-eot:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
             output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
@@ -131,9 +131,6 @@ assetic:
         #
         # Simple-Line-Icons
         #
-        glyphicons-halflings-regular-svg:
-            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
-            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
         glyphicons-halflings-regular-eot:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
             output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
@@ -150,15 +147,44 @@ assetic:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
             output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2'
 
+#
+#        pour dda
+#
+        AbelRegular-eot:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.eot'
+            output: 'Resources/public/font/abel-regular-webfont.eot'
+        AbelRegular-svg:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.svg'
+            output: 'Resources/public/font/abel-regular-webfont.svg'
+        AbelRegular-ttf:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.ttf'
+            output: 'Resources/public/font/abel-regular-webfont.ttf'
+        AbelRegular-woff:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/abel-regular-webfont.woff'
+            output: 'Resources/public/font/abel-regular-webfont.woff'
+
+        OvoRegular-eot:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.eot'
+            output: 'Resources/public/font/ovo-regular-webfont.eot'
+        OvoRegular-svg:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.svg'
+            output: 'Resources/public/font/ovo-regular-webfont.svg'
+        OvoRegular-ttf:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.ttf'
+            output: 'Resources/public/font/ovo-regular-webfont.ttf'
+        OvoRegular-woff:
+            inputs: '%kernel.root_dir%/../src/ddaBundle/BackBundle/Resources/public/font/ovo-regular-webfont.woff'
+            output: 'Resources/public/font/ovo-regular-webfont.woff'
+
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: AppBundle\UserBundle\Entity\User
+    user_class: AppBundle\BackBundle\Entity\User
     # modification formulaire de modification
     profile:
         form:
 #            type: rest_user_profile
-            type: AppBundle\UserBundle\Form\Type\ProfileFormType
+            type: AppBundle\BackBundle\Form\Type\ProfileFormType
             name: rest_user_profile
 #            validation_groups:  [Profile, Default]
 
