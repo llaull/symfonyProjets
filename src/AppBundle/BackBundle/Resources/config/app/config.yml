@@ -153,12 +153,12 @@ assetic:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: AppBundle\BackBundle\Entity\User
+    user_class: AppBundle\UserBundle\Entity\User
     # modification formulaire de modification
     profile:
         form:
 #            type: rest_user_profile
-            type: AppBundle\BackBundle\Form\Type\ProfileFormType
+            type: AppBundle\UserBundle\Form\Type\ProfileFormType
             name: rest_user_profile
 #            validation_groups:  [Profile, Default]
 
