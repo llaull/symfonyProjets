@@ -27,7 +27,7 @@ assetic:
         sort_asc:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_asc.png'
             output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_asc.png'
-        sort_asc:
+        sort_both:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/datatables/images/sort_both.png'
             output: 'assets/global/plugins/datatables/DataTables-1.10.8/images/sort_both.png'
 
@@ -112,9 +112,9 @@ assetic:
         #
         # Simple-Line-Icons
         #
-        simple-line-icons-svg:
+        simple-line-icons-dev-svg:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg'
-            output: 'assets/global/plugins/simple-line-icons/Simple-Line-Icons.dev.svg'
+            output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg'
         simple-line-icons-eot:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
             output: 'assets/global/plugins/simple-line-icons/fonts/Simple-Line-Icons.eot'
@@ -131,9 +131,6 @@ assetic:
         #
         # Simple-Line-Icons
         #
-        glyphicons-halflings-regular-svg:
-            inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
-            output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg'
         glyphicons-halflings-regular-eot:
             inputs: '%kernel.root_dir%/../src/AppBundle/BackBundle/Resources/public/assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
             output: 'assets/global/plugins/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot'
