@@ -8,7 +8,7 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
 
     back_office.form.profile:
-       class: AppBundle\BackBundle\Form\Type\ProfileFormType
+       class: AppBundle\UserBundle\Form\Type\ProfileFormType
        arguments:
             - '%fos_user.model.user.class%'
        tags:

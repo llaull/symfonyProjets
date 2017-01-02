@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new AppBundle\BackBundle\BackOfficeBundle(),
             new AppBundle\FrondBundle\FrondOfficeBundle(),
             new AppBundle\ToDoBundle\AppBundleToDoBundle(),
+            new AppBundle\UserBundle\AppBundleUserBundle(),
 
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
