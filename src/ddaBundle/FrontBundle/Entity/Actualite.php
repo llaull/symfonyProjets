@@ -41,9 +41,9 @@ class Actualite
      */
     private $updated;
     /**
-     * @var \AppBundle\BackBundle\Entity\User
+     * @var \AppBundle\UserBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\BackBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\UserBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false)
      * })
@@ -169,7 +169,7 @@ class Actualite
     }
 
     /**
-     * @return \AppBundle\BackBundle\Entity\User
+     * @return \AppBundle\UserBundle\Entity\User
      */
     public function getCreator()
     {
@@ -177,7 +177,7 @@ class Actualite
     }
 
     /**
-     * @param \AppBundle\BackBundle\Entity\User $creator
+     * @param \AppBundle\UserBundle\Entity\User $creator
      */
     public function setCreator($creator)
     {
