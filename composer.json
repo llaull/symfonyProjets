@@ -20,7 +20,7 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "symfony/assetic-bundle": "^2.7",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "2.0.x-dev#612649c",
         "phpunit/phpunit": "^4.8",
         "egeloen/ckeditor-bundle": "4.0.3",
         "helios-ag/fm-elfinder-bundle": "6.1",
