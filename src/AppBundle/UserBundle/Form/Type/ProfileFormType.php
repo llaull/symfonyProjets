@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\BackBundle\Form\Type;
+namespace AppBundle\UserBundle\Form\Type;
 
 use FM\ElfinderBundle\Form\Type\ElFinderType;
 use Symfony\Component\Form\FormBuilderInterface;
