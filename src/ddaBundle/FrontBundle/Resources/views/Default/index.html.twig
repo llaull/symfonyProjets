@@ -31,22 +31,17 @@
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
     {% endstylesheets %}
 
-    {% stylesheets filter='cssrewrite'
-    '@ddaBundleBackBundle/Resources/public/css/font.css'
-    output='web/bundles/ddabundleback/css/font.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-    {% endstylesheets %}
-
-    {% stylesheets filter='cssrewrite'
-    '@ddaBundleBackBundle/Resources/public/css/defaut.css'
-    '@ddaBundleBackBundle/Resources/public/css/alphabet.css'
-    output='web/bundles/ddabundleback/css/defaut.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
-    {% endstylesheets %}
-
     {% stylesheets
     '@BackOfficeBundle/Resources/public/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css'
     output='assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+
+    {% stylesheets filter='cssrewrite'
+    '@ddaBundleBackBundle/Resources/public/css/font.css'
+    '@ddaBundleBackBundle/Resources/public/css/defaut.css'
+    '@ddaBundleBackBundle/Resources/public/css/alphabet.css'
+    output='bundles/ddabundleback/css/defaut.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
     {% endstylesheets %}
 
