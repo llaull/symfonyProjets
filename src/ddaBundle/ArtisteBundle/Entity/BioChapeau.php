@@ -20,41 +20,46 @@ class BioChapeau
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    /**
+     * @var datetime $created
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=false)
+     */
+    private $created;
+    /**
+     * @var datetime $updated
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     */
+    private $updated;
+    /**
+     * @var \AppBundle\UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false)
+     * })
+     */
+    private $creator;
     /**
      * @var \ddaBundle\ArtisteBundle\Entity\Artiste
      *
-     * @ORM\ManyToOne(targetEntity="\ddaBundle\ArtisteBundle\Entity\Artiste")
+     * @ORM\OneToOne(targetEntity="\ddaBundle\ArtisteBundle\Entity\Artiste")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="artiste_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $artiste;
-
     /**
-     * @return Artiste
+     * @ORM\Column(type="text", nullable=true)
      */
-    public function getArtiste()
-    {
-        return $this->artiste;
-    }
+    private $contenu;
 
     /**
-     * @param Artiste $artiste
-     */
-    public function setArtiste($artiste)
-    {
-        $this->artiste = $artiste;
-    }
-
-    /**
-     * Get id
+     * @var boolean
      *
-     * @return int
+     * @ORM\Column(name="isActive", type="boolean", nullable=true, options={"default":false})
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $active;
 }
 

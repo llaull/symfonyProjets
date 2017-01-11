@@ -32,29 +32,36 @@ class BioElement
     private $categorie;
 
     /**
-     * @return BioCategorie
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * @param BioCategorie $categorie
-     */
-    public function setCategorie($categorie)
-    {
-        $this->categorie = $categorie;
-    }
-
-    /**
-     * Get id
+     * @var datetime $created
      *
-     * @return int
+     * @ORM\Column(name="created", type="datetime", nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $created;
+    /**
+     * @var datetime $updated
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     */
+    private $updated;
+    /**
+     * @var \AppBundle\UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false)
+     * })
+     */
+    private $creator;
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $contenu;
+
+    /**
+     * @var \Year
+     *
+     * @ORM\Column(name="year", columnDefinition="YEAR", nullable=true)
+     */
+    private $year;
 }
 
