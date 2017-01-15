@@ -56,7 +56,7 @@ class DefaultController extends Controller
 
         $curling = $this->container->get('commun.curl');
 
-        $module_url = "http://".$params[0]['module']."/rgb/".$params[2]['color'];
+        $module_url = "http://".$params[0]['module']."/RGB?rgb=".$params[2]['color'];
 
 
         $curl = $curling->getToUrl($module_url, false);
