@@ -62,9 +62,9 @@ class ScheduledTask
      */
     private $valeur;
     /**
-     * @var \AppBundle\BackBundle\Entity\User
+     * @var \AppBundle\UserBundle\Entity\User
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\BackBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\UserBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
