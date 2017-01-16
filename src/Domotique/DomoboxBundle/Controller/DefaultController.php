@@ -31,22 +31,6 @@ class DefaultController extends Controller
 
     }
 
-//    public function graphAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:graphique.html.twig');
-//    }
-
-
-//    public function rgbAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:testRGB.html.twig');
-//    }
-
-//    public function videoAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:videosurveillance.html.twig');
-//    }
-
 
     public function setModuleColorAction(Request $request)
     {
