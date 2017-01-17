@@ -6,23 +6,8 @@ domotiquebundle_domobox_module_flux_json:
 
 # cree un faux flux
 domotiquebundle_domobox_module_flux_fake:
-    path:     /module/esp8266/post/fake/
+    path:     /module/esp8266/post/fake/{module}/{sensor}/{type}/{unit}/{value}
     defaults: { _controller: "DomotiqueDomoboxBundle:Input:addFuxFake" }
-
-# TEST module RGB
-domotiquebundle_domobox_module_get_module_RGB:
-    path:     /domobox/module/test/rgb
-    defaults: { _controller: "DomotiqueDomoboxBundle:Default:rgb" }
-
-#
-domotiquebundle_domobox_video:
-    path:     /domobox/videosurveillance
-    defaults: { _controller: "DomotiqueDomoboxBundle:Default:video" }
-
-# ui graphique
-domobox_ui_graphique:
-    path:     /graphique
-    defaults: { _controller: "DomotiqueDomoboxBundle:Default:graph" }
 
 # home
 front_office_homepage:

@@ -14,33 +14,28 @@ class InputController extends Controller
 
     /**
      * @return JsonResponse
+     * {module}/{sensor}/{type}/{unit}/{value}
      * $sensorFluxAdd = new \DateTime(rand(-12, 12).' hour');
      */
-    public function addFuxFakeAction()
+    public function addFuxFakeAction($module,$sensor,$type,$unit,$value)
     {
         $em = $this->getDoctrine()->getManager();
+        $logger = $this->get('logger');
         $sensorFluxAdd = new \DateTime();
 
-        $logger = $this->get('logger');
-
-        $moduleId = 1;
-        $sensorId = 1;
-        $sensorTypeId = 8;
-        $sensorUnitId = 7;
-        $sensorValue = 1;
 
         $log = new Log();
 
-        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->find($moduleId);
-        $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($sensorTypeId);
-        $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($sensorUnitId);
+        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->find($module);
+        $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($type);
+        $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($unit);
 
         try {
             $log->setModule($moduleX);
-            $log->setSensorId($sensorId);
+            $log->setSensorId($sensor);
             $log->setSensorType($sensorType);
             $log->setSensorUnit($sensorUnit);
-            $log->setSonsorValue($sensorValue);
+            $log->setSonsorValue($value);
             $log->setCreated($sensorFluxAdd);
             $em->persist($log);
             $em->flush();
