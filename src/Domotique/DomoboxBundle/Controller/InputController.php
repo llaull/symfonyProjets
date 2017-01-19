@@ -65,7 +65,7 @@ class InputController extends Controller
         $em = $this->getDoctrine()->getManager();
         $logger = $this->get('logger');
 
-        $getDomoboxKey = $this->get('app.options')->getOptionName("domobox.x.api.key");
+        $getDomoboxKey = $this->get('app.options')->getOptionValue("domobox.x.api.key");
 
         // stop si la clée n'est pas bonne
         if($getDomoboxKey != $request->headers->get("X-DOMOBOXAPIKEY")){
