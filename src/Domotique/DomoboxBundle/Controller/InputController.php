@@ -36,6 +36,14 @@ class InputController extends Controller
             $log->setSensorType($sensorType);
             $log->setSensorUnit($sensorUnit);
             $log->setSonsorValue($value);
+
+            if (is_numeric($value)) {
+                $log->setSonsorValue($value);
+            } else {
+                $log->setSonsorValue(0);
+                $log->setSonsorValueString($value);
+            }
+
             $log->setCreated($sensorFluxAdd);
             $em->persist($log);
             $em->flush();
@@ -56,6 +64,14 @@ class InputController extends Controller
         $content = $request->getContent();
         $em = $this->getDoctrine()->getManager();
         $logger = $this->get('logger');
+
+        $getDomoboxKey = $this->get('app.options')->getOptionName("domobox.x.api.key");
+
+        // stop si la clée n'est pas bonne
+        if($getDomoboxKey != $request->headers->get("X-DOMOBOXAPIKEY")){
+            $logger->alert("SPY -> ".$content);
+            return new JsonResponse(array('requete' => "fail"));
+        }
 
         //si le contenu n'est pas vide on decode la string json en tableau php
         if (!empty($content)) {
@@ -107,7 +123,15 @@ class InputController extends Controller
                 $log->setSensorId($params['sensors'][$k]['sensor Id']);
                 $log->setSensorType($sensorType);
                 $log->setSensorUnit($sensorUnit);
-                $log->setSonsorValue($params['sensors'][$k]['sensor value']);
+
+                if (is_numeric($params['sensors'][$k]['sensor value'])) {
+                    $log->setSonsorValue($params['sensors'][$k]['sensor value']);
+                } else {
+                    $log->setSonsorValue(0);
+                    $log->setSonsorValueString($params['sensors'][$k]['sensor value']);
+                }
+
+
                 $em->persist($log);
             }
 
