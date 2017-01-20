@@ -1,57 +1,88 @@
-    {% set dossier_artiste_menu = [
-                                    "admin_domotique_log_index",
-                                    "admin_domotique_log_index",
-                                    "admin_domotique_module_notify_index",
-                                    "admin_domotique_module_index",
-                                    "admin_domotique_emplacement_index",
-                                    "admin_domotique_sensor_type_index",
-                                    "admin_domotique_sensor_unit_index"
-                                  ] %}
-    {% set current_route = app.request.attributes.get('_route') %}
+{% set domotique_menu_log = [
+"admin_domotique_log_index",
+"admin_domotique_log_new",
+"admin_domotique_log_edit"
+] %}
+
+{% set domotique_menu_notify = [
+"admin_domotique_module_notify_index",
+"admin_domotique_module_notify_new",
+"admin_domotique_module_notify_edit"
+] %}
+
+{% set domotique_menu_module = [
+"admin_domotique_module_index",
+"admin_domotique_module_new",
+"admin_domotique_module_edit"
+] %}
+
+{% set domotique_menu_emplacement = [
+"admin_domotique_emplacement_index",
+"admin_domotique_emplacement_new",
+"admin_domotique_emplacement_edit"
+] %}
+
+{% set domotique_menu_type = [
+"admin_domotique_sensor_type_index",
+"admin_domotique_sensor_type_new",
+"admin_domotique_sensor_type_edit"
+] %}
+
+{% set domotique_menu_unit = [
+"admin_domotique_sensor_unit_index",
+"admin_domotique_sensor_unit_new",
+"admin_domotique_sensor_unit_edit"
+] %}
+
+{% set domotique_menu = domotique_menu_log %}
+{% set domotique_menu = domotique_menu|merge(domotique_menu_notify)|merge(domotique_menu_module)|
+merge(domotique_menu_emplacement)|merge(domotique_menu_type)|merge(domotique_menu_unit) %}
 
 
-<li class="nav-item {% if current_route == dossier_artiste_menu %}active open{% endif %}">
+{% set current_route = app.request.attributes.get('_route') %}
+
+<li class="nav-item {% if current_route in domotique_menu %}active open{% endif %}">
     <a href="javascript:;" class="nav-link nav-toggle">
         <i class="fa fa-rebel" aria-hidden="true"></i>
         <span class="title">Domotique</span>
         <span class="arrow"></span>
     </a>
     <ul class="sub-menu">
-        <li class="nav-item {% if current_route == 'admin_domotique_log_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_log %}active open{% endif %}">
             <a href="{{ path('admin_domotique_log_index') }}" class="nav-link ">
                 <i class="entypo entypo-database"></i>
                 <span class="title"> les Logs des sondes</span>
             </a>
         </li>
-        <li class="nav-item {% if current_route == 'admin_domotique_module_notify_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_notify %}active open{% endif %}">
             <a href="{{ path('admin_domotique_module_notify_index') }}" class="nav-link ">
                 <i class="entypo entypo-database"></i>
                 <span class="title"> les Logs des modules</span>
             </a>
         </li>
 
-        <li class="nav-item {% if current_route == 'admin_domotique_module_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_module %}active open{% endif %}">
             <a href="{{ path('admin_domotique_module_index') }}" class="nav-link ">
                 <i class="fa fa-puzzle-piece"></i>
                 <span class="title"> les modules</span>
             </a>
         </li>
 
-        <li class="nav-item {% if current_route == 'admin_domotique_emplacement_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_emplacement %}active open{% endif %}">
             <a href="{{ path('admin_domotique_emplacement_index') }}" class="nav-link ">
                 <i class="entypo-compass"></i>
                 <span class="title"> les Emplacements</span>
             </a>
         </li>
 
-        <li class="nav-item {% if current_route == 'admin_domotique_sensor_type_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_type %}active open{% endif %}">
             <a href="{{ path('admin_domotique_sensor_type_index') }}" class="nav-link ">
                 <i class="entypo-air"></i>
                 <span class="title"> les Types</span>
             </a>
         </li>
 
-        <li class="nav-item {% if current_route == 'admin_domotique_sensor_unit_index' %}active open{% endif %}">
+        <li class="nav-item {% if current_route in domotique_menu_unit %}active open{% endif %}">
             <a href="{{ path('admin_domotique_sensor_unit_index') }}" class="nav-link ">
                 <i class="entypo-language"></i>
                 <span class="title"> les Unit</span>

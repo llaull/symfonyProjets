@@ -14,33 +14,36 @@ class InputController extends Controller
 
     /**
      * @return JsonResponse
+     * {module}/{sensor}/{type}/{unit}/{value}
      * $sensorFluxAdd = new \DateTime(rand(-12, 12).' hour');
      */
-    public function addFuxFakeAction()
+    public function addFuxFakeAction($module,$sensor,$type,$unit,$value)
     {
         $em = $this->getDoctrine()->getManager();
+        $logger = $this->get('logger');
         $sensorFluxAdd = new \DateTime();
 
-        $logger = $this->get('logger');
-
-        $moduleId = 1;
-        $sensorId = 1;
-        $sensorTypeId = 8;
-        $sensorUnitId = 7;
-        $sensorValue = 1;
 
         $log = new Log();
 
-        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->find($moduleId);
-        $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($sensorTypeId);
-        $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($sensorUnitId);
+        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->find($module);
+        $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($type);
+        $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($unit);
 
         try {
             $log->setModule($moduleX);
-            $log->setSensorId($sensorId);
+            $log->setSensorId($sensor);
             $log->setSensorType($sensorType);
             $log->setSensorUnit($sensorUnit);
-            $log->setSonsorValue($sensorValue);
+            $log->setSonsorValue($value);
+
+            if (is_numeric($value)) {
+                $log->setSonsorValue($value);
+            } else {
+                $log->setSonsorValue(0);
+                $log->setSonsorValueString($value);
+            }
+
             $log->setCreated($sensorFluxAdd);
             $em->persist($log);
             $em->flush();
@@ -61,6 +64,14 @@ class InputController extends Controller
         $content = $request->getContent();
         $em = $this->getDoctrine()->getManager();
         $logger = $this->get('logger');
+
+        $getDomoboxKey = $this->get('app.options')->getOptionValue("domobox.x.api.key");
+
+        // stop si la clée n'est pas bonne
+        if($getDomoboxKey != $request->headers->get("X-DOMOBOXAPIKEY")){
+            $logger->alert("SPY -> ".$content);
+            return new JsonResponse(array('requete' => "fail"));
+        }
 
         //si le contenu n'est pas vide on decode la string json en tableau php
         if (!empty($content)) {
@@ -112,7 +123,15 @@ class InputController extends Controller
                 $log->setSensorId($params['sensors'][$k]['sensor Id']);
                 $log->setSensorType($sensorType);
                 $log->setSensorUnit($sensorUnit);
-                $log->setSonsorValue($params['sensors'][$k]['sensor value']);
+
+                if (is_numeric($params['sensors'][$k]['sensor value'])) {
+                    $log->setSonsorValue($params['sensors'][$k]['sensor value']);
+                } else {
+                    $log->setSonsorValue(0);
+                    $log->setSonsorValueString($params['sensors'][$k]['sensor value']);
+                }
+
+
                 $em->persist($log);
             }
 

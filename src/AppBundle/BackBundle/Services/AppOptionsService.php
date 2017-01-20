@@ -40,4 +40,14 @@ class AppOptionsService
         }
         return "";
     }
+
+    public function getOptionValue($name)
+    {
+        foreach ($this->options as $opt) {
+            if ($opt->getName() == $name) {
+                return $opt->getValue();
+            }
+        }
+        return "";
+    }
 }

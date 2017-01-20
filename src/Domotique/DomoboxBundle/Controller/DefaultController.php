@@ -31,36 +31,24 @@ class DefaultController extends Controller
 
     }
 
-//    public function graphAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:graphique.html.twig');
-//    }
-
-
-//    public function rgbAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:testRGB.html.twig');
-//    }
-
-//    public function videoAction()
-//    {
-//        return $this->render('DomotiqueDomoboxBundle:Default:videosurveillance.html.twig');
-//    }
-
 
     public function setModuleColorAction(Request $request)
     {
-//        json
-        $data = $request->request->get('data');
-        $params = json_decode($data, true);
 
+        $data = $request->request->get('data');
         $curling = $this->container->get('commun.curl');
 
-        $module_url = "http://".$params[0]['module']."/rgb/".$params[2]['color'];
+        $params = json_decode($data, true);
 
+
+        $em = $this->getDoctrine()->getManager();
+        $module = $em->getRepository('DomotiqueReseauBundle:Module')->find($params[0]['module']);
+
+        $module_url = "http://".$module->getAdressIpv4()."/RGB?rgb=".$params[2]['color'];
 
         $curl = $curling->getToUrl($module_url, false);
         $reponse = array('curl' => $curl, 'set' => $module_url);
+
         return new JsonResponse($reponse);
 
 

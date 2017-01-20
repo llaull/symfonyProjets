@@ -15,20 +15,15 @@
 
                 <div class="TinyColorConteneur">
                     <a class="color">
-                        <div class="colorInner"></div>
+                        <div class="colorInner" style="background-color: #{{ module.sonsor_value_string }};"></div>
                     </a>
                     <div class="track"></div>
                     <ul class="dropdown">
                         <li></li>
                     </ul>
                     <input type="hidden" class="colorInput"/>
-                    <input type="hidden" class="modAdresse" value="{{ module.ipv4 }}"/>
+                    <input type="hidden" class="modAdresse" value="{{ module.module_ID }}"/>
                 </div>
-
-                {#{{ module.sonsor_value }}#}
-                {#{{ module.unitee_symbole }}#}
-
-                {#{{ dump(module) }}#}
             </div>
         </div>
         {#<!-- END Portlet PORTLET-->#}
