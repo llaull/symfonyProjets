@@ -4,11 +4,6 @@ domotiquebundle_domobox_module_flux_json:
     defaults: { _controller: "DomotiqueDomoboxBundle:Input:addJson" }
     methods:  [POST]
 
-# cree un faux flux
-domotiquebundle_domobox_module_flux_fake:
-    path:     /module/esp8266/post/fake/{module}/{sensor}/{type}/{unit}/{value}
-    defaults: { _controller: "DomotiqueDomoboxBundle:Input:addFuxFake" }
-
 # home
 front_office_homepage:
     path:     /

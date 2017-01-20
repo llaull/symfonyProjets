@@ -18,7 +18,10 @@ class ModulePostJsonAddModuleTest extends WebTestCase
     {
         $client = static::createClient();
 
-        // données simulé
+        static::bootKernel();
+        $container = static::$kernel->getContainer();
+
+        // données
         $data = array(
             "mac" => "000000000000",
             "ipv4" => "10.1.1.8",
@@ -39,7 +42,7 @@ class ModulePostJsonAddModuleTest extends WebTestCase
         );
 
         /*
-         * boucle pour insere plusieurs fois le jeux de valeur
+         * boucle pour inserer plusieurs fois le jeu de donnée
          */
         for ($i = 0; $i <= 2; $i++) {
 
@@ -48,7 +51,7 @@ class ModulePostJsonAddModuleTest extends WebTestCase
                 '/module/esp8266/post/json/',
                 array(),
                 array(),
-                array('CONTENT_TYPE' => 'application/json'),
+                array('CONTENT_TYPE' => 'application/json', 'HTTP_X_DOMOBOXAPIKEY' => "XxX"),
                 json_encode($data)
             );
 
