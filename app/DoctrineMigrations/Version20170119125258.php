@@ -18,11 +18,11 @@ class Version20170119125258 extends AbstractMigration
         $this->addSql("INSERT INTO `domotique__sensor_type` (`id`, `name`) VALUES
         (1, 'systeme'),
         (2, 'DHT11'),
-        (5, 'PIR_sonde'),
-        (7, 'matrixR8'),
         (3, 'DHT22'),
         (4, 'BMP'),
+        (5, 'PIR_sonde'),
         (6, 'Luxmetre'),
+        (7, 'matrixR8'),
         (8, 'RubanRGB');
         (9, 'webcam');
         ");
@@ -39,7 +39,7 @@ class Version20170119125258 extends AbstractMigration
 
 
         $this->addSql("INSERT INTO `domotique__sensor_unit` (`id`, `symbole`, `name`) VALUES
-        (1, 'f', 'Foo'),
+        (1, 'V', 'Tension ', 'tension'),
         (2, '°C', 'Température'),
         (3, '%', 'Humidité'),
         (4, 'hPa', 'Baromètre'),
@@ -47,7 +47,7 @@ class Version20170119125258 extends AbstractMigration
         (6, 'lux', 'Luminosité'),
         (7, 'ping', 'Implusion'),
         (8, 'hex', 'couleurHEXA'),
-        (16, 't', 'Test');
+        (9, 't', 'Test');
         ");
 
     }
