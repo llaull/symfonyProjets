@@ -1,7 +1,7 @@
 services:
     commun.curl:
         class: Domotique\DomoboxBundle\Services\MyCurlService
-        arguments: ["@service_container"]
+        arguments: ["@service_container","app.options"]
 #    domotique.modules:
 #        class: Domotique\DomoboxBundle\Controller\OutputController
 #        arguments: ["@doctrine.orm.entity_manager"]
