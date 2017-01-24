@@ -24,11 +24,19 @@ class DefaultController extends Controller
         $modules = $this->getDoctrine()->getRepository('DomotiqueReseauBundle:Log');
         $modules = $modules->getCurrentValue($em);
 
-        return $this->render('DomotiqueDomoboxBundle:Default:accueil.html.twig', array(
+        return $this->render('DomotiqueDomoboxBundle:module:accueil_content.html.twig', array(
             'emplacements' => $emplacements,
             'modules' => $modules,
         ));
 
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function graphiqueAction()
+    {
+        return $this->render('DomotiqueDomoboxBundle:graphique:accueil_content.html.twig');
     }
 
 

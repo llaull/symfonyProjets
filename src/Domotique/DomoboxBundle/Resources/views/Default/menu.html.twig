@@ -3,32 +3,17 @@
 </li>
 
 <li {% if app.request.attributes.get('_route') == 'domotiquebundle_domobox' %}class="nav-item  active open"{% endif %}>
-    <a href="{{ path('domotiquebundle_domobox') }}" class="nav-link {% if app.request.attributes.get('_route') == 'domotiquebundle_domobox_debug' %}nav-toggle{% endif %}">
+    <a href="{{ path('domotiquebundle_domobox') }}"
+       class="nav-link {% if app.request.attributes.get('_route') == 'domotiquebundle_domobox_debug' %}nav-toggle{% endif %}">
         <i class="fa fa-industry"></i>
-        <span class="title">mode module</span>
+        <span class="title">Direct</span>
     </a>
 </li>
-{#<li {% if app.request.attributes.get('_route') == 'domobox_ui_graphique' %}class="nav-item  active open"{% endif %}>#}
-    {#<a href="{{ path('domobox_ui_graphique') }}" class="nav-link {% if app.request.attributes.get('_route') == 'domobox_ui_graphique' %}nav-toggle{% endif %}">#}
-        {#<i class="fa fa-industry"></i>#}
-        {#<span class="title">mode graphique</span>#}
-    {#</a>#}
-{#</li>#}
 
-{#<li class="heading">#}
-    {#<h3 class="uppercase">TEST</h3>#}
-{#</li>#}
-
-{#<li {% if app.request.attributes.get('_route') == 'domotiquebundle_domobox_module_get_module_RGB' %}class="nav-item  active open"{% endif %}>#}
-    {#<a href="{{ path('domotiquebundle_domobox_module_get_module_RGB') }}" class="nav-link ">#}
-        {#<i class="fa fa-industry"></i>#}
-        {#<span class="title">module RGB</span>#}
-    {#</a>#}
-{#</li>#}
-
-{#<li {% if app.request.attributes.get('_route') == 'domotiquebundle_domobox_video' %}class="nav-item  active open"{% endif %}>#}
-    {#<a href="{{ path('domotiquebundle_domobox_video') }}" class="nav-link ">#}
-        {#<i class="fa fa-video-camera"></i>#}
-        {#<span class="title">videosurveillance</span>#}
-    {#</a>#}
-{#</li>#}
+<li {% if app.request.attributes.get('_route') == 'domobox_ui_graphique' %}class="nav-item  active open"{% endif %}>
+    <a href="{{ path('domobox_graphique') }}"
+       class="nav-link {% if app.request.attributes.get('_route') == 'domobox_ui_graphique' %}nav-toggle{% endif %}">
+        <i class="fa fa-bar-chart"></i>
+        <span class="title">graphique</span>
+    </a>
+</li>

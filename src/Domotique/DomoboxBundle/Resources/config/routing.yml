@@ -13,6 +13,9 @@ domotiquebundle_domobox:
     path:     /
     defaults: { _controller: "DomotiqueDomoboxBundle:Default:index" }
 
+domobox_graphique:
+    path:     /graphique
+    defaults: { _controller: "DomotiqueDomoboxBundle:Default:graphique" }
 
 # retourne une image
 domotiquebundle_domobox_webcam:

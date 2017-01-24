@@ -1,0 +1,47 @@
+{% extends '@DomotiqueDomobox/Default/layout.html.twig' %}
+
+{% block content_txt %}
+
+    {% for emplacement in emplacements %}
+        {#
+           si annonyme et que la valeur n'est pas "test"
+           ou qu'on est authentifié
+           on affiche le titre "test"
+        #}
+        {% if (is_granted('IS_AUTHENTICATED_ANONYMOUSLY') and emplacement.public == true) or is_granted('IS_AUTHENTICATED_FULLY') %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    {#<!-- BEGIN Portlet PORTLET-->#}
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                {#<i class="fa fa-gift"></i>#}
+                                {{ emplacement.name }} </div>
+                            <div class="tools">
+                                <a href="javascript:;" class="collapse"> </a>
+                                {#<a href="#portlet-config" data-toggle="modal" class="config"> </a>#}
+                                {#<a href="javascript:;" class="reload"> </a>#}
+                                {#<a href="" class="fullscreen"> </a>#}
+                                {#<a href="javascript:;" class="remove"> </a>#}
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                {% for module in modules %}
+                                    {% if  emplacement.name == module.emplacement %}
+
+                                        {% include 'DomotiqueDomoboxBundle:module:' ~ module.nom_sonde ~ '.html.twig' ignore missing with {'foo': 'bar'} %}
+
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {#<!-- END Portlet PORTLET-->#}
+                </div>
+            </div>
+
+        {% endif %}
+    {% endfor %}
+{% endblock content_txt %}

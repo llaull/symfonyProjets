@@ -1,0 +1,28 @@
+{% extends '@DomotiqueDomobox/Default/layout.html.twig' %}
+
+{% block content_txt %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN CHART PORTLET-->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bar-chart font-green-haze"></i>
+                        <span class="caption-subject bold uppercase font-green-haze"> Temperature & humidité</span>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="fullscreen"> </a>
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="javascript:;" class="remove"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="chartdiv" class="chart" style="height: 400px;"></div>
+                </div>
+            </div>
+            <!-- END CHART PORTLET-->
+        </div>
+    </div>
+
+{% endblock content_txt %}
