@@ -2,9 +2,16 @@
 
 namespace Domotique\DomoboxBundle\Services;
 
+use AppBundle\BackBundle\Services\AppOptionsService;
 
 class MyCurlService
 {
+    private $appOption;
+
+    public function __construct(AppOptionsService $optionsService)
+    {
+        $this->appOption = $optionsService;
+    }
 
     /*
      * pour debuger utiliser :
@@ -12,6 +19,7 @@ class MyCurlService
      */
     public function getToUrl($restUrl)
     {
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $restUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -19,6 +27,10 @@ class MyCurlService
 
         curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0');
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'X-DOMOBOXAPIKEY: '.$this->appOption->getOptionValue("X-DOMOBOXAPIKEY").''
+        ));
 
         $response = curl_exec($ch);
         curl_close($ch);

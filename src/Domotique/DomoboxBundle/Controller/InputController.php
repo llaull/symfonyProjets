@@ -11,50 +11,6 @@ use Domotique\ReseauBundle\Entity\Module;
 class InputController extends Controller
 {
 
-
-    /**
-     * @return JsonResponse
-     * {module}/{sensor}/{type}/{unit}/{value}
-     * $sensorFluxAdd = new \DateTime(rand(-12, 12).' hour');
-     */
-    public function addFuxFakeAction($module,$sensor,$type,$unit,$value)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $logger = $this->get('logger');
-        $sensorFluxAdd = new \DateTime();
-
-
-        $log = new Log();
-
-        $moduleX = $em->getRepository('DomotiqueReseauBundle:Module')->find($module);
-        $sensorType = $em->getRepository('DomotiqueReseauBundle:SensorType')->find($type);
-        $sensorUnit = $em->getRepository('DomotiqueReseauBundle:SensorUnit')->find($unit);
-
-        try {
-            $log->setModule($moduleX);
-            $log->setSensorId($sensor);
-            $log->setSensorType($sensorType);
-            $log->setSensorUnit($sensorUnit);
-            $log->setSonsorValue($value);
-
-            if (is_numeric($value)) {
-                $log->setSonsorValue($value);
-            } else {
-                $log->setSonsorValue(0);
-                $log->setSonsorValueString($value);
-            }
-
-            $log->setCreated($sensorFluxAdd);
-            $em->persist($log);
-            $em->flush();
-        } catch (\Doctrine\ORM\EntityNotFoundException $e) {
-            $logger->critical($e->getMessage());
-            return new JsonResponse(array('requete' => $e->getMessage()));
-        }
-
-        return new JsonResponse(array('requete' => "sucess"));
-    }
-
     /**
      * @return JsonResponse
      */
