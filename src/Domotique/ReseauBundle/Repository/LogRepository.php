@@ -74,7 +74,7 @@ class LogRepository extends EntityRepository
     m.ipv4,
     t.name AS nom_sonde,
     E.name AS emplacement,
-    u.symbole as unitee_symbole
+    u.symbole AS unitee_symbole
 FROM
     domotique__sensor_log AS l
         INNER JOIN
@@ -86,10 +86,10 @@ FROM
          created > CURDATE()
         AND sensor_type <> 1
         AND created > SUBTIME(NOW(),"01:00:00")
-      -- AND DATE_SUB(CURTIME(),INTERVAL 1 HOUR) >= created
     GROUP BY module_id , sonsor_unit , sensor_type) AS b ON b.module_id = l.module_id
         AND b.sonsor_unit = l.sonsor_unit
         AND b.max_temp = l.created
+        AND b.sensor_type = l.sensor_type
         LEFT JOIN
     domotique__module AS m ON l.module_id = m.id
         LEFT JOIN
@@ -215,6 +215,7 @@ FROM
     GROUP BY module_id , sonsor_unit , sensor_type) AS b ON b.module_id = l.module_id
         AND b.sonsor_unit = l.sonsor_unit
         AND b.max_temp = l.created
+        AND b.sensor_type = l.sensor_type
         LEFT JOIN
     domotique__module AS m ON l.module_id = m.id
         LEFT JOIN
