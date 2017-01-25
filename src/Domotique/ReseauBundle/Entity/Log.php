@@ -78,7 +78,17 @@ class Log
      *
      * @ORM\Column(name="sonsor_value_string", type="string", length=250, nullable=true)
      */
-    private $sonsorValueString;
+    private $sensorValueString;
+
+    /**
+     * @var \Domotique\ReseauBundle\Entity\Emplacement
+     *
+     * @ORM\ManyToOne(targetEntity="Domotique\ReseauBundle\Entity\Emplacement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="sensor_emplacement", referencedColumnName="id", nullable=true)
+     * })
+     */
+    private $place;
 
     public function __construct()
     {
@@ -86,19 +96,35 @@ class Log
     }
 
     /**
-     * @return string
+     * @return Emplacement
      */
-    public function getSonsorValueString()
+    public function getPlace()
     {
-        return $this->sonsorValueString;
+        return $this->place;
     }
 
     /**
-     * @param string $sonsorValueString
+     * @param Emplacement $place
      */
-    public function setSonsorValueString($sonsorValueString)
+    public function setPlace($place)
     {
-        $this->sonsorValueString = $sonsorValueString;
+        $this->place = $place;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSensorValueString()
+    {
+        return $this->sensorValueString;
+    }
+
+    /**
+     * @param string $sensorValueString
+     */
+    public function setSensorValueString($sensorValueString)
+    {
+        $this->sensorValueString = $sensorValueString;
     }
 
     /**

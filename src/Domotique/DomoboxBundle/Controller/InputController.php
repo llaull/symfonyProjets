@@ -79,12 +79,13 @@ class InputController extends Controller
                 $log->setSensorId($params['sensors'][$k]['sensor Id']);
                 $log->setSensorType($sensorType);
                 $log->setSensorUnit($sensorUnit);
+                $log->setPlace($moduleX->getLocation());
 
                 if (is_numeric($params['sensors'][$k]['sensor value'])) {
                     $log->setSonsorValue($params['sensors'][$k]['sensor value']);
                 } else {
                     $log->setSonsorValue(0);
-                    $log->setSonsorValueString($params['sensors'][$k]['sensor value']);
+                    $log->setSensorValueString($params['sensors'][$k]['sensor value']);
                 }
 
 
