@@ -4,20 +4,26 @@
 
 {% block content_txt %}
     <div class="row">
-        <div class="col-sm-4">a {{ app.request.locale }}</div>
         <div class="col-sm-4">
-            bbr><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            {{ app.request.locale }}
         </div>
-        <div class="col-sm-4">c</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">lslsl</div>
         <div class="col-sm-4">
-            d<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            {{ render(controller('ddaBundleFrontBundle:Artiste:accueil')) }}
         </div>
-        <div class="col-sm-4">e</div>
+        <div class="col-sm-4">
+            {{ render(controller('ddaBundleFrontBundle:Video:accueil')) }}
+        </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">footer</div>
+    <div class="row border">
+        <div class="col-sm-4">
+            {{ render(controller('ddaBundleFrontBundle:Actualite:accueil')) }}
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4">
+            {{ render(controller('ddaBundleFrontBundle:Texte:accueil')) }}
+        </div>
     </div>
+
 {% endblock content_txt %}

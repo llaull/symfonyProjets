@@ -14,6 +14,10 @@ liip_imagine :
             quality : 90
             filters :
                 relative_resize: { heighten: 173 }
+        artiste_categorie_accueil :
+            quality : 90
+            filters :
+                relative_resize: { heighten: 76 }
 
 assetic:
     assets:

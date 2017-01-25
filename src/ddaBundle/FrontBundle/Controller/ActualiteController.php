@@ -12,15 +12,32 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ActualiteController extends Controller
 {
+
+    public function getActualite()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $actualites = $em->getRepository('ddaBundleFrontBundle:Actualite')->findAll();
+
+        return $actualites;
+    }
+
+    public function accueilAction()
+    {
+        $actualites = $this->getActualite();
+
+        return $this->render('@ddaBundleFront/actualiteDda/accueil.html.twig', array(
+            'actualites' => $actualites,
+        ));
+    }
+
     /**
      * Lists all actualite entities.
      *
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $actualites = $em->getRepository('ddaBundleFrontBundle:Actualite')->findAll();
+        $actualites = $this->getActualite();
 
         return $this->render('actualite/index.html.twig', array(
             'actualites' => $actualites,
@@ -118,7 +135,6 @@ class ActualiteController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_dda_actualite_delete', array('id' => $actualite->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

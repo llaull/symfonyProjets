@@ -13,19 +13,35 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ArtisteController extends Controller
 {
 
-    /**
-     * affiche tous les artiste
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function showAllAction()
+    public function getArtistes()
     {
         $em = $this->getDoctrine()->getManager();
 
         $artistes = $em->getRepository('ddaBundleArtisteBundle:Artiste');
         $artistesWithCategory = $artistes->getArtisteWithCatgeory();
 
+        return $artistesWithCategory;
+    }
+
+    /**
+     * affiche tous les artiste
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAllAction()
+    {
+        $artiste = $this->getArtistes();
+
         return $this->render('@ddaBundleFront/Artiste/index.html.twig', array(
-            'artistes' => $artistesWithCategory,
+            'artistes' => $artiste,
+        ));
+    }
+
+    public function accueilAction()
+    {
+        $artiste = $this->getArtistes();
+
+        return $this->render('@ddaBundleFront/Artiste/accueil.html.twig', array(
+            'artistes' => $artiste,
         ));
     }
 

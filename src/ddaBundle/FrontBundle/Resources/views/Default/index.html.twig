@@ -100,46 +100,25 @@
     {# barre aphabetique #}
     <div class="row">
         <ul id="menu_alphabet">
-        {% for i in range('A', 'Z') %}
-            {% if AlphabetBar.notActived(i)|length > 0 %}
-                <li>
-                <a href="#" data="{{ path('front_office_artiste_sss', { 'lettre': i}) }}"
-                   data-toggle="modal">{{ i }}</a></li>
-            {% else %}
-            <li>{{ i }}</li>
-            {% endif %}
-            {#{{ AlphabetBar.notActived(i)|raw }}#}
-        {% endfor %}
+            {% for i in range('A', 'Z') %}
+                {% if AlphabetBar.notActived(i)|length > 0 %}
+                    <li>
+                        <a href="#" data="{{ path('front_office_artiste_sss', { 'lettre': i}) }}"
+                           data-toggle="modal">{{ i }}</a></li>
+                {% else %}
+                    <li>{{ i }}</li>
+                {% endif %}
+                {#{{ AlphabetBar.notActived(i)|raw }}#}
+            {% endfor %}
         </ul>
         <!-- Small modal -->
         {#<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>#}
-
-
     </div>
-    {#
-    premiere ligne
-    actualité
-    lkiste ariste
-    video ramdon
-    #}
-    <div class="row">
-        <div class="col-sm-4">a {{ app.request.locale }}</div>
-        <div class="col-sm-4">
-            {% include '@ddaBundleFront/Artiste/accueil.html.twig' %}
-        </div>
-        <div class="col-sm-4">c</div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">lslsl</div>
-        <div class="col-sm-4">
-            d<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
-        <div class="col-sm-4">e</div>
-    </div>
+    {% block content_txt %}
+    {% endblock content_txt %}
     <div class="row">
         <div class="col-sm-12">Documents d'artistes Aquitaine - 2016 Design : Docile - Réalisé par web-setup.com</div>
     </div>
-
 </div>
 
 <!-- BEGIN CORE PLUGINS -->
@@ -160,6 +139,13 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
+
+        $(function () {
+            $('.artisteScroller').slimScroll({
+                height: '420px'
+            });
+        });
+
 
         $('[data-toggle="modal"]').click(function (e) {
 
