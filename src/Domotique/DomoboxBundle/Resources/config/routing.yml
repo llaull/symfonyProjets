@@ -43,6 +43,11 @@ domobox_log_graph:
     defaults: { _controller: "DomotiqueDomoboxBundle:Output:logAmCharts" }
     methods:  [GET]
 
+domobox_log_graph_total:
+    path: /log/total/graph/
+    defaults: { _controller: "DomotiqueDomoboxBundle:Output:logAmChartTotal" }
+    methods:  [GET]
+
 #AJAX
 #    set une valeur au controleur qui envera au module
 domotique_module_set_color:

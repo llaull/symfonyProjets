@@ -17,6 +17,17 @@ use Symfony\Component\HttpFoundation\Request;
 class OutputController extends Controller
 {
 
+
+    public function logAmChartTotalAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $entities = $this->getDoctrine()->getRepository('DomotiqueReseauBundle:Log');
+        $results = $entities->geTotal($em);
+
+        return new JsonResponse($results);
+    }
+
     /**
      * retourne en JSON TOUTES de les sondes par heure
      * @param $unit
