@@ -154,7 +154,7 @@ FROM
     FROM
         domotique__sensor_log
      WHERE
-        $unitIn
+        $unitIn AND sensor_emplacement = 1
     GROUP BY id) maxiValue ON A.id = maxiValue.id
         INNER JOIN
     domotique__module AS M ON A.module_id = M.id
@@ -227,6 +227,46 @@ FROM
 WHERE
     l.created > CURDATE() AND E.id = 1
 ORDER BY module_id , sensor_type , sonsor_unit";
+
+        $connection = $em->getConnection();
+        $statement = $connection->prepare($rq);
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+        return $results;
+    }
+
+    public function geTotal($em)
+    {
+        $rq = "SELECT
+            date,
+            MAX(CASE WHEN D.place = '1' THEN temperature ELSE null END) 'column-1',
+            MAX(CASE WHEN D.place = '4' THEN temperature ELSE null END) 'column-2'
+            FROM
+            (SELECT
+            A.id AS id,
+                A.created AS date,
+                A.sonsor_unit as unit,
+                A.sonsor_value as temperature,
+                E.name AS emplacement,
+                E.id AS place
+            FROM
+                domotique__sensor_log AS A
+                    INNER JOIN
+                (SELECT
+                    id, AVG(sonsor_value) AS sonsor_value
+                FROM
+                    domotique__sensor_log
+                 WHERE
+                    sonsor_unit = 2 AND sensor_type = 3
+                GROUP BY id) maxiValue ON A.id = maxiValue.id
+                    INNER JOIN
+                domotique__module_emplacement AS E ON A.sensor_emplacement = E.id
+                    INNER JOIN
+                domotique__module AS M ON A.module_id = M.id
+            GROUP BY YEAR(A.created) , MONTH(A.created) , DAY(A.created) , HOUR(A.created), A.sonsor_unit , A.sensor_type , A.sonsor_id ORDER BY A.created DESC) D
+            GROUP BY YEAR(D.date) , MONTH(D.date) , DAY(D.date) , HOUR(D.date)
+            ORDER BY D.date ASC";
 
         $connection = $em->getConnection();
         $statement = $connection->prepare($rq);
