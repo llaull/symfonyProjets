@@ -1,0 +1,4 @@
+services:
+#    programme_tv.example:
+#        class: Domotique\ProgrammeTvBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

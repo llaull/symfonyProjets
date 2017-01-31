@@ -1,0 +1,7 @@
+programme_tv_admin_channel:
+    resource: "@ProgrammeTvBundle/Resources/config/routing/channel.yml"
+    prefix:   /admin/channel
+
+programme_tv_homepage:
+    path:     /
+    defaults: { _controller: ProgrammeTvBundle:Default:index }

@@ -1,0 +1,51 @@
+{#{% extends 'base.html.twig' %}#}
+
+{% block body %}
+    <h1>Channels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idkazer</th>
+                <th>Ordre</th>
+                <th>Added</th>
+                <th>Name</th>
+                <th>Codetv</th>
+                <th>Codezappette</th>
+                <th>Imageb64</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for channel in channels %}
+            <tr>
+                <td><a href="{{ path('admin_channel_show', { 'id': channel.id }) }}">{{ channel.id }}</a></td>
+                <td>{{ channel.idKazer }}</td>
+                <td>{{ channel.ordre }}</td>
+                <td>{% if channel.added %}{{ channel.added|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ channel.name }}</td>
+                <td>{{ channel.codeTV }}</td>
+                <td>{{ channel.codeZappette }}</td>
+                <td>{{ channel.imageB64 }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_channel_show', { 'id': channel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_channel_edit', { 'id': channel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_channel_new') }}">Create a new channel</a>
+        </li>
+    </ul>
+{% endblock %}

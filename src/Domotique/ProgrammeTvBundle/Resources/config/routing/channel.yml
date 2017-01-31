@@ -1,0 +1,24 @@
+admin_channel_index:
+    path:     /
+    defaults: { _controller: "ProgrammeTvBundle:Channel:index" }
+    methods:  GET
+
+admin_channel_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProgrammeTvBundle:Channel:show" }
+    methods:  GET
+
+admin_channel_new:
+    path:     /new
+    defaults: { _controller: "ProgrammeTvBundle:Channel:new" }
+    methods:  [GET, POST]
+
+admin_channel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProgrammeTvBundle:Channel:edit" }
+    methods:  [GET, POST]
+
+admin_channel_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProgrammeTvBundle:Channel:delete" }
+    methods:  DELETE

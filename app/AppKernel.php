@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             // bundle domotique
             new Domotique\DomoboxBundle\DomotiqueDomoboxBundle(),
             new Domotique\ReseauBundle\DomotiqueReseauBundle(),
+            new Domotique\ProgrammeTvBundle\ProgrammeTvBundle(),
 
             // add by composer
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
