@@ -63,6 +63,7 @@ class KazerMailCommand extends ContainerAwareCommand
         foreach ($channels as $value) {
 
             $channelsCorrect[$value->getIdKazer()]['name'] = $value->getName();
+            $channelsCorrect[$value->getIdKazer()]['codeTV'] = $value->getCodeTV();
 
             if ($value->getImageB64() != "") {
                 $channelsCorrect[$value->getIdKazer()]['imageB64'] =
