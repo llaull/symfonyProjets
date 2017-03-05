@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="domotique__tv__channel")
- * @ORM\Entity(repositoryClass="Domotique\ProgrammeTvBundle\Repository\ProgrammeRepository")
+ * @ORM\Entity(repositoryClass="Domotique\ProgrammeTvBundle\Repository\ChannelRepository")
  */
 class Channel {
 
