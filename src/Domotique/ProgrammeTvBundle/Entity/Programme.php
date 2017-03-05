@@ -3,18 +3,19 @@
 namespace Domotique\ProgrammeTvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="Domotique\ProgrammeTvBundle\Repository\ProgrammesRepository")
+ * @ORM\Entity(repositoryClass="Domotique\ProgrammeTvBundle\Repository\ProgrammeRepository")
  * @ORM\Table(name="domotique__tv__programme")
  */
 class Programme {
 
     public function __construct()
     {
-        $this->idChannel = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idChannel = new ArrayCollection();
     }
 
     public function __toString()
