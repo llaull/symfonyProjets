@@ -163,14 +163,14 @@ class KazerXmlCommand extends ContainerAwareCommand
         //va chercher le fichier xml
         $localPath = 'tmp/programmeTV.tmp';
 
-        $kazerId = $appOption->getOptionValue("'domobox.kazer.id");
+        $kazerId = $appOption->getOptionValue("domobox.kazer.id");
         $sources = "http://www.kazer.org/tvguide.xml?u=" . $kazerId;
 
         $fs = new Filesystem();
 
         //si le repertoire tmp n'existe pas on le creer
         if (!$fs->exists('tmp/')) {
-            $fs->mkdir('tmp/', 0700);
+            $fs->mkdir('tmp/', 0777);
         }
 
         //si le fichier temporaite n'existe pas on le creer
