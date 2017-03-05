@@ -22,6 +22,7 @@ class KazerMailCommand extends ContainerAwareCommand
 
         $em = $this->getContainer()->get('doctrine')->getManager();
         $em->getConnection()->getConfiguration()->setSQLLogger(null);
+        $appOption = $this->getContainer()->get('app.options');
 
         $channels = $em->getRepository('ProgrammeTvBundle:Channel')
             ->findAll();
@@ -30,7 +31,7 @@ class KazerMailCommand extends ContainerAwareCommand
             ->getToday();
 
 
-        $mailPerso = $this->getContainer()->getParameter('mon_mail');
+        $mailPerso = $appOption->getOptionValue("domobox.mail.commun");
         $message = \Swift_Message::newInstance();
 
 
@@ -40,7 +41,7 @@ class KazerMailCommand extends ContainerAwareCommand
             $path = 'tmp/image-chaines-mail/';
 
             if (!file_exists($path)) {
-                mkdir($path, 0700);
+                mkdir($path, 0777);
             }
 
             if (!file_exists($path . $output_file)) {
