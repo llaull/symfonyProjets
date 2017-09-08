@@ -1,4 +1,4 @@
 chat_query_snapShot:
     path:     /SnapShot/
     defaults: { _controller: "DomotiqueDomoboxBundle:ChatQuery:index" }
-    methods:  GET
+    methods:  [GET, POST]
