@@ -64,3 +64,8 @@ domotique_domobox_scheduledTask:
 domotique_reseau_snowboy:
     resource: "@DomotiqueDomoboxBundle/Resources/config/routing/snowboy.yml"
     prefix:   /snowboy
+
+
+domotique_reseau_chat_query:
+    resource: "@DomotiqueDomoboxBundle/Resources/config/routing/chatQuery.yml"
+    prefix:   /chatQuery
